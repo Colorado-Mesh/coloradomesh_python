@@ -51,6 +51,7 @@ install:
 	$(SYSTEM_PYTHON_BINARY) -m venv $(VIRTUAL_ENV)
 	$(VIRTUAL_BIN)/pip install -e ."[dev]"
 
+## install-pypy - Install the project locally using PyPy
 install-pypy:
 	$(SYSTEM_PYTHON_BINARY) -m venv $(VIRTUAL_ENV)
 	$(VIRTUAL_BIN)/pip install -e ."[pypy_dev]"
@@ -61,7 +62,7 @@ install-pyenv:
 
 ## change-python - Change the python version used by pyenv
 # params:
-# py-= The python version to use
+# py - The python version to use
 change-python:
 	pyenv local $(py)
 
@@ -81,12 +82,17 @@ lint:
 mypy:
 	$(VIRTUAL_BIN)/mypy $(PROJECT_NAME)/ $(TEST_DIR)/
 
-temp-version:
-	# Replace VERSIONADDEDBYGITHUB with 0.0.1
-	gsed -i 's/VERSIONADDEDBYGITHUB/0.0.1/g' pyproject.toml
-	gsed -i 's/VERSIONADDEDBYGITHUB/0.0.1/g' $(PROJECT_NAME)/_version.py
+## publish - Publish the project to PyPI
+publish:
+	twine upload dist/*
 
+## temp-version - Set a temporary version for testing the build process
+temp-version:
+	make set-version version=0.0.1
+
+## temp-version-revert - Revert the temporary version change
 temp-version-revert:
+	make set-version version=VERSIONADDEDBYGITHUB
 	# Replace 0.0.1 with VERSIONADDEDBYGITHUB
 	gsed -i 's/0.0.1/VERSIONADDEDBYGITHUB/g' pyproject.toml
 	gsed -i 's/0.0.1/VERSIONADDEDBYGITHUB/g' $(PROJECT_NAME)/_version.py
@@ -94,5 +100,13 @@ temp-version-revert:
 ## test - Test the project
 test:
 	$(VIRTUAL_BIN)/pytest --exitfirst --verbose --failed-first
+
+## set-version - Set the version
+# params:
+# version - The version to set for the project
+set-version:
+	# Replace VERSIONADDEDBYGITHUB with version
+	gsed -i 's/VERSIONADDEDBYGITHUB/$(version)/g' pyproject.toml
+	gsed -i 's/VERSIONADDEDBYGITHUB/$(version)/g' $(PROJECT_NAME)/_version.py
 
 .PHONY: help build coverage clean black black-check format format-check install install-pypy install-pyenv change-python isort isort-check lint mypy test
