@@ -1,0 +1,73 @@
+[build-system]
+requires = [
+    "setuptools>=61",
+    "wheel",
+    "build",
+    "black",
+    "flake8",
+    "isort",
+    "pytest-cov==3.*",
+    "pytest-vcr==1.*",
+    "pytest==7.*",
+    "types-requests",
+    "types-urllib3",
+    "vcrpy==4.*",
+    "pre-commit",
+    "sphinx",
+    "sphinx_rtd_theme",
+    "sphinx-jsonschema",
+    "sphinx-pydantic",
+    "sphinx_autodoc_typehints"
+
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "denvermesh"
+version = "VERSIONADDEDBYGITHUB"
+description = "A utility package for DenverMesh-related projects"
+readme = "README.md"
+authors = [
+    { name = "Nate Harris", email = "nwithan8@users.noreply.github.com" }
+]
+license = { text = "GNU General Public License v3 (GPLv3)" }
+requires-python = ">=3.10, <4"
+keywords = [
+    "Denver",
+    "Colorado",
+    "DenverMesh",
+    "mesh",
+    "Meshtastic",
+    "MeshCore"
+]
+dependencies = [
+    "pydantic>=2.12.5",
+    "objectrest==2.0.*"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries"
+]
+
+[project.urls]
+Homepage = "https://github.com/Denver-Mesh/denvermesh_python"
+Download = "https://github.com/Denver-Mesh/denvermesh_python/archive/refs/tags/VERSIONADDEDBYGITHUB.tar.gz"
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = [
+    "tests",
+    "examples"
+]
+
+[tool.setuptools]
+include-package-data = true
+

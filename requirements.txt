@@ -1,4 +1,0 @@
-pydantic>=2.12.5
-objectrest==2.0.*
-
-typing-extensions
