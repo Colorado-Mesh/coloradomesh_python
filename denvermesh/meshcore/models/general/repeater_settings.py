@@ -130,8 +130,17 @@ class RepeaterSettings(BaseModel):
         return self.regions.add_home_region_command
 
     @property
-    def save_regions_commands(self) -> Optional[str]:
+    def save_regions_command(self) -> Optional[str]:
         if not self.regions:
             return None
 
         return self.regions.save_regions_command
+
+    @property
+    def save_regions_commands(self) -> Optional[str]:
+        """
+        Backwards compatibility for save_regions_command.
+        Please use save_regions_command instead of save_regions_commands in new code, as the singular form is more consistent with the other command properties.
+        :return:
+        """
+        return self.save_regions_command
