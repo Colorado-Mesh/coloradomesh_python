@@ -5,6 +5,7 @@ from pydantic import field_validator, model_validator
 from denvermesh.emojis import EmojiTools
 from denvermesh.internal import BaseModel
 from denvermesh.meshcore.models.general.companion_type import CompanionType
+from denvermesh.meshcore.services.emojis import blacklisted_emojis
 from denvermesh.meshcore.standards import COMPANION_NAMING_SCHEMA_ROLE, COMPANION_NAMING_SCHEMA_COUNTER, \
     COMPANION_NAMING_SCHEMA_PKID
 
@@ -37,6 +38,8 @@ class CompanionName(BaseModel):
             emoji_tools = EmojiTools()
             if not emoji_tools.validate_emoji_unicode(self.emoji):
                 raise ValueError("Emoji must be a valid Unicode emoji")
+            if self.emoji in blacklisted_emojis():
+                raise ValueError("Emoji is not allowed")
 
         if self.role_counter:
             if not 1 <= self.role_counter <= 99:

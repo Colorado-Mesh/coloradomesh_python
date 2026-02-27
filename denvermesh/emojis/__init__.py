@@ -12,7 +12,7 @@ class Emoji:
 
 class EmojiTools:
     def __init__(self, data_path_override: Optional[str] = None):
-        # Default to the PYTHON_VERSIONS.json file in the denvermesh directory
+        # Default to the EMOJIS.json file in the denvermesh directory
         _data_path = data_path_override or resources.files('denvermesh').joinpath('EMOJIS.json')
         self.emojis = self._load_emojis(data_path=_data_path)
 
