@@ -8,7 +8,7 @@ DENVER_REPEATERS_DATA = "https://raw.githubusercontent.com/Denver-Mesh/docs/refs
 
 def get_denver_repeaters() -> list[Node]:
     """
-    Get all repeaters/room servers in the Denver region from the MeshMapper snapshot.
+    Get all repeaters/room servers in the Denver region from the MeshMapper snapshot stored in the DenverMesh GitHub repository.
     :return: A list of Node objects representing all repeaters/room servers in the Denver region.
     :rtype: list[Node]
     """

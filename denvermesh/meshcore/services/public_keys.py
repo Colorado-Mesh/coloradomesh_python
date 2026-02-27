@@ -102,9 +102,12 @@ def reserved_public_key_ids() -> list[str]:
     return reserved_ids
 
 
-def suggest_public_key_id(existing_nodes: list[Node]) -> str:
+def find_free_public_key_id(existing_nodes: list[Node]) -> str:
     """
-    Suggest a new public key ID that is not currently in use.
+    Find an available public key ID that is not currently in use.
+
+    NOTE: Public key IDs should be unique across all nodes in the network (repeaters/rooms + companions).
+    Please ensure that the provided list of existing nodes includes all nodes in the network.
     :param existing_nodes: A list of existing Node objects to check for used public key IDs.
     :return: A suggested public key ID that is not currently in use.
     :rtype: str

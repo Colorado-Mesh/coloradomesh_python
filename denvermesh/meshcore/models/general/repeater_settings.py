@@ -35,18 +35,22 @@ class RepeaterRegionSettings(BaseModel):
 
 class RepeaterSettings(BaseModel):
     txdelay: Optional[float] = Field(
-        alias="txdelay")  # Wait before retransmitting floods. Higher = defer to other nodes
+        alias="txdelay", default=None)  # Wait before retransmitting floods. Higher = defer to other nodes
     direct_txdelay: Optional[float] = Field(
-        alias="direct.txdelay")  # Wait before retransmitting direct packets. Usually lower than txdelay
-    rxdelay: Optional[float] = Field(alias="rxdelay")  # SNR-based processing priority. Higher = prefer stronger signal
-    advert_interval: Optional[int] = Field(alias="advert.interval")  # Local advert in minutes
-    flood_advert_interval: Optional[int] = Field(alias="flood.advert.interval")  # Flood advert in hours
-    guest_password: Optional[str] = Field(alias="guest.password")  # Guest password for telemetry access
-    name: Optional[str] = Field(alias="name")  # Name of the repeater, used for identification in the network
-    owner_info: Optional[RepeaterOwnerInformation] = Field(alias="owner")  # Owner information string for this repeater
+        alias="direct.txdelay", default=None)  # Wait before retransmitting direct packets. Usually lower than txdelay
+    rxdelay: Optional[float] = Field(alias="rxdelay",
+                                     default=None)  # SNR-based processing priority. Higher = prefer stronger signal
+    advert_interval: Optional[int] = Field(alias="advert.interval", default=None)  # Local advert in minutes
+    flood_advert_interval: Optional[int] = Field(alias="flood.advert.interval", default=None)  # Flood advert in hours
+    guest_password: Optional[str] = Field(alias="guest.password", default=None)  # Guest password for telemetry access
+    name: Optional[str] = Field(alias="name",
+                                default=None)  # Name of the repeater, used for identification in the network
+    owner_info: Optional[RepeaterOwnerInformation] = Field(alias="owner",
+                                                           default=None)  # Owner information string for this repeater
     private_key: Optional[str] = Field(
-        alias="prv.key")  # Private key for this repeater
-    regions: Optional[RepeaterRegionSettings] = Field(alias="regions")  # Region settings for this repeater
+        alias="prv.key", default=None)  # Private key for this repeater
+    regions: Optional[RepeaterRegionSettings] = Field(alias="regions",
+                                                      default=None)  # Region settings for this repeater
 
     @model_validator(mode="after")
     def validate_model(self):
