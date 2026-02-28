@@ -63,6 +63,9 @@ class RepeaterSettings(BaseModel):
 
         return self
 
+    def to_json(self) -> dict:
+        return self.model_dump(by_alias=True)
+
     @property
     def set_txdelay_command(self) -> Optional[str]:
         if self.txdelay:
