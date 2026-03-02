@@ -42,7 +42,8 @@ keywords = [
 ]
 dependencies = [
     "pydantic>=2.12.5",
-    "objectrest==2.0.*"
+    "objectrest==2.0.*",
+    "colorado-py"
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
