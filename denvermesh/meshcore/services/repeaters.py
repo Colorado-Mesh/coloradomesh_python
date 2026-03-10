@@ -3,7 +3,7 @@ import objectrest
 from denvermesh.meshcore.models.general.node import Node
 from denvermesh.meshcore.services.public_keys import compare_public_key_ids
 
-DENVER_REPEATERS_DATA = "https://raw.githubusercontent.com/Denver-Mesh/docs/refs/heads/master/MeshCore/nodes/repeaters.json"
+DENVER_REPEATERS_DATA = "https://raw.githubusercontent.com/Colorado-Mesh/docs/refs/heads/master/MeshCore/nodes/repeaters.json"
 
 
 def get_denver_repeaters() -> list[Node]:

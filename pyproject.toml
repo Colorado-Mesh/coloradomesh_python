@@ -43,8 +43,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Denver-Mesh/denvermesh_python"
-Download = "https://github.com/Denver-Mesh/denvermesh_python/archive/refs/tags/VERSIONADDEDBYGITHUB.tar.gz"
+Homepage = "https://github.com/Colorado-Mesh/denvermesh_python"
+Download = "https://github.com/Colorado-Mesh/denvermesh_python/archive/refs/tags/VERSIONADDEDBYGITHUB.tar.gz"
 
 [project.optional-dependencies]
 dev = [
