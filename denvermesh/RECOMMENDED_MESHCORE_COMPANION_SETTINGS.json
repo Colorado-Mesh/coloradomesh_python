@@ -1,0 +1,51 @@
+{
+  "radio_settings": {
+    "frequency": 910525,
+    "bandwidth": 62500,
+    "spreading_factor": 7,
+    "coding_rate": 5,
+    "tx_power": 22
+  },
+  "other_settings": {
+    "manual_add_contacts": 0,
+    "advert_location_policy": 0
+  },
+  "channels": [
+    {
+      "name": "Public",
+      "secret": "8b3387e9c5cdea6ac9e5edbaa115cd72"
+    },
+    {
+      "name": "#bot",
+      "secret": "eb50a1bcb3e4e5d7bf69a57c9dada211"
+    },
+    {
+      "name": "#testing",
+      "secret": "cde5e82cf515647dcb547a79a4f065d1"
+    },
+    {
+      "name": "#hamradio",
+      "secret": "83c8b01997654265938da8765cbc7db9"
+    },
+    {
+      "name": "#emergency",
+      "secret": "e1ad578d25108e344808f30dfdaaf926"
+    },
+    {
+      "name": "#weather",
+      "secret": "88f502554fee92a1625cfb311546e7cb"
+    },
+    {
+      "name": "#ice",
+      "secret": "fc753ed5269edb29ea2c47797ec8952b"
+    },
+    {
+      "name": "#sports",
+      "secret": "e8ee81f3aabf105d9ba2d2d4bd94fe4a"
+    },
+    {
+      "name": "#jokes",
+      "secret": "abe610d61dee508c0ac18793c36c41c3"
+    }
+  ]
+}
