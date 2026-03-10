@@ -7,9 +7,9 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "denvermesh"
+name = "coloradomesh"
 version = "VERSIONADDEDBYGITHUB"
-description = "A utility package for DenverMesh-related projects"
+description = "A utility package for ColoradoMesh-related projects"
 readme = "README.md"
 authors = [
     { name = "Nate Harris", email = "nwithan8@users.noreply.github.com" }
@@ -19,7 +19,7 @@ requires-python = ">=3.10, <4"
 keywords = [
     "Denver",
     "Colorado",
-    "DenverMesh",
+    "ColoradoMesh",
     "mesh",
     "Meshtastic",
     "MeshCore"
@@ -43,8 +43,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Colorado-Mesh/denvermesh_python"
-Download = "https://github.com/Colorado-Mesh/denvermesh_python/archive/refs/tags/VERSIONADDEDBYGITHUB.tar.gz"
+Homepage = "https://github.com/Colorado-Mesh/coloradomesh_python"
+Download = "https://github.com/Colorado-Mesh/coloradomesh_python/archive/refs/tags/VERSIONADDEDBYGITHUB.tar.gz"
 
 [project.optional-dependencies]
 dev = [

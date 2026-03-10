@@ -1,4 +1,4 @@
-from denvermesh.meshcore.services.channels import get_hashtag_channel_keys
+from coloradomesh.meshcore.services.channels import get_hashtag_channel_keys
 
 
 class TestChannels:
