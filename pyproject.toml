@@ -27,7 +27,7 @@ keywords = [
 dependencies = [
     "pydantic>=2.12.5",
     "objectrest==2.0.*",
-    "colorado-py"
+    "colorado-py>=0.2.0",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -48,6 +48,7 @@ Download = "https://github.com/Colorado-Mesh/coloradomesh_python/archive/refs/ta
 
 [project.optional-dependencies]
 dev = [
+    "twine",
     "black",
     "flake8",
     "isort",
