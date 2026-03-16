@@ -1,3 +1,5 @@
+import random
+
 from coloradomesh.meshcore.models.general.node import Node
 
 
@@ -28,28 +30,11 @@ def id_exists_in_list(id_: str, ids_to_track: list[str]) -> bool:
     return any(compare_public_key_ids(id_1=id_, id_2=existing_id) for existing_id in ids_to_track)
 
 
-def _find_unused_public_key_id_by_two_chars(nodes: list[Node]) -> str:
+def _find_next_unused_public_key_id_by_four_chars(nodes: list[Node]) -> str:
     """
-    Find a public key ID in a list of nodes by comparing the first two characters (the first byte) of the public key.
-
-    This is a temporary patch that will return XX00 for any public key, until MeshCore officially supports the full 4-character public key ID.
-    """
-    used_public_key_ids: set[str] = set(node.public_key_id_2_char for node in nodes)
-
-    for i in range(256):
-        public_key_id = f"{i:02x}"
-        if is_reserved_public_key_id(public_key_id):
-            continue
-        if not id_exists_in_list(id_=public_key_id, ids_to_track=list(used_public_key_ids)):
-            return f"{public_key_id}00"
-
-    raise RuntimeError("No available public key IDs found")
-
-
-def _find_unused_public_key_id_by_four_chars(nodes: list[Node]) -> str:
-    """
-    Find a public key ID in a list of nodes by comparing the first four characters (the first two bytes) of the public key.
-    This is the intended implementation once MeshCore officially supports the full 4-character public key ID.
+    Find the very next (sequential) unused public key ID (the first two bytes as a hex string).
+    :param nodes: A list of existing nodes to avoid clashing against.
+    :return: The next unused public key ID (the first two bytes as a hex string).
     """
     used_public_key_ids: set[str] = set(node.public_key_id_4_char for node in nodes)
 
@@ -59,6 +44,43 @@ def _find_unused_public_key_id_by_four_chars(nodes: list[Node]) -> str:
             continue
         if not id_exists_in_list(id_=public_key_id, ids_to_track=list(used_public_key_ids)):
             return public_key_id
+
+    raise RuntimeError("No available public key IDs found")
+
+
+def _attempt_find_random_unused_public_key_id_by_four_chars(nodes: list[Node], attempts: int = 10) -> str:
+    """
+    Find a random unused public key ID (the first two bytes as a hex string).
+    :param nodes: A list of existing nodes to avoid clashing against.
+    :param attempts: The number of random attempts to make before giving up.
+    :return: A random unused public key ID (the first two bytes as a hex string).
+    :raise Exception: If attempts exceed the maximum number of attempts.
+    """
+    used_public_key_ids: set[str] = set(node.public_key_id_4_char for node in nodes)
+
+    possible_public_key_ids = range(0x0000, 0x10000)
+    public_key_ids_choices = random.sample(possible_public_key_ids, attempts)
+
+    for i in public_key_ids_choices:
+        public_key_id = f"{i:04x}"
+        if is_reserved_public_key_id(public_key_id):
+            continue
+        if not id_exists_in_list(id_=public_key_id, ids_to_track=list(used_public_key_ids)):
+            return public_key_id
+
+    raise Exception("Could not find a random unused public key ID withing the specified number of attempts")
+
+
+def _find_unused_public_key_id_by_four_chars(nodes: list[Node]) -> str:
+    """
+    Find a public key ID in a list of nodes by comparing the first four characters (the first two bytes) of the public key.
+    First attempt to find a random unused public key ID (to avoid sequential clustering).
+    Fallback to using the next sequential unused public key ID if random search fails within 10 attempts.
+    """
+    try:
+        return _attempt_find_random_unused_public_key_id_by_four_chars(nodes=nodes, attempts=10)
+    except Exception:
+        return _find_next_unused_public_key_id_by_four_chars(nodes=nodes)
 
     raise RuntimeError("No available public key IDs found")
 
@@ -113,4 +135,4 @@ def find_free_public_key_id(existing_nodes: list[Node]) -> str:
     :rtype: str
     """
     # Iterate through all possible public key IDs and return the first one that is not in use
-    return _find_unused_public_key_id_by_two_chars(nodes=existing_nodes)
+    return _find_unused_public_key_id_by_four_chars(nodes=existing_nodes)
