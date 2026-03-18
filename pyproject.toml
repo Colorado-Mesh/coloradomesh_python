@@ -27,7 +27,7 @@ keywords = [
 dependencies = [
     "pydantic>=2.12.5",
     "objectrest==2.0.*",
-    "colorado-py>=0.2.3",
+    "colorado-py>=0.3.0",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -71,7 +71,8 @@ dev = [
 where = ["."]
 exclude = [
     "tests",
-    "examples"
+    "examples",
+    "data"
 ]
 
 [tool.setuptools]
