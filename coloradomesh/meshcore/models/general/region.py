@@ -1,6 +1,5 @@
 import enum
-
-from typing import Optional, Any
+from typing import Any
 
 from colorado import Municipalities, Airports
 from coloradomesh.internal import BaseModel
@@ -101,7 +100,7 @@ class Regions(enum.Enum):
         airport=Airports.YAMPA_VALLEY,
     )
 
-    def __init__(self, region: RegionEnum):
+    def __init__(self, region: Region):
         self._region = region
 
     @property
