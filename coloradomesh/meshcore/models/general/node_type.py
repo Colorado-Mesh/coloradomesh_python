@@ -9,6 +9,7 @@ class NodeType(enum.Enum):
     ROOM_SERVER = 2
     COMPANION = 3
     ROOM_OR_REPEATER = 4  # Used when we can't be sure if it's a room server or repeater, but we know it's one of those two
+    UNKNOWN = 5
 
     @classmethod
     def from_int(cls, role: int) -> 'NodeType':

@@ -2,6 +2,7 @@ from typing import Optional
 
 from coloradomesh.internal import BaseModel
 from coloradomesh.internal.utils import timestamp_within_delta
+from coloradomesh.meshcore.models.general.node_params import NodeParams
 from coloradomesh.meshcore.models.general.node_status import NodeStatus
 from coloradomesh.meshcore.models.general.node_type import NodeType
 from coloradomesh.meshcore.utils import build_meshcore_contact_url
@@ -19,7 +20,7 @@ class Node(BaseModel):
     owner: Optional[str] = None
     latitude: Optional[float] = None
     longitude: Optional[float] = None
-    is_observer: bool = False
+    params: Optional[NodeParams] = None
 
     @property
     def _public_key_cleaned(self) -> str:
@@ -130,7 +131,7 @@ class Node(BaseModel):
         Generate a hash value for this node
         :return: An integer hash value representing this node.
         """
-        _input = f"{self.name}:{self._public_key_cleaned}:{self.node_type.value}:{self.latitude}:{self.longitude}:{self.is_observer}"
+        _input = f"{self.name}:{self._public_key_cleaned}:{self.node_type.value}:{self.latitude}:{self.longitude}:{self.params}"
         return hash(_input)
 
     def to_json(self) -> dict:
@@ -148,7 +149,7 @@ class Node(BaseModel):
             'owner': self.owner,
             'latitude': self.latitude,
             'longitude': self.longitude,
-            'is_observer': self.is_observer,
             'status': self.status.value,
             'contact': self.contact_url,
+            'params': self.params.to_json() if self.params else {}
         }
