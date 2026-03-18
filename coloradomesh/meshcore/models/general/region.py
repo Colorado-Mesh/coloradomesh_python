@@ -1,5 +1,7 @@
 import enum
 
+from typing import Optional, Any
+
 from colorado import Municipalities, Airports
 from coloradomesh.internal import BaseModel
 
