@@ -3,3 +3,7 @@ include README.md
 include coloradomesh/EMOJIS.json
 include coloradomesh/PYTHON_VERSIONS.json
 include coloradomesh/RECOMMENDED_MESHCORE_COMPANION_SETTINGS.json
+
+prune data
+prune tests
+prune examples
