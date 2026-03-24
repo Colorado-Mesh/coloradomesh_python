@@ -123,7 +123,7 @@
     "name": "DEN-LYONS-RBTMT-RC-0700",
     "node_type": 1,
     "created_at": 1772632634,
-    "last_heard": 1774325292,
+    "last_heard": 1774339691,
     "owner": null,
     "latitude": 40.236023,
     "longitude": -105.197714,
@@ -303,17 +303,22 @@
   },
   {
     "id": "0F4D",
-    "public_key": "0F4D201EC89535DFEEDD5B60FFCDE032F5F632ADEC9D5E37477701A4F338D81B",
+    "public_key": "0f4d201ec89535dfeedd5b60ffcde032f5f632adec9d5e37477701a4f338d81b",
     "name": "DEN-LTTN-CHATF-RE-0F4D",
     "node_type": 1,
-    "created_at": 1773001746,
-    "last_heard": 1774297743,
+    "created_at": 1773003973,
+    "last_heard": 1774337327,
     "owner": null,
-    "latitude": 39.56956,
-    "longitude": -105.09144,
+    "latitude": 39.5696,
+    "longitude": -105.091,
     "status": 1,
     "contact": "meshcore://contact/add?name=DEN-LTTN-CHATF-RE-0F4D&public_key=0F4D201EC89535DFEEDD5B60FFCDE032F5F632ADEC9D5E37477701A4F338D81B&type=2",
-    "params": {}
+    "params": {
+      "freq": 910.525,
+      "cr": 5,
+      "sf": 7,
+      "bw": 62.5
+    }
   },
   {
     "id": "1060",
@@ -515,22 +520,17 @@
   },
   {
     "id": "17C5",
-    "public_key": "17c5bb0c4dd2c7013eae3d2b0469cf5a792cb7478e86c6ae37c5693dc1e73295",
+    "public_key": "17C5BB0C4DD2C7013EAE3D2B0469CF5A792CB7478E86C6AE37C5693DC1E73295",
     "name": "K0LEE Repeater",
     "node_type": 1,
-    "created_at": 1767399693,
-    "last_heard": 1774330070,
+    "created_at": 1771588636,
+    "last_heard": 1774336963,
     "owner": null,
-    "latitude": 40.3964,
-    "longitude": -104.771,
+    "latitude": 40.396434,
+    "longitude": -104.770902,
     "status": 1,
     "contact": "meshcore://contact/add?name=K0LEE%20Repeater&public_key=17C5BB0C4DD2C7013EAE3D2B0469CF5A792CB7478E86C6AE37C5693DC1E73295&type=2",
-    "params": {
-      "freq": 910.525,
-      "cr": 5,
-      "sf": 7,
-      "bw": 62.5
-    }
+    "params": {}
   },
   {
     "id": "18BC",
@@ -694,22 +694,17 @@
   },
   {
     "id": "205F",
-    "public_key": "205fab6ec9b5857815138a61366a653f6f387c404fee700695c96d16eda8930d",
+    "public_key": "205FAB6EC9B5857815138A61366A653F6F387C404FEE700695C96D16EDA8930D",
     "name": "Mesh Island 🏝️",
-    "node_type": 2,
-    "created_at": 1773271008,
-    "last_heard": 1774334815,
+    "node_type": 1,
+    "created_at": 1773271013,
+    "last_heard": 1774338396,
     "owner": null,
-    "latitude": 40.1507,
-    "longitude": -105.175,
+    "latitude": 40.15073,
+    "longitude": -105.17525,
     "status": 1,
     "contact": "meshcore://contact/add?name=Mesh%20Island%20%F0%9F%8F%9D%EF%B8%8F&public_key=205FAB6EC9B5857815138A61366A653F6F387C404FEE700695C96D16EDA8930D&type=2",
-    "params": {
-      "freq": 910.525,
-      "cr": 5,
-      "sf": 7,
-      "bw": 62.5
-    }
+    "params": {}
   },
   {
     "id": "22BE",
@@ -1038,17 +1033,22 @@
   },
   {
     "id": "3F0C",
-    "public_key": "3F0C9B7580ECCD6F89554BA104B590EDE765E97090BAB85484A7224F97834D01",
+    "public_key": "3f0c9b7580eccd6f89554ba104b590ede765e97090bab85484a7224f97834d01",
     "name": "DEN-WSTMR-NRTPK-RD-3f0c",
     "node_type": 1,
-    "created_at": 1770436617,
-    "last_heard": 1774255537,
+    "created_at": 1770450814,
+    "last_heard": 1774338321,
     "owner": null,
-    "latitude": 39.878388,
-    "longitude": -105.033008,
+    "latitude": 39.8784,
+    "longitude": -105.033,
     "status": 1,
     "contact": "meshcore://contact/add?name=DEN-WSTMR-NRTPK-RD-3f0c&public_key=3F0C9B7580ECCD6F89554BA104B590EDE765E97090BAB85484A7224F97834D01&type=2",
-    "params": {}
+    "params": {
+      "freq": 910.525,
+      "cr": 8,
+      "sf": 7,
+      "bw": 62.5
+    }
   },
   {
     "id": "3F90",
@@ -1174,7 +1174,7 @@
     "name": "HR Town Center Repeater",
     "node_type": 1,
     "created_at": 1768691388,
-    "last_heard": 1774428292,
+    "last_heard": 1774439092,
     "owner": null,
     "latitude": 39.5481,
     "longitude": -104.991,
@@ -1193,11 +1193,11 @@
     "name": "CO-BOULDER-POPLAR-RE",
     "node_type": 1,
     "created_at": 1771611648,
-    "last_heard": 1773947426,
+    "last_heard": 1715806353,
     "owner": null,
     "latitude": 40.047,
     "longitude": -105.269,
-    "status": 1,
+    "status": 2,
     "contact": "meshcore://contact/add?name=CO-BOULDER-POPLAR-RE&public_key=498EAB56514DC2200D9D4980F420907A4CA8AC00095950E14A54EDFC4EFCA9E3&type=2",
     "params": {
       "freq": 910.525,
@@ -1500,7 +1500,7 @@
     "name": "FNL-FOCO-LNDRG-RE-5C71",
     "node_type": 1,
     "created_at": 1765254607,
-    "last_heard": 1774335161,
+    "last_heard": 1774338761,
     "owner": null,
     "latitude": 40.5955,
     "longitude": -104.963,
@@ -1643,17 +1643,22 @@
   },
   {
     "id": "6263",
-    "public_key": "62637C56B1D16FB573EC02080BAAE06CF7600230DC05C485C84104C61E9C02A0",
+    "public_key": "62637c56b1d16fb573ec02080baae06cf7600230dc05c485c84104c61e9c02a0",
     "name": "DEN-LTTN-CHATF-RE2-6263",
     "node_type": 1,
-    "created_at": 1773002277,
-    "last_heard": 1774298268,
+    "created_at": 1773004004,
+    "last_heard": 1774337858,
     "owner": null,
-    "latitude": 39.57737,
-    "longitude": -105.09195,
+    "latitude": 39.5774,
+    "longitude": -105.092,
     "status": 1,
     "contact": "meshcore://contact/add?name=DEN-LTTN-CHATF-RE2-6263&public_key=62637C56B1D16FB573EC02080BAAE06CF7600230DC05C485C84104C61E9C02A0&type=2",
-    "params": {}
+    "params": {
+      "freq": 910.525,
+      "cr": 5,
+      "sf": 7,
+      "bw": 62.5
+    }
   },
   {
     "id": "6349",
@@ -1761,22 +1766,17 @@
   },
   {
     "id": "6795",
-    "public_key": "6795742c7f610ad9654393b7a6c598da3567e08267d631c2598e82b2ef3baafb",
+    "public_key": "6795742C7F610AD9654393B7A6C598DA3567E08267D631C2598E82B2EF3BAAFB",
     "name": "Eaton W-Edge Repeater",
     "node_type": 1,
-    "created_at": 1772934421,
-    "last_heard": 1774334853,
+    "created_at": 1772923796,
+    "last_heard": 1774338450,
     "owner": null,
-    "latitude": 40.5171,
-    "longitude": -104.732,
+    "latitude": 40.51708,
+    "longitude": -104.73247,
     "status": 1,
     "contact": "meshcore://contact/add?name=Eaton%20W-Edge%20Repeater&public_key=6795742C7F610AD9654393B7A6C598DA3567E08267D631C2598E82B2EF3BAAFB&type=2",
-    "params": {
-      "freq": 910.525,
-      "cr": 5,
-      "sf": 7,
-      "bw": 62.5
-    }
+    "params": {}
   },
   {
     "id": "67AF",
@@ -1855,7 +1855,7 @@
     "name": "DEN-AURRA-MWOOD-RE-68AE",
     "node_type": 1,
     "created_at": 1770314744,
-    "last_heard": 1774323831,
+    "last_heard": 1774338231,
     "owner": null,
     "latitude": 39.664905,
     "longitude": -104.802115,
@@ -1865,22 +1865,17 @@
   },
   {
     "id": "6926",
-    "public_key": "692644a9dc0114226c60487d92e62ac7afa0c159112ddc619dd80e632c4864f8",
+    "public_key": "692644A9DC0114226C60487D92E62AC7AFA0C159112DDC619DD80E632C4864F8",
     "name": "DEN-LFYTE-OLDTWN-RE-69",
     "node_type": 1,
-    "created_at": 1774205554,
-    "last_heard": 1774331543,
+    "created_at": 1773276961,
+    "last_heard": 1774338745,
     "owner": null,
-    "latitude": 39.988,
-    "longitude": -105.09,
-    "status": 0,
+    "latitude": 39.98798,
+    "longitude": -105.09023,
+    "status": 1,
     "contact": "meshcore://contact/add?name=DEN-LFYTE-OLDTWN-RE-69&public_key=692644A9DC0114226C60487D92E62AC7AFA0C159112DDC619DD80E632C4864F8&type=2",
-    "params": {
-      "freq": 910.525,
-      "cr": 5,
-      "sf": 7,
-      "bw": 62.5
-    }
+    "params": {}
   },
   {
     "id": "694E",
@@ -2058,7 +2053,7 @@
     "name": "FNL-GRELY-LnkPk-RE-6F0B",
     "node_type": 1,
     "created_at": 1771284132,
-    "last_heard": 1774325327,
+    "last_heard": 1774339727,
     "owner": null,
     "latitude": 40.42478,
     "longitude": -104.70326,
@@ -2120,17 +2115,22 @@
   },
   {
     "id": "71B1",
-    "public_key": "71B1582F1FDD38EC140E6E8484F1245AFD92A5C33B98B698FC46281F9AB41BC9",
+    "public_key": "71b1582f1fdd38ec140e6e8484f1245afd92a5c33b98b698fc46281f9ab41bc9",
     "name": "FNL-LONGM-REN-RE-71B1",
     "node_type": 1,
-    "created_at": 1772603807,
-    "last_heard": 1774334859,
+    "created_at": 1772497095,
+    "last_heard": 1774338459,
     "owner": null,
     "latitude": 40.137,
-    "longitude": -105.1565,
+    "longitude": -105.157,
     "status": 1,
     "contact": "meshcore://contact/add?name=FNL-LONGM-REN-RE-71B1&public_key=71B1582F1FDD38EC140E6E8484F1245AFD92A5C33B98B698FC46281F9AB41BC9&type=2",
-    "params": {}
+    "params": {
+      "freq": 910.525,
+      "cr": 8,
+      "sf": 7,
+      "bw": 62.5
+    }
   },
   {
     "id": "7285",
@@ -2303,7 +2303,7 @@
     "name": "DEN-AURRA-MVIJO-RE-771C",
     "node_type": 1,
     "created_at": 1773459965,
-    "last_heard": 1774332951,
+    "last_heard": 1774336551,
     "owner": null,
     "latitude": 39.650148,
     "longitude": -104.800276,
@@ -2586,17 +2586,22 @@
   },
   {
     "id": "8C09",
-    "public_key": "8C0913CEB343E1DA979E0FECA90180996E55C152B22E2182C4844CC496E96094",
+    "public_key": "8c0913ceb343e1da979e0feca90180996e55c152b22e2182c4844cc496e96094",
     "name": "RevPeater",
     "node_type": 1,
-    "created_at": 1770709529,
-    "last_heard": 1774330900,
+    "created_at": 1771971459,
+    "last_heard": 1774338153,
     "owner": null,
-    "latitude": 40.53009,
-    "longitude": -105.044311,
+    "latitude": 40.5301,
+    "longitude": -105.044,
     "status": 1,
     "contact": "meshcore://contact/add?name=RevPeater&public_key=8C0913CEB343E1DA979E0FECA90180996E55C152B22E2182C4844CC496E96094&type=2",
-    "params": {}
+    "params": {
+      "freq": 910.525,
+      "cr": 5,
+      "sf": 7,
+      "bw": 62.5
+    }
   },
   {
     "id": "8E13",
@@ -2676,17 +2681,22 @@
   },
   {
     "id": "907D",
-    "public_key": "907D3CA648DF2C7F95571470873756728F23C89BE9C7BA1265B281DF878B39DA",
+    "public_key": "907d3ca648df2c7f95571470873756728f23c89be9c7ba1265b281df878b39da",
     "name": "FortCore Repeater",
     "node_type": 1,
-    "created_at": 1774134589,
-    "last_heard": 1774297339,
+    "created_at": 1771597232,
+    "last_heard": 1774336927,
     "owner": null,
-    "latitude": 40.528781,
-    "longitude": -105.101173,
+    "latitude": 40.5288,
+    "longitude": -105.101,
     "status": 1,
     "contact": "meshcore://contact/add?name=FortCore%20Repeater&public_key=907D3CA648DF2C7F95571470873756728F23C89BE9C7BA1265B281DF878B39DA&type=2",
-    "params": {}
+    "params": {
+      "freq": 910.525,
+      "cr": 5,
+      "sf": 7,
+      "bw": 62.5
+    }
   },
   {
     "id": "90F8",
@@ -2713,7 +2723,7 @@
     "name": "DEN-AURRA-HIPNT-TS-916C",
     "node_type": 1,
     "created_at": 1773224582,
-    "last_heard": 1774295206,
+    "last_heard": 1774338404,
     "owner": null,
     "latitude": 39.64768,
     "longitude": -104.76853,
@@ -2831,7 +2841,7 @@
     "name": "DEN-PARKR-RJHPK-RE-96AC",
     "node_type": 1,
     "created_at": 1773251292,
-    "last_heard": 1774332193,
+    "last_heard": 1774339393,
     "owner": null,
     "latitude": 39.519889,
     "longitude": -104.729598,
@@ -3057,7 +3067,7 @@
     "name": "JC Home Repeater",
     "node_type": 1,
     "created_at": 1765063861,
-    "last_heard": 1774495784,
+    "last_heard": 1774538984,
     "owner": null,
     "latitude": 40.4521,
     "longitude": -105.078,
@@ -3302,7 +3312,7 @@
     "name": "DEN-LTTN-DakRg-RE-b5f3",
     "node_type": 1,
     "created_at": 1770322631,
-    "last_heard": 1774335756,
+    "last_heard": 1774339356,
     "owner": null,
     "latitude": 39.607754,
     "longitude": -105.128795,
@@ -3378,22 +3388,17 @@
   },
   {
     "id": "BAE1",
-    "public_key": "bae111b53734a6953309101549baa71db9c6a0ae40e976e52a0cd1dbf7927aa7",
+    "public_key": "BAE111B53734A6953309101549BAA71DB9C6A0AE40E976E52A0CD1DBF7927AA7",
     "name": "DEN-LTTN-CNRSTN-RE-BAE1",
     "node_type": 1,
-    "created_at": 1771289125,
-    "last_heard": 1774334558,
+    "created_at": 1771110078,
+    "last_heard": 1774338170,
     "owner": null,
-    "latitude": 39.6223,
-    "longitude": -105.006,
+    "latitude": 39.62228,
+    "longitude": -105.00649,
     "status": 1,
     "contact": "meshcore://contact/add?name=DEN-LTTN-CNRSTN-RE-BAE1&public_key=BAE111B53734A6953309101549BAA71DB9C6A0AE40E976E52A0CD1DBF7927AA7&type=2",
-    "params": {
-      "freq": 910.525,
-      "cr": 5,
-      "sf": 7,
-      "bw": 62.5
-    }
+    "params": {}
   },
   {
     "id": "BBC5",
@@ -3448,7 +3453,7 @@
     "name": "DEN-LYONS-thel-RD-C0",
     "node_type": 1,
     "created_at": 1772683044,
-    "last_heard": 1774333717,
+    "last_heard": 1774337318,
     "owner": null,
     "latitude": 40.209493,
     "longitude": -105.265537,
@@ -3618,7 +3623,7 @@
     "name": "DEN-LFTYE-CTYHAL-RE2-C5",
     "node_type": 1,
     "created_at": 1771797364,
-    "last_heard": 1774335789,
+    "last_heard": 1774339389,
     "owner": null,
     "latitude": 39.98693,
     "longitude": -105.09052,
@@ -3977,7 +3982,7 @@
     "name": "DEN-CMRCE-TWR96-RE-DA0B",
     "node_type": 1,
     "created_at": 1770314334,
-    "last_heard": 1774335053,
+    "last_heard": 1774338653,
     "owner": null,
     "latitude": 39.87065,
     "longitude": -104.77198,
@@ -4374,17 +4379,22 @@
   },
   {
     "id": "F0E3",
-    "public_key": "F0E3488A6EC8738F75B68B99E338C5D4ED6F7BC5FDF5C6F85ED5DE1BE9603EF2",
+    "public_key": "f0e3488a6ec8738f75b68b99e338c5d4ed6f7bc5fdf5c6f85ed5de1be9603ef2",
     "name": "Lory Repeater",
     "node_type": 1,
-    "created_at": 1773227885,
-    "last_heard": 1774329470,
+    "created_at": 1773227867,
+    "last_heard": 1774336657,
     "owner": null,
-    "latitude": 40.599722,
-    "longitude": -105.186788,
+    "latitude": 40.5997,
+    "longitude": -105.187,
     "status": 1,
     "contact": "meshcore://contact/add?name=Lory%20Repeater&public_key=F0E3488A6EC8738F75B68B99E338C5D4ED6F7BC5FDF5C6F85ED5DE1BE9603EF2&type=2",
-    "params": {}
+    "params": {
+      "freq": 910.525,
+      "cr": 5,
+      "sf": 7,
+      "bw": 62.5
+    }
   },
   {
     "id": "F2D3",
@@ -4604,7 +4614,7 @@
     "name": "0xbeh0",
     "node_type": 1,
     "created_at": 1772998230,
-    "last_heard": 1774294271,
+    "last_heard": 1774337470,
     "owner": null,
     "latitude": 0.0,
     "longitude": 0.0,
@@ -4613,26 +4623,12 @@
     "params": {}
   },
   {
-    "id": "29ED",
-    "public_key": "29ED9B5DF5BE36CC4EDFCA7A1049F644D7DB9BD1867269259AA2F0307C38A12B",
-    "name": "DEN-DNVR-TWNLKS-TS-29ed",
-    "node_type": 1,
-    "created_at": 1773487930,
-    "last_heard": 1774049527,
-    "owner": null,
-    "latitude": 0.0,
-    "longitude": 0.0,
-    "status": 1,
-    "contact": "meshcore://contact/add?name=DEN-DNVR-TWNLKS-TS-29ed&public_key=29ED9B5DF5BE36CC4EDFCA7A1049F644D7DB9BD1867269259AA2F0307C38A12B&type=2",
-    "params": {}
-  },
-  {
     "id": "33C3",
     "public_key": "33C3D1A014BADF4B1A33A82F03BCD6375E248614B87D13C1EC5FEF750F179892",
     "name": "Hobo Relay",
     "node_type": 1,
     "created_at": 1773810843,
-    "last_heard": 1774334795,
+    "last_heard": 1774338395,
     "owner": null,
     "latitude": 0.0,
     "longitude": 0.0,
@@ -4666,20 +4662,6 @@
     "longitude": 0.0,
     "status": 1,
     "contact": "meshcore://contact/add?name=Loveland%20Stk%20Room&public_key=558F6AE895B652D92D27E0CABB7EAC8E8C49EA712BD0B7DFC02860BB0333D8C7&type=2",
-    "params": {}
-  },
-  {
-    "id": "6926",
-    "public_key": "692644A9DC0114226C606A1BB426260BA3A0C159112DDC619DD80E632C4864F8",
-    "name": "DEN-LFYTE-OLDTWN-RE-9",
-    "node_type": 1,
-    "created_at": 1773276961,
-    "last_heard": 1774335150,
-    "owner": null,
-    "latitude": 39.98798,
-    "longitude": -105.09023,
-    "status": 1,
-    "contact": "meshcore://contact/add?name=DEN-LFYTE-OLDTWN-RE-9&public_key=692644A9DC0114226C606A1BB426260BA3A0C159112DDC619DD80E632C4864F8&type=2",
     "params": {}
   },
   {
@@ -4792,20 +4774,6 @@
     "longitude": -104.76335,
     "status": 2,
     "contact": "meshcore://contact/add?name=High%20Point%20Repeater&public_key=9E89B501BBCF7312B2D7A0AE26F2CC125C162226C25DC5A4B1674F64C45C41E4&type=2",
-    "params": {}
-  },
-  {
-    "id": "A11A",
-    "public_key": "A11A9FB27969CFB533AFC67E68CFE6C1E8BCFDD93C188F94AE5F8EC8E9088C05",
-    "name": "DEN-LTTN-GROND-RM-A11A",
-    "node_type": 1,
-    "created_at": 1772149475,
-    "last_heard": 1773757152,
-    "owner": null,
-    "latitude": 0.0,
-    "longitude": 0.0,
-    "status": 1,
-    "contact": "meshcore://contact/add?name=DEN-LTTN-GROND-RM-A11A&public_key=A11A9FB27969CFB533AFC67E68CFE6C1E8BCFDD93C188F94AE5F8EC8E9088C05&type=2",
     "params": {}
   },
   {
