@@ -52,9 +52,9 @@ class WarDrivingRepeater(BaseModel):
 class WarDrivingEntry(BaseModel):
     latitude: float = Field(alias="lat")
     longitude: float = Field(alias="lon")
-    observer: str = Field(alias="who")
+    observer: Optional[str] = Field(alias="contact", default=None)
     via__internal: Optional[str] = Field(alias="via", default=None)  # Is 'N/A' as None
-    hr__internal: Optional[str] = Field(alias="repeats", default=None)  # Is 'None' as None
+    hr__internal: Optional[str] = Field(alias="heard_repeats", default=None)  # Is 'None' as None
     power: str = Field(alias="power")  # e.g. '0.3w'
     status: int = Field(alias="status")  # TODO: What does this mean? Sometimes 5?
     date: int = Field(alias="date")  # Unix timestamp in seconds

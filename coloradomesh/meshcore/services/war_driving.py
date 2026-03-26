@@ -2,20 +2,20 @@ import objectrest
 
 from coloradomesh.meshcore.models.meshmapper.war_driving_entry import WarDrivingEntry, WarDrivingRepeater
 
-DENVER_WAR_DRIVING_DATA = "https://den.meshmapper.net/api.php?request=map_data"
+DENVER_WAR_DRIVING_DATA = "https://raw.githubusercontent.com/Colorado-Mesh/coloradomesh_python/refs/heads/master/data/meshcore/nodes/coverage.json"
 
 
 class WarDrivingService:
     def __init__(self):
         """
-        Initialize the WarDrivingService by loading war driving data from the MeshMapper API.
+        Initialize the WarDrivingService by loading war driving data from the cached MeshMapper data.
         NOTE: Data will be automatically loaded and cached on initialization.
         """
         self.refresh_data()
 
     def _load_war_driving_data(self):
         """
-        Load war driving data from the MeshMapper API and store it in the service instance.
+        Load war driving data from the cached MeshMapper data and store it in the service instance.
         NOTE: This is an intensive operation, and should be called sparingly.
         """
         self._entries: list[WarDrivingEntry] = objectrest.get_object(url=DENVER_WAR_DRIVING_DATA,  # type: ignore
@@ -31,7 +31,8 @@ class WarDrivingService:
 
     def refresh_data(self):
         """
-        Refresh the war driving data by reloading it from the MeshMapper API.
+        Refresh the war driving data by reloading it from the cached MeshMapper data.
+        NOTE: This data cache is repopulated at only set intervals, so refreshing may not actually pull new live data.
         """
         self._load_war_driving_data()
 

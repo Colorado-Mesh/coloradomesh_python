@@ -37,14 +37,18 @@ jobs:
           pip install -r data/meshcore/nodes/requirements.txt
           pip install -e .
 
-      - name: Run Python script to check for MeshCore data updates
-        run: python data/meshcore/nodes/sync_data.py
+      - name: Run Python script to update MeshCore nodes data
+        run: python data/meshcore/nodes/sync_nodes.py
           --nodes-data-file data/meshcore/nodes/nodes.json
+
+      - name: Run Python script to update MeshCore coverage data
+        run: python data/meshcore/nodes/sync_coverage.py
+          --coverage-data-file data/meshcore/nodes/coverage.json
 
       - name: Commit data files if modified
         uses: EndBug/add-and-commit@v9
         with:
-          add: 'data/meshcore/nodes/nodes.json'
+          add: 'data/meshcore'
           default_author: github_actions
           message: "MeshCore data updated [skip actions]" # https://github.blog/changelog/2021-02-08-github-actions-skip-pull-request-and-push-workflows-with-skip-ci/
           push: '--force'
