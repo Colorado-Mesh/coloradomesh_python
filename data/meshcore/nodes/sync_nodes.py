@@ -1,5 +1,4 @@
 import argparse
-import enum
 import json
 import os
 from typing import Optional
@@ -59,14 +58,6 @@ def _get_meshmapper_nodes() -> list[MeshMapperNode]:
 
 ### MeshCore Map-specific models for parsing API responses
 
-class MeshCoreMapNodeType(enum.Enum):
-    UNKNOWN = 0
-    COMPANION = 1
-    REPEATER = 2
-    ROOM = 3
-    SENSOR = 4
-
-
 class MeshCoreMapNodeParams(BaseModel):
     freq: Optional[float] = None
     cr: Optional[int] = None
@@ -74,21 +65,9 @@ class MeshCoreMapNodeParams(BaseModel):
     bw: Optional[float] = None
 
 
-def _meshcore_map_node_type_to_node_type(node_type: MeshCoreMapNodeType) -> NodeType:
-    if node_type == MeshCoreMapNodeType.COMPANION:
-        return NodeType.COMPANION
-    elif node_type == MeshCoreMapNodeType.REPEATER:
-        return NodeType.REPEATER
-    elif node_type == MeshCoreMapNodeType.ROOM:
-        return NodeType.ROOM_SERVER
-    # Don't care about sensors
-    else:
-        return NodeType.UNKNOWN
-
-
 class MeshCoreMapNode(BaseModel):
     public_key: str
-    type: MeshCoreMapNodeType
+    type: NodeType
     adv_name: str
     last_advert: str  # ISO 8601 timestamp string, e.g. "2026-02-18T01:19:00.379Z"
     adv_lat: float
@@ -105,7 +84,7 @@ class MeshCoreMapNode(BaseModel):
         return Node(
             public_key=self.public_key,
             name=self.adv_name,
-            node_type=_meshcore_map_node_type_to_node_type(self.type),
+            node_type=self.type,
             created_at=iso8601_to_unix_timestamp(self.inserted_date),
             last_heard=iso8601_to_unix_timestamp(self.last_advert),
             owner=None,

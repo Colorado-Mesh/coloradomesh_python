@@ -124,7 +124,9 @@ class Node(BaseModel):
         :return: The contact URL for this node.
         :rtype: str
         """
-        return build_meshcore_contact_url(name=self.name, public_key=self._public_key_cleaned)
+        return build_meshcore_contact_url(name=self.name,
+                                          public_key=self._public_key_cleaned,
+                                          node_type=self.node_type.value)
 
     def to_hash(self) -> int:
         """
