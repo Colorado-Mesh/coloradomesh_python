@@ -5,11 +5,11 @@ class NodeType(enum.Enum):
     """
     Enum representing the type of MeshCore node on the ColoradoMesh network.
     """
+    UNKNOWN = 0
     COMPANION = 1
     REPEATER = 2
     ROOM_SERVER = 3
     SENSOR = 4
-    UNKNOWN = 5
 
     @classmethod
     def from_int(cls, role: int) -> 'NodeType':
@@ -21,7 +21,7 @@ class NodeType(enum.Enum):
             return cls.COMPANION
         elif role == 4:
             return cls.SENSOR
-        elif role == 5:
+        elif role == 0:
             return cls.UNKNOWN
         else:
             raise ValueError(f"Unknown device role: {role}")
