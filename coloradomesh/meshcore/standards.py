@@ -45,3 +45,5 @@ REPEATER_SETTINGS_MOBILE = {
     'direct.txdelay': 2.5,
     'rxdelay': 3.0
 }
+
+PUBLIC_CHANNEL_KEY = "8b3387e9c5cdea6ac9e5edbaa115cd72"  # This is publicly known (docs.meshcore.io/companion_protocol/)
