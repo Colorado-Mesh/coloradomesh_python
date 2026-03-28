@@ -11,7 +11,12 @@ from coloradomesh.internal.utils import iso8601_to_unix_timestamp
 from coloradomesh.meshcore.models.general import Node, NodeType
 from coloradomesh.meshcore.models.general.node_params import NodeParams
 
-MESHMAPPER_REPEATERS_URL = "https://den.meshmapper.net/repeaters.json"  # Only repeaters in Denver region
+MESHMAPPER_REPEATERS_URL = "https://{region_code}.meshmapper.net/repeaters.json"  # Only repeaters in given region
+MESHMAPPER_REGIONS = [
+    "DEN",
+    "FNL",
+    "COS"
+]
 MESHCORE_MAP_URL = "https://map.meshcore.dev/api/v1/nodes"  # All MeshCore devices globally
 
 _COLORADO = COLORADO
@@ -51,9 +56,17 @@ def _get_meshmapper_nodes() -> list[MeshMapperNode]:
     :return: A list of MeshMapperNode objects representing the repeaters in the DEN region.
     :rtype: list[MeshMapperNode]
     """
-    return objectrest.get_object(url=MESHMAPPER_REPEATERS_URL,  # type: ignore
-                                 model=MeshMapperNode,
-                                 extract_list=True)
+    all_nodes: list[MeshMapperNode] = []
+    for region in MESHMAPPER_REGIONS:
+        region_nodes: list[MeshMapperNode] = objectrest.get_object(  # type: ignore
+            url=MESHMAPPER_REPEATERS_URL.format(region_code=region),
+            model=MeshMapperNode,
+            extract_list=True
+        )
+        print(f"Fetching {len(region_nodes)} MeshMapper nodes from {region}")
+        all_nodes.extend(region_nodes)
+
+    return all_nodes
 
 
 ### MeshCore Map-specific models for parsing API responses
