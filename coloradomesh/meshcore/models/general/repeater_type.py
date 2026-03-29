@@ -1,5 +1,6 @@
 import enum
 
+from coloradomesh.internal.utils import generate_password
 from coloradomesh.meshcore.models.general.repeater_settings import RepeaterSettings
 from coloradomesh.meshcore.standards import (
     REPEATER_SETTINGS_HILLTOP,
@@ -90,22 +91,23 @@ class RepeaterType(int, enum.Enum):
         :return: The recommended RepeaterSettings for this RepeaterType.
         :rtype: RepeaterSettings
         """
-        repeater_type = {
-            'repeater_type': self.value
+        repeater_settings = {
+            'repeater_type': self.value,
+            'password': generate_password(token_size=8)
         }
         if self == RepeaterType.REPEATER_CORE:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_HILLTOP})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_settings, **REPEATER_SETTINGS_HILLTOP})
         elif self == RepeaterType.REPEATER_DISTRIBUTOR:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_FOOTHILLS})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_settings, **REPEATER_SETTINGS_FOOTHILLS})
         elif self == RepeaterType.REPEATER_EDGE:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_LOCAL})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_settings, **REPEATER_SETTINGS_LOCAL})
         elif self == RepeaterType.REPEATER_MOBILE:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_MOBILE})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_settings, **REPEATER_SETTINGS_MOBILE})
         elif self == RepeaterType.ROOM_SERVER_STANDARD:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_LOCAL})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_settings, **REPEATER_SETTINGS_LOCAL})
         elif self == RepeaterType.ROOM_SERVER_REPEAT_ENABLED:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_SUBURBAN})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_settings, **REPEATER_SETTINGS_SUBURBAN})
         elif self == RepeaterType.ROOM_SERVER_MOBILE:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_MOBILE})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_settings, **REPEATER_SETTINGS_MOBILE})
         else:
             raise ValueError(f"Unknown node type: {self.value}")

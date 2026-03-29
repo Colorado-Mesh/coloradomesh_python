@@ -1,3 +1,4 @@
+import secrets
 import time
 from datetime import datetime, timedelta
 
@@ -78,3 +79,7 @@ def epoch_to_datetime(epoch_time: int) -> str:
         return dt.strftime("%Y-%m-%d %H:%M:%S")
     except (ValueError, TypeError):
         return "Invalid date"
+
+def generate_password(token_size: int = 8) -> str:
+    """Generate a random password."""
+    return secrets.token_urlsafe(token_size)

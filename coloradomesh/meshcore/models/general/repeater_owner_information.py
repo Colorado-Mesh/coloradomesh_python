@@ -30,4 +30,4 @@ class RepeaterOwnerInformation(BaseModel):
 
     @property
     def set_owner_info_command(self) -> str:
-        return f"set owner.info '{self.formatted}'"
+        return f"set owner.info {self.formatted}"

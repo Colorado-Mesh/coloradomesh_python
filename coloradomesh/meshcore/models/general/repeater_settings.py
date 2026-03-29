@@ -53,6 +53,7 @@ class RepeaterSettings(BaseModel):
                                      default=None)  # SNR-based processing priority. Higher = prefer stronger signal
     advert_interval: Optional[int] = Field(alias="advert.interval", default=None)  # Local advert in minutes
     flood_advert_interval: Optional[int] = Field(alias="flood.advert.interval", default=None)  # Flood advert in hours
+    admin_password: Optional[str] = Field(alias="password", default=None)  # Admin password
     guest_password: Optional[str] = Field(alias="guest.password", default=None)  # Guest password for telemetry access
     name: Optional[str] = Field(alias="name",
                                 default=None)  # Name of the repeater, used for identification in the network
@@ -112,17 +113,28 @@ class RepeaterSettings(BaseModel):
         return None
 
     @property
-    def set_guest_password_command(self) -> Optional[str]:
-        if self.guest_password is None:
+    def set_admin_password_command(self) -> Optional[str]:
+        # Blank admin password is a bad idea, not allowed
+        if not self.admin_password:
             return None
 
-        # Allow empty string as a valid password
-        return f"set guest.password '{self.guest_password}'"
+        return f"password {self.admin_password}"
+
+    @property
+    def set_guest_password_command(self) -> Optional[str]:
+        if self.guest_password:
+            return f"set guest.password {self.guest_password}"
+
+        # Allow empty/blank gues password
+        if self.guest_password == "":
+            return f"set guest.password "  # Empty space to set blank password
+
+        return None
 
     @property
     def set_name_command(self) -> Optional[str]:
         if self.name:
-            return f"set name '{self.name}'"
+            return f"set name {self.name}"  # This should be fine since the naming standard has no spaces
         return None
 
     @property
