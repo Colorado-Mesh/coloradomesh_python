@@ -11,17 +11,34 @@ from coloradomesh.meshcore.standards import (
 )
 
 
-class RepeaterType(enum.Enum):
+class RepeaterType(int, enum.Enum):
     """
     Enum representing the type of MeshCore repeater/room server node on the ColoradoMesh network.
     """
-    REPEATER_CORE = "Repeater - Core"
-    REPEATER_DISTRIBUTOR = "Repeater - Distributor"
-    REPEATER_EDGE = "Repeater - Edge"
-    REPEATER_MOBILE = "Repeater - Mobile"
-    ROOM_SERVER_STANDARD = "Room Server - Standard"
-    ROOM_SERVER_MOBILE = "Room Server - Mobile"
-    ROOM_SERVER_REPEAT_ENABLED = "Room Server - Repeat Enabled"
+    REPEATER_CORE = 1, "Repeater - Core", "RC", ["CORE", "REPEATER_CORE"]
+    REPEATER_DISTRIBUTOR = 2, "Repeater - Distributor", "RD", ["DISTRIBUTOR", "REPEATER_DISTRIBUTOR"]
+    REPEATER_EDGE = 3, "Repeater - Edge", "RE", ["EDGE", "REPEATER_EDGE"]
+    REPEATER_MOBILE = 4, "Repeater - Mobile", "RM", ["MOBILE", "REPEATER_MOBILE"]
+    ROOM_SERVER_STANDARD = 5, "Room Server - Standard", "TS", ["ROOM_STANDARD", "ROOM_SERVER_STANDARD"]
+    ROOM_SERVER_MOBILE = 6, "Room Server - Mobile", "TM", ["ROOM_MOBILE", "ROOM_SERVER_MOBILE"]
+    ROOM_SERVER_REPEAT_ENABLED = 7, "Room Server - Repeat Enabled", "TR", ["ROOM_REPEAT_ENABLED",
+                                                                           "ROOM_SERVER_REPEAT_ENABLED"]
+
+    def __new__(
+            cls,
+            value_int: int,
+            value_str: str,
+            abbreviation: str,
+            keywords: list[str],
+    ) -> RepeaterType:
+        obj = int.__new__(cls, value_int)
+        obj._value_ = value_int
+
+        obj.human_readable = value_str
+        obj.abbreviation = abbreviation
+        obj.keywords = keywords
+
+        return obj  # type: ignore
 
     @classmethod
     def to_acronym(cls, node_type: 'RepeaterType') -> str:
@@ -32,25 +49,25 @@ class RepeaterType(enum.Enum):
         :return: The corresponding acronym (the first letter of the type).
         :rtype: str
         """
-        if node_type == cls.REPEATER_CORE:
-            return "RC"
-        elif node_type == cls.REPEATER_DISTRIBUTOR:
-            return "RD"
-        elif node_type == cls.REPEATER_EDGE:
-            return "RE"
-        elif node_type == cls.REPEATER_MOBILE:
-            return "RM"
-        elif node_type == cls.ROOM_SERVER_STANDARD:
-            return "TS"
-        elif node_type == cls.ROOM_SERVER_REPEAT_ENABLED:
-            return "TR"
-        elif node_type == cls.ROOM_SERVER_MOBILE:
-            return "TM"
-        else:
-            raise ValueError(f"Unknown node type: {node_type}")
+        return node_type.abbreviation
 
     @classmethod
-    def from_name(cls, name: str) -> 'RepeaterType':
+    def from_int(cls, value: int) -> 'RepeaterType':
+        """
+        Convert an integer value to a RepeaterType enum member.
+        :param value: The integer value of the RepeaterType (e.g. 1 for REPEATER_CORE).
+        :type value: int
+        :return: The corresponding RepeaterType enum member.
+        :rtype: RepeaterType
+        """
+        for _enum in cls:
+            if _enum.value == value:
+                return _enum
+
+        raise ValueError(f"Unknown node type value: {value}")
+
+    @classmethod
+    def from_text(cls, name: str) -> 'RepeaterType':
         """
         Convert a string name to a RepeaterType enum member.
         :param name: The name of the RepeaterType (e.g. "REPEATER_CORE").
@@ -59,22 +76,12 @@ class RepeaterType(enum.Enum):
         :rtype: RepeaterType
         """
         name = name.upper()
-        if name in ["CORE", "REPEATER_CORE", "RC"]:
-            return cls.REPEATER_CORE
-        elif name in ["DISTRIBUTOR", "REPEATER_DISTRIBUTOR", "RD"]:
-            return cls.REPEATER_DISTRIBUTOR
-        elif name in ["EDGE", "REPEATER_EDGE", "RE"]:
-            return cls.REPEATER_EDGE
-        elif name in ["MOBILE", "REPEATER_MOBILE", "RM"]:
-            return cls.REPEATER_MOBILE
-        elif name in ["ROOM_STANDARD", "ROOM_SERVER_STANDARD", "TS"]:
-            return cls.ROOM_SERVER_STANDARD
-        elif name in ["ROOM_MOBILE", "ROOM_SERVER_MOBILE", "TM"]:
-            return cls.ROOM_SERVER_MOBILE
-        elif name in ["ROOM_REPEAT_ENABLED", "ROOM_SERVER_REPEAT_ENABLED", "TR"]:
-            return cls.ROOM_SERVER_REPEAT_ENABLED
-        else:
-            raise ValueError(f"Unknown RepeaterType name: {name}")
+        for _enum in cls:
+            terms = [_enum.human_readable] + _enum.keywords + [_enum.abbreviation.upper()]
+            if name in terms:
+                return _enum
+
+        raise ValueError(f"Unknown RepeaterType name: {name}")
 
     @property
     def recommended_settings(self) -> RepeaterSettings:
@@ -83,19 +90,22 @@ class RepeaterType(enum.Enum):
         :return: The recommended RepeaterSettings for this RepeaterType.
         :rtype: RepeaterSettings
         """
+        repeater_type = {
+            'repeater_type': self.value
+        }
         if self == RepeaterType.REPEATER_CORE:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **REPEATER_SETTINGS_HILLTOP})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_HILLTOP})
         elif self == RepeaterType.REPEATER_DISTRIBUTOR:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **REPEATER_SETTINGS_FOOTHILLS})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_FOOTHILLS})
         elif self == RepeaterType.REPEATER_EDGE:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **REPEATER_SETTINGS_LOCAL})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_LOCAL})
         elif self == RepeaterType.REPEATER_MOBILE:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **REPEATER_SETTINGS_MOBILE})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_MOBILE})
         elif self == RepeaterType.ROOM_SERVER_STANDARD:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **REPEATER_SETTINGS_LOCAL})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_LOCAL})
         elif self == RepeaterType.ROOM_SERVER_REPEAT_ENABLED:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **REPEATER_SETTINGS_SUBURBAN})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_SUBURBAN})
         elif self == RepeaterType.ROOM_SERVER_MOBILE:
-            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **REPEATER_SETTINGS_MOBILE})
+            return RepeaterSettings(**{**DEFAULT_REPEATER_SETTINGS, **repeater_type, **REPEATER_SETTINGS_MOBILE})
         else:
             raise ValueError(f"Unknown node type: {self.value}")

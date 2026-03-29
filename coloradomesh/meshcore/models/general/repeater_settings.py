@@ -6,6 +6,17 @@ from coloradomesh.internal import BaseModel
 from coloradomesh.meshcore.models.general.repeater_owner_information import RepeaterOwnerInformation
 
 
+def _prefix_byte_size_to_path_hash_mode(prefix_size: int) -> int:
+    if prefix_size == 1:
+        return 0
+    if prefix_size == 2:
+        return 1
+    if prefix_size == 3:
+        return 2
+
+    raise ValueError("prefix_size must be one of 1, 2, or 3")
+
+
 class RepeaterRegionSettings(BaseModel):
     all: list[str] = Field(alias="all")
     home: Optional[str] = Field(alias="home")
@@ -51,6 +62,8 @@ class RepeaterSettings(BaseModel):
         alias="prv.key", default=None)  # Private key for this repeater
     regions: Optional[RepeaterRegionSettings] = Field(alias="regions",
                                                       default=None)  # Region settings for this repeater
+    repeater_type: Optional[int] = Field(alias="repeater_type", default=None)  # Repeater type
+    prefix_size: Optional[int] = Field(alias="prefix_size", default=None)  # Prefix byte size
 
     @model_validator(mode="after")
     def validate_model(self):
@@ -60,6 +73,8 @@ class RepeaterSettings(BaseModel):
             raise ValueError("direct_txdelay must be between 0.0 and 3.0 seconds")
         if not 0.0 <= self.rxdelay <= 20.0:
             raise ValueError("rxdelay must be between 0.0 and 20.0 seconds")
+        if not self.prefix_size in [1, 2, 3]:
+            raise ValueError("prefix_size must be one of 1, 2, or 3")
 
         return self
 
@@ -151,3 +166,9 @@ class RepeaterSettings(BaseModel):
         :return:
         """
         return self.save_regions_command
+
+    @property
+    def set_path_hash_size_command(self) -> Optional[str]:
+        if self.prefix_size:
+            return f"set path.hash.size {_prefix_byte_size_to_path_hash_mode(self.prefix_size)}"
+        return None

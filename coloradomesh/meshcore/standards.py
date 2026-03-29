@@ -17,13 +17,16 @@ DEFAULT_REPEATER_SETTINGS = {
     'rxdelay': 0,
     'advert.interval': 240,
     'flood.advert.interval': 24,
-    'guest.password': ""
+    'guest.password': "",
+    'prefix_size': 2
 }
 
 REPEATER_SETTINGS_HILLTOP = {
     'txdelay': 2.0,
     'direct.txdelay': 2.0,
-    'rxdelay': 3.0
+    'rxdelay': 3.0,
+    # Core repeaters are 3-byte prefixes by default to better ensure uniqueness across multi-region/multi-state network
+    'prefix_size': 3
 }
 REPEATER_SETTINGS_FOOTHILLS = {
     'txdelay': 1.5,
