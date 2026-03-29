@@ -30,7 +30,7 @@ class RepeaterType(int, enum.Enum):
             value_str: str,
             abbreviation: str,
             keywords: list[str],
-    ) -> RepeaterType:
+    ) -> 'RepeaterType':
         obj = int.__new__(cls, value_int)
         obj._value_ = value_int
 
