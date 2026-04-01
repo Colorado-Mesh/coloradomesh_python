@@ -11,12 +11,7 @@ from coloradomesh.internal.utils import iso8601_to_unix_timestamp
 from coloradomesh.meshcore.models.general import Node, NodeType
 from coloradomesh.meshcore.models.general.node_params import NodeParams
 
-MESHMAPPER_REPEATERS_URL = "https://{region_code}.meshmapper.net/repeaters.json"  # Only repeaters in given region
-MESHMAPPER_REGIONS = [
-    "DEN",
-    "FNL",
-    "COS"
-]
+MESHMAPPER_REPEATERS_URL = "https://co.meshmapper.net/repeaters.json"  # Only repeaters in Colorado region
 MESHCORE_MAP_URL = "https://map.meshcore.dev/api/v1/nodes"  # All MeshCore devices globally
 
 _COLORADO = COLORADO
@@ -52,19 +47,16 @@ class MeshMapperNode(BaseModel):
 
 def _get_meshmapper_nodes() -> list[MeshMapperNode]:
     """
-    Fetch repeaters (not companions) from the MeshMapper API for the DEN region and return them as a list of MeshMapperNode objects.
-    :return: A list of MeshMapperNode objects representing the repeaters in the DEN region.
+    Fetch repeaters (not companions) from the MeshMapper API for the CO region and return them as a list of MeshMapperNode objects.
+    :return: A list of MeshMapperNode objects representing the repeaters in the CO region.
     :rtype: list[MeshMapperNode]
     """
-    all_nodes: list[MeshMapperNode] = []
-    for region in MESHMAPPER_REGIONS:
-        region_nodes: list[MeshMapperNode] = objectrest.get_object(  # type: ignore
-            url=MESHMAPPER_REPEATERS_URL.format(region_code=region),
-            model=MeshMapperNode,
-            extract_list=True
-        )
-        print(f"Fetching {len(region_nodes)} MeshMapper nodes from {region}")
-        all_nodes.extend(region_nodes)
+    all_nodes: list[MeshMapperNode] = objectrest.get_object(  # type: ignore
+        url=MESHMAPPER_REPEATERS_URL,
+        model=MeshMapperNode,
+        extract_list=True
+    )
+    print(f"Found {len(all_nodes)} repeaters in Colorado via MeshMapper API")
 
     return all_nodes
 
@@ -136,7 +128,8 @@ def _get_meshcore_map_nodes() -> list[MeshCoreMapNode]:
     all_nodes: list[MeshCoreMapNode] = objectrest.get_object(url=MESHCORE_MAP_URL,  # type: ignore
                                                              model=MeshCoreMapNode,
                                                              extract_list=True)
-    print(f"Filtering {len(all_nodes)} MeshCore Map nodes to find those with lat/lon inside Colorado")
+    print(
+        f"Found {len(all_nodes)} nodes from official MeshCore map, filtering to find those with lat/lon inside Colorado")
 
     # Rough filter to only nodes in Colorado + padding, to cut down on number of nodes
     # that will do exact polygon math
@@ -158,6 +151,7 @@ def _get_meshcore_map_nodes() -> list[MeshCoreMapNode]:
         node for node in prefiltered_nodes if _node_in_colorado(node=node)
     ]
 
+    print(f"Found {len(filtered_nodes)} nodes in Colorado via official MeshCore map")
     return filtered_nodes
 
 
@@ -263,6 +257,7 @@ def sync_nodes(storage_file_path: str) -> None:
     existing_nodes: list[Node] = _read_nodes_from_file(file_path=storage_file_path)
     print(f"Loaded {len(existing_nodes)} known nodes from cache")
 
+    print(f"Coalescing data...")
     new, duplicate, missing = _filter_diff_nodes(existing_nodes=existing_nodes, new_nodes=nodes)
     print(
         f"Found {len(new)} new nodes, {len(duplicate)} duplicate nodes, and {len(missing)} missing nodes compared to cache")

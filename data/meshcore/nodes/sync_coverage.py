@@ -3,7 +3,7 @@ import json
 
 import objectrest
 
-MESHMAPPER_COVERAGE_URL = "https://den.meshmapper.net/?ajax=1&request=map_data"  # Coverage in Denver region
+MESHMAPPER_COVERAGE_URL = "https://co.meshmapper.net/?ajax=1&request=map_data"  # Coverage in Denver region
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Cache MeshCore coverage in Denver.")
