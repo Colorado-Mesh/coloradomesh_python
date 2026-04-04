@@ -28,6 +28,8 @@ dependencies = [
     "pydantic>=2.12.5",
     "objectrest==2.0.*",
     "colorado-py>=0.3.2",
+    "paho-mqtt>=2.1.0",
+    "pynacl",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
