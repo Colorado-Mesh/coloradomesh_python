@@ -10,6 +10,7 @@ from coloradomesh.colorado import COLORADO
 from coloradomesh.internal.utils import iso8601_to_unix_timestamp
 from coloradomesh.meshcore.models.general import Node, NodeType
 from coloradomesh.meshcore.models.general.node_params import NodeParams
+from coloradomesh.meshcore.services.stats import determine_region_by_latitude_and_longitude
 
 MESHMAPPER_REPEATERS_URL = "https://co.meshmapper.net/repeaters.json"  # Only repeaters in Colorado region
 MESHCORE_MAP_URL = "https://map.meshcore.dev/api/v1/nodes"  # All MeshCore devices globally
@@ -42,6 +43,8 @@ class MeshMapperNode(BaseModel):
             latitude=self.lat,
             longitude=self.lon,
             params=None,
+            estimated_region_iata=determine_region_by_latitude_and_longitude(latitude=self.lat, longitude=self.lon).code
+            if (self.lat and self.lon) else None,
         )
 
 
@@ -101,6 +104,9 @@ class MeshCoreMapNode(BaseModel):
                 sf=self.params.sf,
                 bw=self.params.bw,
             ) if self.params else None,
+            estimated_region_iata=determine_region_by_latitude_and_longitude(latitude=self.adv_lat,
+                                                                        longitude=self.adv_lon).code
+            if (self.adv_lat and self.adv_lon) else None,
         )
 
 

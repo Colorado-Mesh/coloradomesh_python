@@ -30,6 +30,7 @@ dependencies = [
     "colorado-py>=0.3.2",
     "paho-mqtt>=2.1.0",
     "pynacl",
+    "geopy",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",

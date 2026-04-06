@@ -137,3 +137,17 @@ class Regions(enum.Enum):
         :rtype: list[str]
         """
         return [region.code for region in cls]
+
+    @classmethod
+    def from_code(cls, code: str) -> 'Regions':
+        """
+        Get a Regions enum member from a region code.
+        :param code: The region code to look up.
+        :return: The Regions enum member corresponding to the given code.
+        :rtype: Regions
+        :raises ValueError: If no region with the given code is found.
+        """
+        for region in cls:
+            if region.code == code.lower():
+                return region
+        raise ValueError(f"No region found with code '{code}'")

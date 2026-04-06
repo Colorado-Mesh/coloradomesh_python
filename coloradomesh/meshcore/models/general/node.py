@@ -5,6 +5,7 @@ from coloradomesh.internal.utils import timestamp_within_delta
 from coloradomesh.meshcore.models.general.node_params import NodeParams
 from coloradomesh.meshcore.models.general.node_status import NodeStatus
 from coloradomesh.meshcore.models.general.node_type import NodeType
+from coloradomesh.meshcore.models.general.region import Regions
 from coloradomesh.meshcore.utils import build_meshcore_contact_url
 
 
@@ -21,6 +22,7 @@ class Node(BaseModel):
     latitude: Optional[float] = None
     longitude: Optional[float] = None
     params: Optional[NodeParams] = None
+    estimated_region_iata: Optional[str] = None
 
     @property
     def _public_key_cleaned(self) -> str:
@@ -128,6 +130,15 @@ class Node(BaseModel):
                                           public_key=self._public_key_cleaned,
                                           node_type=self.node_type.value)
 
+    @property
+    def estimated_region(self) -> Optional[Regions]:
+        """
+        Return the estimated region of this node.
+        :return: A Region object representing the estimated region of this node, or None if it cannot be determined.
+        :rtype: Regions
+        """
+        return Regions.from_code(code=self.estimated_region_iata) if self.estimated_region_iata else None
+
     def to_hash(self) -> int:
         """
         Generate a hash value for this node
@@ -153,5 +164,6 @@ class Node(BaseModel):
             'longitude': self.longitude,
             'status': self.status.value,
             'contact': self.contact_url,
-            'params': self.params.to_json() if self.params else {}
+            'params': self.params.to_json() if self.params else {},
+            'estimated_region_iata': self.estimated_region_iata,
         }
