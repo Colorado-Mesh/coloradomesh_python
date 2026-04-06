@@ -3,6 +3,8 @@ import hashlib
 import os
 import random
 
+from typing import Optional
+
 from coloradomesh.meshcore.models.general.node import Node
 from nacl.bindings import (
     crypto_sign_PUBLICKEYBYTES,
