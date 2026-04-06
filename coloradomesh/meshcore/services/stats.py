@@ -28,7 +28,7 @@ def determine_region_by_latitude_and_longitude(latitude: Optional[float], longit
     return nearest_region
 
 
-def determine_region_for_node(node: Node) -> Optional[Region]:
+def determine_region_for_node(node: Node) -> Optional[Regions]:
     # Until we collect actual region codes from the nodes, we have to guess based on its location
     lat, long = node.latitude, node.longitude
     return determine_region_by_latitude_and_longitude(latitude=lat, longitude=long)
