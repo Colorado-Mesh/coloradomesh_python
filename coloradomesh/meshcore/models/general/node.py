@@ -6,7 +6,55 @@ from coloradomesh.meshcore.models.general.node_params import NodeParams
 from coloradomesh.meshcore.models.general.node_status import NodeStatus
 from coloradomesh.meshcore.models.general.node_type import NodeType
 from coloradomesh.meshcore.models.general.region import Regions
+from coloradomesh.meshcore.models.general.repeater_name import RepeaterName
 from coloradomesh.meshcore.utils import build_meshcore_contact_url
+
+
+class _FollowsNamingScheme:
+    """
+    Abstract base class for all node types that should adhere to the naming schema.
+    """
+
+    def __init__(self, node: Node):
+        self._node = node
+        self._name_segments: Optional[RepeaterName] = None
+
+    @property
+    def name_segments(self) -> Optional[RepeaterName]:
+        """
+        Parses the node name into the naming schema.
+        :return: A RepeaterName object representing the segments of the node name, or None if the name does not follow the naming schema.
+        """
+        if not self._name_segments:
+            try:
+                # This process isn't intense parsing (e.g. regex), but we'll cache the result still
+                self._name_segments = RepeaterName.from_name_string(name_string=self._node.name)
+            except ValueError:
+                pass
+
+        return self._name_segments
+
+    @property
+    def name_adheres_to_schema(self) -> bool:
+        """
+        Returns whether the name adheres to the naming schema.
+        :return: A boolean representing whether the name adheres to the naming schema.
+        """
+        return self.name_segments is not None  # Would be None if could not parse (invalid)
+
+
+class _SpecificNodeType(BaseModel):
+    """
+    Abstract base class for all specific node types.
+    """
+
+    def __init__(self, node: Node):
+        super().__init__()
+        self._node = node
+
+    @property
+    def name(self) -> str:
+        return self._node.name
 
 
 class Node(BaseModel):
@@ -138,6 +186,38 @@ class Node(BaseModel):
         :rtype: Regions
         """
         return Regions.from_code(code=self.estimated_region_iata) if self.estimated_region_iata else None
+
+    @property
+    def is_repeater(self) -> bool:
+        """
+        Return whether this node is a repeater.
+        :return: A boolean value representing whether this node is a repeater.
+        """
+        return self.node_type == NodeType.REPEATER
+
+    @property
+    def is_room_server(self) -> bool:
+        """
+        Return whether this node is a room server.
+        :return: A boolean value representing whether this node is a room server.
+        """
+        return self.node_type == NodeType.ROOM_SERVER
+
+    @property
+    def is_companion(self) -> bool:
+        """
+        Return whether this node is a companion.
+        :return: A boolean value representing whether this node is a companion.
+        """
+        return self.node_type == NodeType.COMPANION
+
+    @property
+    def is_sensor(self) -> bool:
+        """
+        Return whether this node is a sensor.
+        :return: A boolean value representing whether this node is a sensor.
+        """
+        return self.node_type == NodeType.SENSOR
 
     def to_hash(self) -> int:
         """

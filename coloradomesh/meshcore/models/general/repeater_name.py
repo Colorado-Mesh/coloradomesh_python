@@ -54,3 +54,39 @@ class RepeaterName(BaseModel):
                 type=suffix.upper(),
                 pub_key_id=self.public_key_id.upper()
             )
+
+    @classmethod
+    def from_name_string(cls, name_string: str) -> 'RepeaterName':
+        """
+        Attempts to create a RepeaterName object from a name string.
+        :param name_string: The name to parse.
+        :return: A RepeaterName object.
+        :raises ValueError: If the name string is invalid or does not follow the naming schema.
+        """
+        try:
+            segments: list[str] = name_string.strip().split("-")
+            assert len(segments) in [4, 5]  # Should be four or five segments, will raise if not
+
+            region_string = segments[0]
+            # Second (+ third) segment should be city + landmark, or just landmark
+            if len(segments) == 5:
+                city = segments[1]
+                landmark = segments[2]
+            else:
+                city = None
+                landmark = segments[1]
+            public_key_id = segments[-1]
+            repeater_type_string = segments[-2]
+            repeater_type: RepeaterType = RepeaterType.from_text(repeater_type_string)  # Will raise if cannot parse
+
+            return RepeaterName(  # Will raise if cannot validate
+                **dict(
+                    repeater_type=repeater_type,
+                    region=region_string,
+                    landmark=landmark,
+                    public_key_id=public_key_id,
+                    city=city
+                )
+            )
+        except:
+            raise ValueError("Invalid name string")
