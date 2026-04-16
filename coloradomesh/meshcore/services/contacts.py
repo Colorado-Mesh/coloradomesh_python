@@ -130,9 +130,9 @@ def _concat_nodes(nodes: list[Node], length: Optional[int]) -> list[Node]:
 
 
 def prepare_contacts(count: int,
-                     order: Optional[ContactsOrder],
-                     status: Optional[ContactsStatus],
-                     _type: Optional[ContactsType]) -> dict:
+                     order: Optional[ContactsOrder] = None,
+                     status: Optional[ContactsStatus] = None,
+                     _type: Optional[ContactsType] = None) -> dict:
     """
     Prepare a JSON object containing contacts in Colorado.
     """
