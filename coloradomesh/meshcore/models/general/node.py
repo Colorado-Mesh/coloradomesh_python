@@ -15,7 +15,7 @@ class _FollowsNamingScheme:
     Abstract base class for all node types that should adhere to the naming schema.
     """
 
-    def __init__(self, node: Node):
+    def __init__(self, node: 'Node'):
         self._node = node
         self._name_segments: Optional[RepeaterName] = None
 
@@ -48,7 +48,7 @@ class _SpecificNodeType(BaseModel):
     Abstract base class for all specific node types.
     """
 
-    def __init__(self, node: Node):
+    def __init__(self, node: 'Node'):
         super().__init__()
         self._node = node
 
