@@ -1,4 +1,4 @@
-name: Sync MeshCore Repeaters and Companions from MeshMapper/LetsMesh API
+name: Sync MeshCore Repeaters and Companions from online sources
 
 on:
   schedule:
