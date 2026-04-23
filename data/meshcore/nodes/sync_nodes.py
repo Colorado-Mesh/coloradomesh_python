@@ -14,6 +14,12 @@ from coloradomesh.meshcore.services.stats import determine_region_by_latitude_an
 
 MESHMAPPER_REPEATERS_URL = "https://co.meshmapper.net/repeaters.json"  # Only repeaters in Colorado region
 MESHCORE_MAP_URL = "https://map.meshcore.dev/api/v1/nodes"  # All MeshCore devices globally
+ZEVA_URLS = [
+    # Only HTTP
+    "http://dev.zevaryx.com:8080/meshcore/repeaters.json",
+    "http://dev.zevaryx.com:8080/meshcore/rooms.json",
+    "http://dev.zevaryx.com:8080/meshcore/companions.json",
+]
 
 _COLORADO = COLORADO
 
@@ -105,7 +111,7 @@ class MeshCoreMapNode(BaseModel):
                 bw=self.params.bw,
             ) if self.params else None,
             estimated_region_iata=determine_region_by_latitude_and_longitude(latitude=self.adv_lat,
-                                                                        longitude=self.adv_lon).code
+                                                                             longitude=self.adv_lon).code
             if (self.adv_lat and self.adv_lon) else None,
         )
 
@@ -161,6 +167,55 @@ def _get_meshcore_map_nodes() -> list[MeshCoreMapNode]:
     return filtered_nodes
 
 
+### Zeva-specific models for parsing API responses
+
+class ZevaNode(BaseModel):
+    type: NodeType
+    name: str
+    custom_name: Optional[str] = None
+    public_key: str
+    flags: Optional[int] = None
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
+    last_advert: float  # UNIX timestamp
+    last_modified: float  # UNIX timestamp
+    out_path: Optional[str] = None  # Probably always None
+
+    def to_node(self) -> Node:
+        return Node(
+            public_key=self.public_key,
+            name=self.name,
+            node_type=self.type,
+            created_at=0,
+            last_heard=int(self.last_advert),
+            owner=None,
+            latitude=self.latitude,
+            longitude=self.longitude,
+            params=None,
+            estimated_region_iata=determine_region_by_latitude_and_longitude(latitude=self.latitude,
+                                                                             longitude=self.longitude).code
+            if (self.latitude and self.longitude) else None,
+        )
+
+
+def _get_zeva_nodes() -> list[ZevaNode]:
+    """
+    Fetch repeaters, rooms and companions from Zeva's repository and return them as a list of ZevaNode objects.
+    :return: A list of ZevaNode objects.
+    :rtype: list[ZevaNode]
+    """
+    all_nodes: list[ZevaNode] = []
+    for url in ZEVA_URLS:
+        nodes: list[ZevaNode] = objectrest.get_object(  # type: ignore
+            url=url, model=ZevaNode, sub_keys=["contacts"], extract_list=True
+        )
+        all_nodes.extend(nodes)
+
+    print(f"Found {len(all_nodes)} nodes from Zeva's repository")
+
+    return all_nodes
+
+
 def get_colorado_nodes() -> list[Node]:
     """
     Get all nodes in Colorado.
@@ -177,11 +232,16 @@ def get_colorado_nodes() -> list[Node]:
         node.to_node() for node in meshmapper_nodes
     ]
 
+    zeva_nodes: list[ZevaNode] = _get_zeva_nodes()
+    zeva_nodes_converted: list[Node] = [
+        node.to_node() for node in zeva_nodes
+    ]
+
     # Remove duplicates by whole ID
     # Yes, it's possible two nodes, each on different maps, happen to have the same ID, but that's highly unlikely
     # Defer to the node with the more recent `last_heard` if there is a conflict
     unique_nodes_dict: dict[str, Node] = {}
-    for node in (meshcore_map_nodes_converted + meshmapper_nodes_converted):
+    for node in (meshcore_map_nodes_converted + meshmapper_nodes_converted + zeva_nodes_converted):
         node_id = node.public_key.upper()
 
         if node_id in unique_nodes_dict:
