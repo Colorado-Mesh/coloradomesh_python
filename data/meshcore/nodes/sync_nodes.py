@@ -13,7 +13,7 @@ from coloradomesh.meshcore.models.general.node_params import NodeParams
 from coloradomesh.meshcore.services.stats import determine_region_by_latitude_and_longitude
 
 MESHMAPPER_REPEATERS_URL = "https://co.meshmapper.net/repeaters.json"  # Only repeaters in Colorado region
-MESHCORE_MAP_URL = "https://map.meshcore.dev/api/v1/nodes"  # All MeshCore devices globally
+MESHCORE_MAP_URL = "https://map.meshcore.io/api/v1/nodes"  # All MeshCore devices globally
 ZEVA_URLS = [
     # Only HTTP
     "http://dev.zevaryx.com:8080/meshcore/repeaters.json",
