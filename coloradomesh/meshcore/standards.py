@@ -50,3 +50,6 @@ REPEATER_SETTINGS_MOBILE = {
 }
 
 PUBLIC_CHANNEL_KEY = "8b3387e9c5cdea6ac9e5edbaa115cd72"  # This is publicly known (docs.meshcore.io/companion_protocol/)
+COLORADOMESH_MQTT_HOST = "mqtt.meshcore.coloradomesh.org"
+COLORADOMESH_MQTT_PORT = 1883
+COLORADOMESH_MQTT_AUDIENCE = "mqtt.meshcore.coloradomesh.org"
