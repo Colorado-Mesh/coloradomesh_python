@@ -14,7 +14,7 @@ from coloradomesh.meshcore.standards import (
 
 class RepeaterType(int, enum.Enum):
     """
-    Enum representing the type of MeshCore repeater/room server node on the ColoradoMesh network.
+    Enum representing the type of MeshCore repeater/room server node on the Colorado Mesh network.
     """
     REPEATER_CORE = 1, "Repeater - Core", "RC", ["CORE", "REPEATER_CORE"]
     REPEATER_DISTRIBUTOR = 2, "Repeater - Distributor", "RD", ["DISTRIBUTOR", "REPEATER_DISTRIBUTOR"]

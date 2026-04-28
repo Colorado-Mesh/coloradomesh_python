@@ -3,7 +3,7 @@ import enum
 
 class CompanionType(enum.Enum):
     """
-    Enum representing the type of MeshCore companion node on the ColoradoMesh network.
+    Enum representing the type of MeshCore companion node on the Colorado Mesh network.
     """
     PRIMARY = "Primary"
     SECONDARY = "Secondary"

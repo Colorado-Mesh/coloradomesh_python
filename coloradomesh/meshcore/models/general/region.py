@@ -7,7 +7,7 @@ from coloradomesh.internal import BaseModel
 
 class Region(BaseModel):
     """
-    Represents a MeshCore region on the ColoradoMesh network.
+    Represents a MeshCore region on the Colorado Mesh network.
     """
 
     airport: Airports

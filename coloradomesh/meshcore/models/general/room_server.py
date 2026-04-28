@@ -4,7 +4,7 @@ from coloradomesh.meshcore.models.general.node_type import NodeType
 
 class RoomServer(_SpecificNodeType, _FollowsNamingScheme):
     """
-    Represents a MeshCore room server on the ColoradoMesh network.
+    Represents a MeshCore room server on the Colorado Mesh network.
     """
 
     def __init__(self, node: Node):

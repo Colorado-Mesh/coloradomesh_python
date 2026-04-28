@@ -5,7 +5,7 @@ from coloradomesh.internal import BaseModel
 
 class RepeaterOwnerInformation(BaseModel):
     """
-    Contains elements of the owner information for a MeshCore repeater on the ColoradoMesh network.
+    Contains elements of the owner information for a MeshCore repeater on the Colorado Mesh network.
     """
     handle: str  # Callsign or handle — your ham callsign or Discord username
     antenna_type: Optional[str]  # Antenna specs — type, gain, height above ground
@@ -16,7 +16,7 @@ class RepeaterOwnerInformation(BaseModel):
     def formatted(self) -> str:
         """
         Get the formatted owner information string based on the provided details.
-        :return: A formatted string containing the owner information for a MeshCore repeater on the ColoradoMesh network.
+        :return: A formatted string containing the owner information for a MeshCore repeater on the Colorado Mesh network.
         :rtype: str
         """
         details = [self.handle]

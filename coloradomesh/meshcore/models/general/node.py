@@ -59,7 +59,7 @@ class _SpecificNodeType(BaseModel):
 
 class Node(BaseModel):
     """
-    Represents a MeshCore node on the ColoradoMesh network.
+    Represents a MeshCore node on the Colorado Mesh network.
     """
     public_key: str
     name: str

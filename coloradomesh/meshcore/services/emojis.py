@@ -1,7 +1,7 @@
 def blacklisted_emojis() -> list[str]:
     """
-    Get a list of blacklisted emojis that should not be used in ColoradoMesh.
-    :return: A list of blacklisted emojis that should not be used in ColoradoMesh.
+    Get a list of blacklisted emojis that should not be used in Colorado Mesh.
+    :return: A list of blacklisted emojis that should not be used in Colorado Mesh.
     :rtype: list[str]
     """
     return [

@@ -12,7 +12,7 @@ from coloradomesh.meshcore.standards import COMPANION_NAMING_SCHEMA_ROLE, COMPAN
 
 class CompanionName(BaseModel):
     """
-    Contains elements of a MeshCore companion on the ColoradoMesh network.
+    Contains elements of a MeshCore companion on the Colorado Mesh network.
     """
     handle: str  # The handle of the companion device owner (should not be a real name)
     emoji: Optional[str] = None

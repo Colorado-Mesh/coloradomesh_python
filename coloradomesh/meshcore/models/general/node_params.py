@@ -5,7 +5,7 @@ from coloradomesh.internal import BaseModel
 
 class NodeParams(BaseModel):
     """
-    Represents the params of a MeshCore node on the ColoradoMesh network.
+    Represents the params of a MeshCore node on the Colorado Mesh network.
     """
     freq: Optional[float] = None
     cr: Optional[int] = None

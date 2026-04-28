@@ -183,8 +183,8 @@ def reserved_public_key_ids() -> list[str]:
     # Add 00 and FF (reserved by LetsMesh/MeshMapper)
     reserved_ids.extend(["00", "FF"])
 
-    # Add A-block (reserved by ColoradoMesh for future use), ref: https://ottawamesh.ca/deployment/repeaters-intercity/
-    reserved_ids.extend([f"A{i:01X}" for i in range(16)])
+    # Add A2-block (reserved by Colorado Mesh for future use), ref: https://ottawamesh.ca/deployment/repeaters-intercity/
+    reserved_ids.extend([f"A2"])
 
     return reserved_ids
 

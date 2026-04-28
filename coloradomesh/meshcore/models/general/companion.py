@@ -4,7 +4,7 @@ from coloradomesh.meshcore.models.general.node_type import NodeType
 
 class Companion(_SpecificNodeType):
     """
-    Represents a MeshCore companion on the ColoradoMesh network.
+    Represents a MeshCore companion on the Colorado Mesh network.
     """
 
     def __init__(self, node: Node):

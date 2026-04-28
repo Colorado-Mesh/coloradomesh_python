@@ -3,7 +3,7 @@ import enum
 
 class NodeType(enum.Enum):
     """
-    Enum representing the type of MeshCore node on the ColoradoMesh network.
+    Enum representing the type of MeshCore node on the Colorado Mesh network.
     """
     UNKNOWN = 0
     COMPANION = 1

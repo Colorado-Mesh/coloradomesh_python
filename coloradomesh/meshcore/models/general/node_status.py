@@ -3,7 +3,7 @@ import enum
 
 class NodeStatus(enum.Enum):
     """
-    Enum representing the status of a MeshCore node on the ColoradoMesh network.
+    Enum representing the status of a MeshCore node on the Colorado Mesh network.
     """
     NEW = 0
     ACTIVE = 1

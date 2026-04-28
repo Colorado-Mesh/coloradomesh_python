@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "coloradomesh"
 version = "VERSIONADDEDBYGITHUB"
-description = "A utility package for ColoradoMesh-related projects"
+description = "A utility package for Colorado Mesh-related projects"
 readme = "README.md"
 authors = [
     { name = "Nate Harris", email = "nwithan8@users.noreply.github.com" }
@@ -20,6 +20,7 @@ keywords = [
     "Denver",
     "Colorado",
     "ColoradoMesh",
+    "DenverMesh",
     "mesh",
     "Meshtastic",
     "MeshCore"

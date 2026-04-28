@@ -9,7 +9,7 @@ from coloradomesh.meshcore.standards import REPEATER_NAMING_SCHEMA_ALT, REPEATER
 
 class RepeaterName(BaseModel):
     """
-    Contains elements of a MeshCore repeater on the ColoradoMesh network.
+    Contains elements of a MeshCore repeater on the Colorado Mesh network.
     """
     repeater_type: RepeaterType
     region: str

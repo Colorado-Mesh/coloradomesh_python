@@ -1,1 +1,1 @@
-from coloradomesh.exceptions.base_exception import ColoradoMeshException
+from coloradomesh.exceptions.base_exception import Colorado MeshException

@@ -1,3 +1,3 @@
-# ColoradoMesh Python Library
+# Colorado Mesh Python Library
 
-A utility package for ColoradoMesh-related projects
+A utility package for Colorado Mesh-related projects
