@@ -14,7 +14,7 @@ readme = "README.md"
 authors = [
     { name = "Nate Harris", email = "nwithan8@users.noreply.github.com" }
 ]
-license = { text = "GNU General Public License v3 (GPLv3)" }
+license = "GPL-3.0-or-later"
 requires-python = ">=3.10, <4"
 keywords = [
     "Denver",
@@ -36,7 +36,6 @@ dependencies = [
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
