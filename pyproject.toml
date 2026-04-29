@@ -30,6 +30,7 @@ dependencies = [
     "objectrest==2.0.*",
     "colorado-py>=0.3.2",
     "paho-mqtt>=2.1.0",
+    "meshtastic-mqtt-json==3.0.0",
     "pynacl",
     "geopy",
 ]
