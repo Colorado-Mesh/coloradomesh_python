@@ -45,6 +45,7 @@ class RepeaterRegionSettings(BaseModel):
 
 
 class RepeaterSettings(BaseModel):
+    radio: Optional[str] = Field(alias="radio", default=None)  # Format: f,bw,sf,cr
     txdelay: Optional[float] = Field(
         alias="txdelay", default=None)  # Wait before retransmitting floods. Higher = defer to other nodes
     direct_txdelay: Optional[float] = Field(
@@ -81,6 +82,12 @@ class RepeaterSettings(BaseModel):
 
     def to_json(self) -> dict:
         return self.model_dump(by_alias=True)
+
+    @property
+    def set_radio_command(self) -> Optional[str]:
+        if self.radio:
+            return f"set radio {self.radio}"
+        return None
 
     @property
     def set_txdelay_command(self) -> Optional[str]:
