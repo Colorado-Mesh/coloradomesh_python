@@ -19,6 +19,7 @@ ZEVA_URLS = [
     "http://dev.zevaryx.com:8080/meshcore/repeaters.json",
     "http://dev.zevaryx.com:8080/meshcore/rooms.json",
     "http://dev.zevaryx.com:8080/meshcore/companions.json",
+    "http://dev.zevaryx.com:8080/meshcore/sensors.json",
 ]
 
 _COLORADO = COLORADO
@@ -65,6 +66,11 @@ def _get_meshmapper_nodes() -> list[MeshMapperNode]:
         model=MeshMapperNode,
         extract_list=True
     )
+    if not all_nodes:
+        # We don't want to return an empty list, that would effectively erase the previous data snapshot
+        # Instead, consider this run failed
+        raise Exception(f"Could not load nodes from MeshMapper")
+
     print(f"Found {len(all_nodes)} repeaters in Colorado via MeshMapper API")
 
     return all_nodes
@@ -140,6 +146,11 @@ def _get_meshcore_map_nodes() -> list[MeshCoreMapNode]:
     all_nodes: list[MeshCoreMapNode] = objectrest.get_object(url=MESHCORE_MAP_URL,  # type: ignore
                                                              model=MeshCoreMapNode,
                                                              extract_list=True)
+    if not all_nodes:
+        # We don't want to return an empty list, that would effectively erase the previous data snapshot
+        # Instead, consider this run failed
+        raise Exception(f"Could not load nodes from official MeshCore map")
+
     print(
         f"Found {len(all_nodes)} nodes from official MeshCore map, filtering to find those with lat/lon inside Colorado")
 
@@ -209,6 +220,11 @@ def _get_zeva_nodes() -> list[ZevaNode]:
         nodes: list[ZevaNode] = objectrest.get_object(  # type: ignore
             url=url, model=ZevaNode, sub_keys=["contacts"], extract_list=True
         )
+        if not nodes:
+            # We don't want to return an empty list, that would effectively erase the previous data snapshot
+            # Instead, consider this run failed
+            raise Exception(f"Could not load nodes from Zeva's repository at {url}")
+
         all_nodes.extend(nodes)
 
     print(f"Found {len(all_nodes)} nodes from Zeva's repository")
