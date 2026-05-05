@@ -3,22 +3,89 @@ from datetime import datetime, UTC
 from typing import Callable, Optional
 
 from meshtastic_mqtt_json import MeshtasticMQTT
+from pydantic import BaseModel, Field
 
 
 def get_logger(name: str) -> logging.Logger:
     return logging.getLogger(f"mqtt.broker.{name}")
 
 
-class MeshtasticMQTTMessage:
-    def __init__(self,
-                 data: dict,
-                 ):
-        self._data = data
-        self._decoded_payload = data.get("decoded", {}).get("payload", {})
+class MeshtasticMQTTMessage(BaseModel):
+    def __init__(self, _raw_data: dict, /, **data):
+        super().__init__(**_raw_data.get("decoded", {}).get("payload", {}))
+        self._raw_data = _raw_data
+
+    @property
+    def raw_data(self) -> dict:
+        return self._raw_data
+
+    @property
+    def decoded_data(self) -> dict:
+        return self.raw_data.get("decoded", {})
 
     @property
     def payload(self) -> dict:
-        return self._decoded_payload
+        return self.decoded_data.get("payload", {})
+
+
+class MeshtasticMQTTTextMessage(MeshtasticMQTTMessage):
+    def __init__(self, _raw_data: dict):
+        super().__init__(_raw_data)
+
+    @property
+    def text(self) -> str:
+        return self.decoded_data  # type: ignore
+
+
+class MeshtasticMQTTNodeInfoMessage(MeshtasticMQTTMessage):
+    id: Optional[str] = Field(alias="id", default=None)
+    long_name: Optional[str] = Field(alias="longName", default=None)
+    short_name: Optional[str] = Field(alias="shortName", default=None)
+    mac_address: Optional[str] = Field(alias="macaddr", default=None)
+    hardware_address: Optional[str] = Field(alias="hwModel", default=None)
+    role: Optional[str] = Field(alias="role", default=None)
+    public_key: Optional[str] = Field(alias="publicKey", default=None)
+    is_licensed: Optional[bool] = Field(alias="isLicensed", default=None)
+    is_unmessageable: Optional[bool] = Field(alias="isUnmessageable", default=None)
+
+    def __init__(self, _raw_data: dict, /, **data):
+        super().__init__(_raw_data, **data)
+
+
+class MeshtasticMQTTRoutingMessage(MeshtasticMQTTMessage):
+    error_reason: Optional[str] = Field(alias="errorReason", default=None)
+
+    def __init__(self, _raw_data: dict, /, **data):
+        super().__init__(_raw_data, **data)
+
+
+class MeshtasticMQTTPositionMessage(MeshtasticMQTTMessage):
+    latitude_i: Optional[int] = Field(alias="latitudeI", default=None)
+    longitude_i: Optional[int] = Field(alias="longitudeI", default=None)
+    altitude: Optional[int] = Field(alias="altitude", default=None)
+    time: Optional[float] = Field(alias="time", default=None)
+    location_source: Optional[str] = Field(alias="locationSource", default=None)
+    sats_in_view: Optional[int] = Field(alias="satsInView", default=None)
+    precision_bits: Optional[int] = Field(alias="precisionBits", default=None)
+
+    def __init__(self, _raw_data: dict, /, **data):
+        super().__init__(_raw_data, **data)
+
+
+class DeviceMetrics(BaseModel):
+    battery_level: Optional[int] = Field(alias="batteryLevel", default=None)
+    voltage: Optional[float] = Field(alias="voltage", default=None)
+    channel_utilization: Optional[float] = Field(alias="channelUtilization", default=None)
+    air_util_tx: Optional[float] = Field(alias="airUtilTx", default=None)
+    uptime_seconds: Optional[int] = Field(alias="uptimeSeconds", default=None)
+
+
+class MeshtasticMQTTTelemetryMessage(MeshtasticMQTTMessage):
+    time: Optional[float] = Field(alias="time", default=None)
+    device_metrics: Optional[DeviceMetrics] = Field(alias="deviceMetrics", default=None)
+
+    def __init__(self, _raw_data: dict, /, **data):
+        super().__init__(_raw_data, **data)
 
 
 class MQTTBroker:
@@ -32,26 +99,26 @@ class MQTTBroker:
                  password: str,
                  channel: str,
                  key: str,
-                 on_admin_message_callback: Optional[Callable[MeshtasticMQTTMessage]] = None,
+                 on_admin_message_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
                  on_atak_forwarder_message_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
                  on_atak_plugin_message_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
                  on_audio_message_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
                  on_detection_sensor_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
                  on_ip_tunnel_message_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
                  on_neighbor_info_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
-                 on_node_info_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
+                 on_node_info_callback: Optional[Callable[[MeshtasticMQTTNodeInfoMessage], None]] = None,
                  on_people_count_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
-                 on_position_callback: Callable[[MeshtasticMQTTMessage], None] = None,
+                 on_position_callback: Callable[[MeshtasticMQTTPositionMessage], None] = None,
                  on_private_message_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
                  on_range_test_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
                  on_remote_hardware_control_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
                  on_reply_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
-                 on_routing_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
+                 on_routing_callback: Optional[Callable[[MeshtasticMQTTRoutingMessage], None]] = None,
                  on_serial_communication_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
                  on_simulator_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
                  on_store_and_forward_message_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
-                 on_telemetry_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
-                 on_text_message_callback: Callable[[MeshtasticMQTTMessage], None] = None,
+                 on_telemetry_callback: Optional[Callable[[MeshtasticMQTTTelemetryMessage], None]] = None,
+                 on_text_message_callback: Callable[[MeshtasticMQTTTextMessage], None] = None,
                  on_compressed_text_message_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
                  on_traceroute_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
                  on_waypoint_callback: Optional[Callable[[MeshtasticMQTTMessage], None]] = None,
@@ -136,7 +203,7 @@ class MQTTBroker:
         self._reauth_task = None
         self._heartbeat_task = None
 
-        self._client: MeshtasticMQTT = None
+        self._client: MeshtasticMQTT = None  # type: ignore
 
     def _prepare_client(self) -> MeshtasticMQTT:
         client = MeshtasticMQTT()
@@ -170,99 +237,99 @@ class MQTTBroker:
 
     def _on_admin_message(self, json_data):
         if self._on_admin_message_callback:
-            self._on_admin_message_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_admin_message_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_atak_forwarder_message(self, json_data):
         if self._on_atak_forwarder_message_callback:
-            self._on_atak_forwarder_message_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_atak_forwarder_message_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_atak_plugin_message(self, json_data):
         if self._on_atak_plugin_message_callback:
-            self._on_atak_plugin_message_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_atak_plugin_message_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_audio_message(self, json_data):
         if self._on_audio_message_callback:
-            self._on_audio_message_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_audio_message_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_detection_sensor(self, json_data):
         if self._on_detection_sensor_callback:
-            self._on_detection_sensor_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_detection_sensor_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_ip_tunnel_message(self, json_data):
         if self._on_ip_tunnel_message_callback:
-            self._on_ip_tunnel_message_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_ip_tunnel_message_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_neighbor_info(self, json_data):
         if self._on_neighbor_info_callback:
-            self._on_neighbor_info_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_neighbor_info_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_node_info(self, json_data):
         if self._on_node_info_callback:
-            self._on_node_info_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_node_info_callback(MeshtasticMQTTNodeInfoMessage(json_data, **json_data))
 
     def _on_people_count(self, json_data):
         if self._on_people_count_callback:
-            self._on_people_count_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_people_count_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_position(self, json_data):
         if self._on_position_callback:
-            self._on_position_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_position_callback(MeshtasticMQTTPositionMessage(json_data, **json_data))
 
     def _on_private_message(self, json_data):
         if self._on_private_message_callback:
-            self._on_private_message_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_private_message_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_range_test(self, json_data):
         if self._on_range_test_callback:
-            self._on_range_test_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_range_test_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_remote_hardware_control(self, json_data):
         if self._on_remote_hardware_control_callback:
-            self._on_remote_hardware_control_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_remote_hardware_control_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_reply(self, json_data):
         if self._on_reply_callback:
-            self._on_reply_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_reply_callback(MeshtasticMQTTTextMessage(json_data))
 
     def _on_routing(self, json_data):
         if self._on_routing_callback:
-            self._on_routing_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_routing_callback(MeshtasticMQTTRoutingMessage(json_data, **json_data))
 
     def _on_serial_communication(self, json_data):
         if self._on_serial_communication_callback:
-            self._on_serial_communication_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_serial_communication_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_simulator(self, json_data):
         if self._on_simulator_callback:
-            self._on_simulator_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_simulator_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_store_and_forward_message(self, json_data):
         if self._on_store_and_forward_message_callback:
-            self._on_store_and_forward_message_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_store_and_forward_message_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_telemetry(self, json_data):
         if self._on_telemetry_callback:
-            self._on_telemetry_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_telemetry_callback(MeshtasticMQTTTelemetryMessage(json_data, **json_data))
 
     def _on_text_message(self, json_data):
         if self._on_text_message_callback:
-            self._on_text_message_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_text_message_callback(MeshtasticMQTTTextMessage(json_data))
 
     def _on_compressed_text_message(self, json_data):
         if self._on_compressed_text_message_callback:
-            self._on_compressed_text_message_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_compressed_text_message_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_traceroute(self, json_data):
         if self._on_traceroute_callback:
-            self._on_traceroute_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_traceroute_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_waypoint(self, json_data):
         if self._on_waypoint_callback:
-            self._on_waypoint_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_waypoint_callback(MeshtasticMQTTMessage(json_data))
 
     def _on_zone_position_system(self, json_data):
         if self._on_zone_position_system_callback:
-            self._on_zone_position_system_callback(MeshtasticMQTTMessage(data=json_data))
+            self._on_zone_position_system_callback(MeshtasticMQTTMessage(json_data))
 
     def connect_forever(self):
         self._client = self._prepare_client()
