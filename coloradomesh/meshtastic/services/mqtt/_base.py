@@ -27,6 +27,14 @@ class MeshtasticMQTTMessage(BaseModel):
     def payload(self) -> dict:
         return self.decoded_data.get("payload", {})
 
+    @property
+    def from_id(self) -> Optional[int]:
+        return self.raw_data.get("from", None)
+
+    @property
+    def to_id(self) -> Optional[int]:
+        return self.raw_data.get("to", None)
+
 
 class MeshtasticMQTTTextMessage(MeshtasticMQTTMessage):
     def __init__(self, _raw_data: dict):
