@@ -12,7 +12,10 @@ def get_logger(name: str) -> logging.Logger:
 
 class MeshtasticMQTTMessage(BaseModel):
     def __init__(self, _raw_data: dict, /, **data):
-        super().__init__(**_raw_data.get("decoded", {}).get("payload", {}))
+        values = _raw_data.get("decoded", {}).get("payload", {})
+        if isinstance(values, str):  # In a Text Message (and others?), it's just a raw string, not a dict
+            values = {}
+        super().__init__(**values)
         self._raw_data = _raw_data
 
     @property
@@ -42,7 +45,7 @@ class MeshtasticMQTTTextMessage(MeshtasticMQTTMessage):
 
     @property
     def text(self) -> str:
-        return self.decoded_data  # type: ignore
+        return self.payload  # type: ignore
 
 
 class MeshtasticMQTTNodeInfoMessage(MeshtasticMQTTMessage):
