@@ -6,7 +6,7 @@ import objectrest
 MESHMAPPER_COVERAGE_URL = "https://co.meshmapper.net/?ajax=1&request=map_data"  # Coverage in Denver region
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Cache MeshCore coverage in Denver.")
+    parser = argparse.ArgumentParser(description="Cache MeshCore coverage in Colorado.")
     parser.add_argument(
         "--coverage-data-file",
         type=str,

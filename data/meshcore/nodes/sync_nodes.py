@@ -443,7 +443,7 @@ def sync_nodes(storage_file_path: str) -> None:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Cache MeshCore devices in Denver.")
+    parser = argparse.ArgumentParser(description="Cache MeshCore devices in Colorado.")
     parser.add_argument(
         "--nodes-data-file",
         type=str,
