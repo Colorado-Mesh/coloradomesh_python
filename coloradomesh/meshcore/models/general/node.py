@@ -71,6 +71,7 @@ class Node(BaseModel):
     longitude: Optional[float] = None
     params: Optional[NodeParams] = None
     estimated_region_iata: Optional[str] = None
+    hash_size: Optional[int] = None
 
     @property
     def _public_key_cleaned(self) -> str:
@@ -246,4 +247,5 @@ class Node(BaseModel):
             'contact': self.contact_url,
             'params': self.params.to_json() if self.params else {},
             'estimated_region_iata': self.estimated_region_iata,
+            "hash_size": self.hash_size,
         }

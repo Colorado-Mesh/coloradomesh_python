@@ -21,6 +21,7 @@ ZEVA_URLS = [
     "http://dev.zevaryx.com:8080/meshcore/companions.json",
     "http://dev.zevaryx.com:8080/meshcore/sensors.json",
 ]
+CM_CORESCOPE_NODES_URL = "https://analyzer.meshcore.coloradomesh.org/api/nodes?limit=100000"  # God help us if we ever get more than 100,000 nodes in Colorado (this would break 2-byte)
 
 _COLORADO = COLORADO
 
@@ -50,6 +51,7 @@ class MeshMapperNode(BaseModel):
             latitude=self.lat,
             longitude=self.lon,
             params=None,
+            hash_size=None,
             estimated_region_iata=determine_region_by_latitude_and_longitude(latitude=self.lat, longitude=self.lon).code
             if (self.lat and self.lon) else None,
         )
@@ -116,6 +118,7 @@ class MeshCoreMapNode(BaseModel):
                 sf=self.params.sf,
                 bw=self.params.bw,
             ) if self.params else None,
+            hash_size=None,
             estimated_region_iata=determine_region_by_latitude_and_longitude(latitude=self.adv_lat,
                                                                              longitude=self.adv_lon).code
             if (self.adv_lat and self.adv_lon) else None,
@@ -203,6 +206,7 @@ class ZevaNode(BaseModel):
             latitude=self.latitude,
             longitude=self.longitude,
             params=None,
+            hash_size=None,
             estimated_region_iata=determine_region_by_latitude_and_longitude(latitude=self.latitude,
                                                                              longitude=self.longitude).code
             if (self.latitude and self.longitude) else None,
@@ -232,6 +236,80 @@ def _get_zeva_nodes() -> list[ZevaNode]:
     return all_nodes
 
 
+### CoreScope-specific models for parsing API responses
+
+class CoreScopeNode(BaseModel):
+    name: str
+    public_key: str
+    role: str
+    first_seen: str
+    last_heard: Optional[str] = None
+    last_seen: Optional[str] = None
+    lat: Optional[float] = None
+    lon: Optional[float] = None
+    foreign: Optional[bool] = None
+    advert_count: int
+    hash_size: int
+    hash_size_inconsistent: bool
+    multi_byte_evidence: Optional[str] = None
+    multi_byte_max_hash_size: Optional[int] = None
+    multi_byte_status: Optional[str] = None
+    battery_mv: Optional[float] = None
+    temperature_c: Optional[float] = None
+
+    @property
+    def node_type(self) -> NodeType:
+        if self.role == "repeater":
+            return NodeType.REPEATER
+        elif self.role == "room":
+            return NodeType.ROOM_SERVER
+        elif self.role == "companion":
+            return NodeType.COMPANION
+        elif self.role == "sensor":
+            return NodeType.SENSOR
+
+        raise Exception(f"Unknown node type: {self.role}")
+
+    def to_node(self) -> Node:
+        return Node(
+            public_key=self.public_key,
+            name=self.name,
+            node_type=self.node_type,
+            created_at=iso8601_to_unix_timestamp(self.first_seen),
+            last_heard=iso8601_to_unix_timestamp(self.last_seen),
+            # last_seen and last_heard seem to often be in parallel
+            owner=None,
+            latitude=self.lat,
+            longitude=self.lon,
+            hash_size=self.hash_size,
+            params=None,
+            estimated_region_iata=determine_region_by_latitude_and_longitude(latitude=self.lat,
+                                                                             longitude=self.lon).code
+            if (self.lat and self.lon) else None,
+        )
+
+
+def _get_corescope_nodes() -> list[CoreScopeNode]:
+    """
+    Fetch repeaters, rooms and companions from Colorado Mesh's CoreScope instance and return them as a list of CoreScope Node objects.
+    :return: A list of CoreScopeNode objects.
+    :rtype: list[CoreScopeNode]
+    """
+    all_nodes: list[CoreScopeNode] = objectrest.get_object(  # type: ignore
+        url=CM_CORESCOPE_NODES_URL,
+        model=CoreScopeNode,
+        extract_list=True
+    )
+    if not all_nodes:
+        # We don't want to return an empty list, that would effectively erase the previous data snapshot
+        # Instead, consider this run failed
+        raise Exception(f"Could not load nodes from Colorado Mesh's CoreScope instance")
+
+    print(f"Found {len(all_nodes)} nodes in Colorado via Colorado Mesh's CoreScope instance")
+
+    return all_nodes
+
+
 def get_colorado_nodes() -> list[Node]:
     """
     Get all nodes in Colorado.
@@ -253,11 +331,21 @@ def get_colorado_nodes() -> list[Node]:
         node.to_node() for node in zeva_nodes
     ]
 
+    corescope_nodes: list[CoreScopeNode] = _get_corescope_nodes()
+    corescope_nodes_converted: list[Node] = [
+        node.to_node() for node in corescope_nodes
+    ]
+
     # Remove duplicates by whole ID
     # Yes, it's possible two nodes, each on different maps, happen to have the same ID, but that's highly unlikely
     # Defer to the node with the more recent `last_heard` if there is a conflict
     unique_nodes_dict: dict[str, Node] = {}
-    for node in (meshcore_map_nodes_converted + meshmapper_nodes_converted + zeva_nodes_converted):
+    for node in (
+            meshcore_map_nodes_converted +
+            meshmapper_nodes_converted +
+            zeva_nodes_converted +
+            corescope_nodes_converted
+    ):
         node_id = node.public_key.upper()
 
         if node_id in unique_nodes_dict:
