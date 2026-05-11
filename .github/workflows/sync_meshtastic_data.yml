@@ -41,10 +41,6 @@ jobs:
         run: python data/meshtastic/nodes/sync_nodes.py
           --nodes-data-file data/meshtastic/nodes/nodes.json
 
-      - name: Run Python script to update Meshtastic coverage data
-        run: python data/meshtastic/nodes/sync_coverage.py
-          --coverage-data-file data/meshtastic/nodes/coverage.json
-
       - name: Commit data files if modified
         uses: EndBug/add-and-commit@v9
         with:

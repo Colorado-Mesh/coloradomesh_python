@@ -249,7 +249,7 @@ class CoreScopeNode(BaseModel):
     lon: Optional[float] = None
     foreign: Optional[bool] = None
     advert_count: int
-    hash_size: int
+    hash_size: Optional[int] = None
     hash_size_inconsistent: bool
     multi_byte_evidence: Optional[str] = None
     multi_byte_max_hash_size: Optional[int] = None
@@ -298,7 +298,8 @@ def _get_corescope_nodes() -> list[CoreScopeNode]:
     all_nodes: list[CoreScopeNode] = objectrest.get_object(  # type: ignore
         url=CM_CORESCOPE_NODES_URL,
         model=CoreScopeNode,
-        extract_list=True
+        extract_list=True,
+        sub_keys=["nodes"]
     )
     if not all_nodes:
         # We don't want to return an empty list, that would effectively erase the previous data snapshot
