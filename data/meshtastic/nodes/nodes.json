@@ -165,6 +165,17 @@
     "hardware_model": "RAK4631"
   },
   {
+    "id": 1089810238,
+    "long_name": "doikayt 📍",
+    "short_name": "📍",
+    "role": 0,
+    "latitude": 39.6230656,
+    "longitude": -104.7396352,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "SEEED_SOLAR_NODE"
+  },
+  {
     "id": 1127943848,
     "long_name": "www.slovakia.travel 🇸🇰",
     "short_name": "👾",
@@ -292,7 +303,7 @@
     "role": 0,
     "latitude": 39.3609216,
     "longitude": -104.792064,
-    "altitude": 1999.0,
+    "altitude": 2000.0,
     "precision": 14,
     "hardware_model": "T_DECK"
   },
@@ -407,6 +418,17 @@
     "hardware_model": "HELTEC_V4"
   },
   {
+    "id": 1787331565,
+    "long_name": "TR Solar 2 Sand Creek ",
+    "short_name": "TRS2",
+    "role": 12,
+    "latitude": 38.8759552,
+    "longitude": -104.6740992,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
+  },
+  {
     "id": 1790273798,
     "long_name": "Styxking Alt",
     "short_name": "D11B",
@@ -504,6 +526,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_WIRELESS_TRACKER"
+  },
+  {
+    "id": 2265604431,
+    "long_name": "KODHY",
+    "short_name": "614f",
+    "role": 0,
+    "latitude": 38.9808128,
+    "longitude": -104.5692416,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
   {
     "id": 2353726391,
@@ -633,6 +666,17 @@
     "role": 11,
     "latitude": 39.56736,
     "longitude": -104.8150016,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "STATION_G2"
+  },
+  {
+    "id": 2732920220,
+    "long_name": "Hack the Planet",
+    "short_name": "hack",
+    "role": 0,
+    "latitude": 39.9245312,
+    "longitude": -105.0411008,
     "altitude": null,
     "precision": null,
     "hardware_model": "STATION_G2"
@@ -979,17 +1023,6 @@
     "hardware_model": "HELTEC_MESH_POCKET"
   },
   {
-    "id": 4184678250,
-    "long_name": "BASLAB",
-    "short_name": "117",
-    "role": 0,
-    "latitude": 39.4919936,
-    "longitude": -104.5823488,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_MESH_NODE_T114"
-  },
-  {
     "id": 4254355360,
     "long_name": "DoubleCSolar1",
     "short_name": "DCS1",
@@ -1214,8 +1247,8 @@
     "long_name": "Trail Leader Alpha. coloradomesh.org",
     "short_name": "Alph",
     "role": 0,
-    "latitude": 39.0791168,
-    "longitude": -108.5472768,
+    "latitude": 39.0823936,
+    "longitude": -108.544,
     "altitude": null,
     "precision": null,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
@@ -1384,6 +1417,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 4184678250,
+    "long_name": "BASLAB",
+    "short_name": "117",
+    "role": 0,
+    "latitude": 39.4919936,
+    "longitude": -104.5823488,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_MESH_NODE_T114"
   },
   {
     "id": 4123806943,
@@ -1681,17 +1725,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "PORTDUINO"
-  },
-  {
-    "id": 2265604431,
-    "long_name": "KODHY",
-    "short_name": "614f",
-    "role": 0,
-    "latitude": 38.9808128,
-    "longitude": -104.5692416,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
   {
     "id": 49112008,
@@ -3663,17 +3696,6 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 1787331565,
-    "long_name": "TR Solar 2 Sand Creek ",
-    "short_name": "TRS2",
-    "role": 12,
-    "latitude": 38.8759552,
-    "longitude": -104.6740992,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
     "id": 2086328336,
     "long_name": "Tactical Satellite 🎖️",
     "short_name": "TSXO",
@@ -3749,17 +3771,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
-  },
-  {
-    "id": 368733905,
-    "long_name": "Woodbury Base",
-    "short_name": "WDBY",
-    "role": 0,
-    "latitude": 39.7672448,
-    "longitude": -105.0411008,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "SEEED_SOLAR_NODE"
   },
   {
     "id": 1136102832,
@@ -4021,6 +4032,17 @@
     "role": 0,
     "latitude": 40.1866752,
     "longitude": -105.1459584,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V4"
+  },
+  {
+    "id": 1771877300,
+    "long_name": "Meshtastic b3b4",
+    "short_name": "b3b4",
+    "role": 12,
+    "latitude": null,
+    "longitude": null,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V4"
@@ -4431,17 +4453,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
-  },
-  {
-    "id": 2732920220,
-    "long_name": "Hack the Planet",
-    "short_name": "hack",
-    "role": 0,
-    "latitude": 39.9245312,
-    "longitude": -105.0411008,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "STATION_G2"
   },
   {
     "id": 1744623787,
@@ -4882,17 +4893,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "T_DECK"
-  },
-  {
-    "id": 1089810238,
-    "long_name": "doikayt 📍",
-    "short_name": "📍",
-    "role": 0,
-    "latitude": 39.6230656,
-    "longitude": -104.7396352,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "SEEED_SOLAR_NODE"
   },
   {
     "id": 561276755,
