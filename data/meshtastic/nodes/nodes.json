@@ -292,7 +292,7 @@
     "role": 0,
     "latitude": 39.3609216,
     "longitude": -104.792064,
-    "altitude": 2006.0,
+    "altitude": 1999.0,
     "precision": 14,
     "hardware_model": "T_DECK"
   },
@@ -301,8 +301,8 @@
     "long_name": "GRACELAND",
     "short_name": "👀",
     "role": 0,
-    "latitude": 39.6623872,
-    "longitude": -104.7789568,
+    "latitude": 39.7672448,
+    "longitude": -105.0411008,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_MESH_NODE_T114"
@@ -638,17 +638,6 @@
     "hardware_model": "STATION_G2"
   },
   {
-    "id": 2732920220,
-    "long_name": "Hack the Planet",
-    "short_name": "hack",
-    "role": 0,
-    "latitude": 39.9245312,
-    "longitude": -105.0411008,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "STATION_G2"
-  },
-  {
     "id": 2755351614,
     "long_name": "Meshtastic 543e",
     "short_name": "543e",
@@ -759,17 +748,6 @@
     "hardware_model": "HELTEC_MESH_NODE_T114"
   },
   {
-    "id": 3096310768,
-    "long_name": "Briargate",
-    "short_name": "BRGT",
-    "role": 0,
-    "latitude": 38.9808128,
-    "longitude": -104.7789568,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "SEEED_WIO_TRACKER_L1"
-  },
-  {
     "id": 3121392604,
     "long_name": "Meshtastic abdc",
     "short_name": "abdc",
@@ -856,17 +834,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V4"
-  },
-  {
-    "id": 3679570872,
-    "long_name": "Meshtastic cbb8",
-    "short_name": "cbb8",
-    "role": 0,
-    "latitude": 38.8235264,
-    "longitude": -104.7789568,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V3"
   },
   {
     "id": 3679574676,
@@ -1122,6 +1089,17 @@
     "hardware_model": "unknown(120)"
   },
   {
+    "id": 661927184,
+    "long_name": "Delta MeshTag 1",
+    "short_name": "3510",
+    "role": 0,
+    "latitude": 39.616512,
+    "longitude": -104.759296,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "TRACKER_T1000_E"
+  },
+  {
     "id": 67163036,
     "long_name": "BroncosCountry",
     "short_name": "d39c",
@@ -1139,7 +1117,7 @@
     "role": 0,
     "latitude": 40.501248,
     "longitude": -105.0411008,
-    "altitude": 1508.0,
+    "altitude": 1507.0,
     "precision": 13,
     "hardware_model": "HELTEC_V3"
   },
@@ -1595,15 +1573,15 @@
     "hardware_model": "HELTEC_V3"
   },
   {
-    "id": 661927184,
-    "long_name": "Delta MeshTag 1",
-    "short_name": "3510",
+    "id": 67646992,
+    "long_name": "KStnd1",
+    "short_name": "3610",
     "role": 0,
-    "latitude": 39.616512,
-    "longitude": -104.759296,
+    "latitude": null,
+    "longitude": null,
     "altitude": null,
     "precision": null,
-    "hardware_model": "TRACKER_T1000_E"
+    "hardware_model": "HELTEC_V3"
   },
   {
     "id": 84687104,
@@ -2297,6 +2275,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 3096310768,
+    "long_name": "Briargate",
+    "short_name": "BRGT",
+    "role": 0,
+    "latitude": 38.9808128,
+    "longitude": -104.7789568,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
   {
     "id": 2234730992,
@@ -4180,6 +4169,17 @@
     "hardware_model": "HELTEC_MESH_POCKET"
   },
   {
+    "id": 3679570872,
+    "long_name": "Meshtastic cbb8",
+    "short_name": "cbb8",
+    "role": 0,
+    "latitude": 38.8235264,
+    "longitude": -104.7789568,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V3"
+  },
+  {
     "id": 3073705090,
     "long_name": "Cherry Creek Tower2",
     "short_name": "cct",
@@ -4356,6 +4356,17 @@
     "hardware_model": "HELTEC_V3"
   },
   {
+    "id": 2956851120,
+    "long_name": "Meshtastic f7b0",
+    "short_name": "f7b0",
+    "role": 0,
+    "latitude": null,
+    "longitude": null,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V3"
+  },
+  {
     "id": 2975725684,
     "long_name": "Meshtastic f874",
     "short_name": "f874",
@@ -4420,6 +4431,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 2732920220,
+    "long_name": "Hack the Planet",
+    "short_name": "hack",
+    "role": 0,
+    "latitude": 39.9245312,
+    "longitude": -105.0411008,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "STATION_G2"
   },
   {
     "id": 1744623787,
