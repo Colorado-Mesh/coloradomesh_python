@@ -28,7 +28,7 @@ keywords = [
 dependencies = [
     "pydantic>=2.12.5",
     "objectrest==2.1.*",
-    "colorado-py>=0.3.2",
+    "colorado-py>=0.4.4",
     "corescope==0.*",
     "paho-mqtt>=2.1.0",
     "meshtastic-mqtt-json==3.0.0",
