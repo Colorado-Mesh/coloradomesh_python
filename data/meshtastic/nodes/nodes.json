@@ -39,7 +39,7 @@
     "role": 12,
     "latitude": 39.7541376,
     "longitude": -105.0017792,
-    "altitude": 1891.0,
+    "altitude": 1640.0,
     "precision": 14,
     "hardware_model": null
   },
@@ -127,7 +127,7 @@
     "role": 0,
     "latitude": 39.3609216,
     "longitude": -104.792064,
-    "altitude": 2000.0,
+    "altitude": 2006.0,
     "precision": 14,
     "hardware_model": "T_DECK"
   },
@@ -215,7 +215,7 @@
     "role": 0,
     "latitude": 39.6230656,
     "longitude": -105.316352,
-    "altitude": 2133.0,
+    "altitude": 2056.0,
     "precision": 14,
     "hardware_model": "STATION_G2"
   },
@@ -308,6 +308,17 @@
     "hardware_model": "HELTEC_V3"
   },
   {
+    "id": 1236621304,
+    "long_name": "GlacierPark",
+    "short_name": "57f8",
+    "role": 0,
+    "latitude": 39.583744,
+    "longitude": -105.119744,
+    "altitude": 1754.0,
+    "precision": 12,
+    "hardware_model": "HELTEC_V4"
+  },
+  {
     "id": 1236699452,
     "long_name": "SpringGulchBase",
     "short_name": "SGBS",
@@ -347,7 +358,7 @@
     "role": 0,
     "latitude": 39.3609216,
     "longitude": -104.792064,
-    "altitude": 2000.0,
+    "altitude": 2005.0,
     "precision": 14,
     "hardware_model": "T_DECK"
   },
@@ -440,17 +451,6 @@
     "hardware_model": "HELTEC_V4"
   },
   {
-    "id": 1771835068,
-    "long_name": "RS Mobile 1",
-    "short_name": "RSm1",
-    "role": 0,
-    "latitude": 40.5929984,
-    "longitude": -105.0017792,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V4"
-  },
-  {
     "id": 181097536,
     "long_name": "StormMountain",
     "short_name": "SMTN",
@@ -523,7 +523,7 @@
     "role": 0,
     "latitude": 40.4881408,
     "longitude": -105.054208,
-    "altitude": 1506.0,
+    "altitude": 1507.0,
     "precision": 14,
     "hardware_model": "RAK4631"
   },
@@ -543,8 +543,8 @@
     "long_name": "PanzerFaust",
     "short_name": "Pnzr",
     "role": 0,
-    "latitude": 40.2849792,
-    "longitude": -104.7724032,
+    "latitude": 39.6427264,
+    "longitude": -107.0006272,
     "altitude": null,
     "precision": null,
     "hardware_model": "T_ECHO"
@@ -1463,17 +1463,6 @@
     "hardware_model": "HELTEC_V3"
   },
   {
-    "id": 1128145204,
-    "long_name": "Meshtastic 2134",
-    "short_name": "2134",
-    "role": 0,
-    "latitude": 39.9245312,
-    "longitude": -105.0411008,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V3"
-  },
-  {
     "id": 2058953660,
     "long_name": "Tkr1",
     "short_name": "23bc",
@@ -1650,6 +1639,17 @@
     "hardware_model": "T_ECHO"
   },
   {
+    "id": 2661313912,
+    "long_name": "Meshtastic 6d78",
+    "short_name": "6d78",
+    "role": 0,
+    "latitude": null,
+    "longitude": null,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V3"
+  },
+  {
     "id": 397569465,
     "long_name": "Meshtastic 6db9",
     "short_name": "6db9",
@@ -1813,17 +1813,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK3312"
-  },
-  {
-    "id": 837061980,
-    "long_name": "Meshtastic 8d5c (solar)",
-    "short_name": "8d5c",
-    "role": 0,
-    "latitude": null,
-    "longitude": null,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
   },
   {
     "id": 2665975752,
@@ -3144,6 +3133,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "SEEED_SOLAR_NODE"
+  },
+  {
+    "id": 1771835068,
+    "long_name": "RS Mobile 1",
+    "short_name": "RSm1",
+    "role": 0,
+    "latitude": 41.0386432,
+    "longitude": -104.8969216,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V4"
   },
   {
     "id": 1952460069,
