@@ -22,6 +22,26 @@ def now_delta(days: int = 0, hours: int = 0, minutes: int = 0) -> datetime:
     return datetime.now() + timedelta(days=days, hours=hours, minutes=minutes)
 
 
+def datetime_within_delta(_datetime: datetime, days: int = 0, hours: int = 0, minutes: int = 0) -> bool:
+    """
+    Check if a given datetime is within a specified delta from the current time.
+    :param _datetime: The datetime to check.
+    :param days: The number of days for the delta.
+    :param hours: The number of hours for the delta.
+    :param minutes: The number of minutes for the delta.
+    :return: True if the datetime is within the specified delta from now, False otherwise.
+    """
+    if not _datetime:
+        return False
+
+    now_time = datetime.now()
+    delta = timedelta(days=days, hours=hours, minutes=minutes)
+    if _datetime > now_time:  # Dealing with positive deltas (future timestamps)
+        return _datetime - now_time <= delta
+    else:
+        return now_time - _datetime <= delta
+
+
 def timestamp_within_delta(timestamp: int, days: int = 0, hours: int = 0, minutes: int = 0) -> bool:
     """
     Check if a given timestamp is within a specified delta from the current time.
@@ -35,12 +55,20 @@ def timestamp_within_delta(timestamp: int, days: int = 0, hours: int = 0, minute
         return False
 
     target_time = datetime.fromtimestamp(timestamp)
-    now_time = datetime.now()
-    delta = timedelta(days=days, hours=hours, minutes=minutes)
-    if target_time > now_time:  # Dealing with positive deltas (future timestamps)
-        return target_time - now_time <= delta
-    else:
-        return now_time - target_time <= delta
+    return datetime_within_delta(_datetime=target_time, days=days, hours=hours, minutes=minutes)
+
+
+def delta_datetime_to_now(_datetime: datetime) -> timedelta:
+    """
+    Calculate the timedelta between a given datetime and the current time.
+    :param _datetime: The datetime to compare with the current time.
+    :return: The timedelta between the given datetime and now.
+    """
+    if not _datetime:
+        return timedelta(0)
+
+    now_time = now()
+    return now_time - _datetime
 
 
 def iso8601_to_unix_timestamp(iso_str: str) -> int:
@@ -79,6 +107,7 @@ def epoch_to_datetime(epoch_time: int) -> str:
         return dt.strftime("%Y-%m-%d %H:%M:%S")
     except (ValueError, TypeError):
         return "Invalid date"
+
 
 def generate_password(token_size: int = 8) -> str:
     """Generate a random password."""
