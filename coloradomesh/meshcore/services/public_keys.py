@@ -2,8 +2,9 @@ import binascii
 import hashlib
 import os
 import random
+from nacl.bindings import crypto_scalarmult_ed25519_base_noclamp
 
-from typing import Optional
+from typing import Optional, Union
 
 from coloradomesh.meshcore.models.general.node import Node
 from nacl.bindings import (
@@ -201,6 +202,61 @@ def find_free_public_key_id(existing_nodes: list[Node]) -> str:
     """
     # Iterate through all possible public key IDs and return the first one that is not in use
     return _find_unused_public_key_id_by_four_chars(nodes=existing_nodes)
+
+
+def derive_public_key_from_private_key(private_key: Union[str, bytes]) -> bytes:
+    """
+    Derive the 32-byte Ed25519 public key from an ORLP-format private key.
+
+    ORLP format here means the "expanded" secret scalar (32 bytes) optionally
+    followed by the 32-byte nonce/random suffix (total 64 bytes). This function
+    accepts either:
+      - a bytes object of length 32 (expanded scalar) or 64 (expanded_scalar || suffix)
+      - a hex string (64 hex chars for 32 bytes, or 128 hex chars for 64 bytes)
+
+    Returns:
+      - uppercase hex string (64 hex chars) if `as_hex=True` (default)
+      - raw bytes (32 bytes) if `as_hex=False`
+
+    Raises:
+      - ValueError if input is not the right length or not valid hex when string provided
+      - RuntimeError if the required scalar->public basepoint multiplication is not available
+    """
+    # Normalize input to bytes
+    if isinstance(private_key, str):
+        # Allow optional 0x prefix and whitespace
+        hex_str = private_key.strip()
+        if hex_str.startswith("0x") or hex_str.startswith("0X"):
+            hex_str = hex_str[2:]
+        try:
+            private_key_bytes = binascii.unhexlify(hex_str)
+        except (binascii.Error, TypeError) as e:
+            raise ValueError("Invalid hex for ORLP private key") from e
+    elif isinstance(private_key, (bytes, bytearray)):
+        private_key_bytes = bytes(private_key)
+    else:
+        raise ValueError("orlp_private_key must be bytes or hex string")
+
+    if len(private_key_bytes) == 64:
+        expanded_scalar = private_key_bytes[:32]
+    elif len(private_key_bytes) == 32:
+        expanded_scalar = private_key_bytes
+    else:
+        raise ValueError("ORLP private key must be 32 or 64 bytes (or 64/128 hex chars)")
+
+    # crypto_scalarmult_ed25519_base_noclamp computes scalar * basepoint and
+    # returns the public key ( encoded ) for the clamped scalar.
+    try:
+        public_key_bytes = crypto_scalarmult_ed25519_base_noclamp(expanded_scalar)
+    except Exception as exc:
+        # Provide a clear error message if the binding isn't available
+        raise RuntimeError(
+            "crypto_scalarmult_ed25519_base_noclamp is required to derive the public key "
+            "from an expanded ORLP scalar. Ensure PyNaCl / libsodium in your environment "
+            "was built with ed25519 scalarmult support."
+        ) from exc
+
+    return public_key_bytes
 
 
 def _generate_orlp_ed25519_keypair_bytes() -> tuple[bytes, bytes]:
