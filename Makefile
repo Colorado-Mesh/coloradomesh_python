@@ -49,12 +49,16 @@ format-check: black-check isort-check lint mypy
 ## install - Install the project locally
 install:
 	$(SYSTEM_PYTHON_BINARY) -m venv $(VIRTUAL_ENV)
+	make temp-version
 	$(VIRTUAL_BIN)/pip install -e ."[dev]"
+	make temp-version-revert
 
 ## install-pypy - Install the project locally using PyPy
 install-pypy:
 	$(SYSTEM_PYTHON_BINARY) -m venv $(VIRTUAL_ENV)
+	make temp-version
 	$(VIRTUAL_BIN)/pip install -e ."[pypy_dev]"
+	make temp-version-revert
 
 ## install-pyenv - Install pyenv
 install-pyenv:
