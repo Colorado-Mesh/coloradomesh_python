@@ -143,24 +143,13 @@
     "hardware_model": null
   },
   {
-    "id": 653712,
-    "long_name": "Tiger 1",
-    "short_name": "T1",
-    "role": 0,
-    "latitude": 40.2128896,
-    "longitude": -105.4343168,
-    "altitude": 2512.0,
-    "precision": 12,
-    "hardware_model": "SEEED_WIO_TRACKER_L1"
-  },
-  {
     "id": 654013,
     "long_name": "MikeMeshGreen",
     "short_name": "MJD2",
     "role": 0,
-    "latitude": 40.5929984,
-    "longitude": -104.7396352,
-    "altitude": 1526.0,
+    "latitude": 40.5143552,
+    "longitude": -105.054208,
+    "altitude": 1524.0,
     "precision": 14,
     "hardware_model": "RAK4631"
   },
@@ -411,7 +400,7 @@
     "long_name": "AJKI MOBILE",
     "short_name": "AJKI",
     "role": 0,
-    "latitude": 39.7672448,
+    "latitude": 39.8196736,
     "longitude": -105.0411008,
     "altitude": null,
     "precision": null,
@@ -532,9 +521,9 @@
     "long_name": "MikeMeshGreen",
     "short_name": "MJD2",
     "role": 0,
-    "latitude": 40.5929984,
-    "longitude": -104.7396352,
-    "altitude": 1526.0,
+    "latitude": 40.5143552,
+    "longitude": -105.054208,
+    "altitude": 1524.0,
     "precision": 14,
     "hardware_model": "RAK4631"
   },
@@ -704,6 +693,17 @@
     "hardware_model": "RAK4631"
   },
   {
+    "id": 2839320340,
+    "long_name": "Palmer Park South roof",
+    "short_name": "🦅",
+    "role": 0,
+    "latitude": 38.8759552,
+    "longitude": -104.7789568,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
+  },
+  {
     "id": 2841484068,
     "long_name": "Alipes",
     "short_name": "ALP",
@@ -713,17 +713,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
-  },
-  {
-    "id": 2865570120,
-    "long_name": "MaxInux R https://www.denvermesh.org",
-    "short_name": "MRTR",
-    "role": 0,
-    "latitude": 39.7672448,
-    "longitude": -105.0411008,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "SEEED_SOLAR_NODE"
   },
   {
     "id": 291571201,
@@ -891,6 +880,17 @@
     "hardware_model": "HELTEC_V3"
   },
   {
+    "id": 3754839646,
+    "long_name": "NV0N Solar coloradomesh.org",
+    "short_name": "☀",
+    "role": 12,
+    "latitude": 40.1866752,
+    "longitude": -105.0935296,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "SEEED_SOLAR_NODE"
+  },
+  {
     "id": 381332676,
     "long_name": "Brandon acc4",
     "short_name": "acc4",
@@ -1045,23 +1045,12 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 786845088,
-    "long_name": "Pioneer Village",
-    "short_name": "PVML",
-    "role": 0,
-    "latitude": 38.5613824,
-    "longitude": -104.726528,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
     "id": 80052116,
     "long_name": "Meshtastic 7f94",
     "short_name": "7f94",
     "role": 0,
-    "latitude": 39.8983168,
-    "longitude": -105.2246016,
+    "latitude": 39.583744,
+    "longitude": -105.119744,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V4"
@@ -1571,17 +1560,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
-  },
-  {
-    "id": 3562957699,
-    "long_name": "tinyhawk",
-    "short_name": "6b83",
-    "role": 0,
-    "latitude": 39.5575296,
-    "longitude": -105.0411008,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_MESH_POCKET"
   },
   {
     "id": 3676924900,
@@ -2805,17 +2783,6 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 3183257170,
-    "long_name": "KrazyMojo2",
-    "short_name": "Krz2",
-    "role": 0,
-    "latitude": 39.5575296,
-    "longitude": -105.0411008,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
     "id": 2985980341,
     "long_name": "Lap - EDC",
     "short_name": "LAP",
@@ -2935,6 +2902,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
+  },
+  {
+    "id": 2865570120,
+    "long_name": "MaxInux R https://www.denvermesh.org",
+    "short_name": "MRTR",
+    "role": 0,
+    "latitude": 39.7672448,
+    "longitude": -105.0411008,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "SEEED_SOLAR_NODE"
   },
   {
     "id": 3121392372,
@@ -3139,8 +3117,8 @@
     "long_name": "Peanut Butter and Jelly the long way",
     "short_name": "PBJ",
     "role": 0,
-    "latitude": 38.9808128,
-    "longitude": -104.7789568,
+    "latitude": 38.8235264,
+    "longitude": -104.8313856,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V4"
@@ -3206,6 +3184,17 @@
     "short_name": "PUMP",
     "role": 11,
     "latitude": 38.928384,
+    "longitude": -104.726528,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
+  },
+  {
+    "id": 786845088,
+    "long_name": "Pioneer Village",
+    "short_name": "PVML",
+    "role": 0,
+    "latitude": 38.5613824,
     "longitude": -104.726528,
     "altitude": null,
     "precision": null,
@@ -3905,6 +3894,17 @@
     "hardware_model": "HELTEC_VISION_MASTER_E213"
   },
   {
+    "id": 1656204304,
+    "long_name": "Meshtastic ac10",
+    "short_name": "ac10",
+    "role": 1,
+    "latitude": null,
+    "longitude": null,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
+  },
+  {
     "id": 3172052318,
     "long_name": "Meshtastic ad5e",
     "short_name": "ad5e",
@@ -4400,6 +4400,17 @@
     "hardware_model": "T_ECHO"
   },
   {
+    "id": 2579266820,
+    "long_name": "CW Ranger",
+    "short_name": "mCWW",
+    "role": 0,
+    "latitude": 38.99392,
+    "longitude": -104.792064,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "T_DECK"
+  },
+  {
     "id": 2956853448,
     "long_name": "mesho1",
     "short_name": "msh9",
@@ -4596,17 +4607,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_MESH_POCKET"
-  },
-  {
-    "id": 3754839646,
-    "long_name": "NV0N Solar coloradomesh.org",
-    "short_name": "☀",
-    "role": 12,
-    "latitude": 40.1866752,
-    "longitude": -105.0935296,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "SEEED_SOLAR_NODE"
   },
   {
     "id": 3314113052,
@@ -4959,17 +4959,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V4"
-  },
-  {
-    "id": 2839320340,
-    "long_name": "Palmer Park South roof",
-    "short_name": "🦅",
-    "role": 0,
-    "latitude": 38.8759552,
-    "longitude": -104.7789568,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
   },
   {
     "id": 2169502608,
