@@ -27,8 +27,8 @@
     "short_name": "▼B",
     "role": 12,
     "latitude": 39.7541376,
-    "longitude": -104.9755648,
-    "altitude": 16.0,
+    "longitude": -105.0017792,
+    "altitude": 1710.0,
     "precision": 14,
     "hardware_model": "HELTEC_V4"
   },
@@ -451,17 +451,6 @@
     "hardware_model": "LILYGO_TBEAM_S3_CORE"
   },
   {
-    "id": 1130082344,
-    "long_name": "SolidWater_Long",
-    "short_name": "SW01",
-    "role": 12,
-    "latitude": 40.1866752,
-    "longitude": -105.0935296,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "LILYGO_TBEAM_S3_CORE"
-  },
-  {
     "id": 1136116648,
     "long_name": "DR",
     "short_name": "🦀",
@@ -528,6 +517,17 @@
     "hardware_model": "RAK4631"
   },
   {
+    "id": 1735577203,
+    "long_name": "CW CE73",
+    "short_name": "CW73",
+    "role": 11,
+    "latitude": 39.8196736,
+    "longitude": -105.0935296,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "PORTDUINO"
+  },
+  {
     "id": 1770177668,
     "long_name": "c484 coloradomesh.org",
     "short_name": "🖥",
@@ -556,6 +556,17 @@
     "role": 0,
     "latitude": 39.583744,
     "longitude": -104.9100288,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V4"
+  },
+  {
+    "id": 1770318108,
+    "long_name": "AJKI MOBILE",
+    "short_name": "AJKI",
+    "role": 0,
+    "latitude": 39.0332416,
+    "longitude": -104.8313856,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V4"
@@ -636,6 +647,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_MESH_NODE_T114"
+  },
+  {
+    "id": 1920121093,
+    "long_name": "ValleyMarc",
+    "short_name": "Marc",
+    "role": 1,
+    "latitude": 40.5536768,
+    "longitude": -105.0935296,
+    "altitude": 1516.0,
+    "precision": 13,
+    "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
   {
     "id": 1923150827,
@@ -924,6 +946,17 @@
     "hardware_model": "RAK4631"
   },
   {
+    "id": 3664079100,
+    "long_name": "Air Tactical Awareness Kit 🎖",
+    "short_name": "ATAK",
+    "role": 0,
+    "latitude": 38.9808128,
+    "longitude": -104.8313856,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "LILYGO_TBEAM_S3_CORE"
+  },
+  {
     "id": 3675287231,
     "long_name": "Meshtastic 6ebf",
     "short_name": "Geek",
@@ -1087,17 +1120,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "TBEAM"
-  },
-  {
-    "id": 48914084,
-    "long_name": "Stuff",
-    "short_name": "Stuf",
-    "role": 0,
-    "latitude": 40.6061056,
-    "longitude": -105.0935296,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V3"
   },
   {
     "id": 49081516,
@@ -1650,17 +1672,6 @@
     "hardware_model": "T_DECK"
   },
   {
-    "id": 1770355456,
-    "long_name": "Meshtastic 7b00",
-    "short_name": "7b00",
-    "role": 0,
-    "latitude": 39.3478144,
-    "longitude": -104.6216704,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V4"
-  },
-  {
     "id": 3975052367,
     "long_name": "PointCode-AtticCB",
     "short_name": "7c4f",
@@ -1892,17 +1903,6 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 3664079100,
-    "long_name": "Air Tactical Awareness Kit 🎖",
-    "short_name": "ATAK",
-    "role": 0,
-    "latitude": null,
-    "longitude": null,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "LILYGO_TBEAM_S3_CORE"
-  },
-  {
     "id": 158808755,
     "long_name": "ATLAVOX ",
     "short_name": "ATLA",
@@ -1923,17 +1923,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
-  },
-  {
-    "id": 2548322492,
-    "long_name": "MSC",
-    "short_name": "B428",
-    "role": 2,
-    "latitude": 38.4565248,
-    "longitude": -105.1459584,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
   {
     "id": 2661457936,
@@ -2156,17 +2145,6 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 1735577203,
-    "long_name": "CW CE73",
-    "short_name": "CW73",
-    "role": 11,
-    "latitude": 39.8196736,
-    "longitude": -105.0935296,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "PORTDUINO"
-  },
-  {
     "id": 3954300535,
     "long_name": "CW D677",
     "short_name": "CW77",
@@ -2217,17 +2195,6 @@
     "role": 0,
     "latitude": 39.8196736,
     "longitude": -105.0935296,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
-    "id": 551807324,
-    "long_name": "DOR A1 ",
-    "short_name": "DOA1",
-    "role": 0,
-    "latitude": 39.714816,
-    "longitude": -104.7789568,
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
@@ -3333,12 +3300,34 @@
     "hardware_model": "HELTEC_WSL_V3"
   },
   {
+    "id": 1130082344,
+    "long_name": "SolidWater_Long",
+    "short_name": "SW01",
+    "role": 12,
+    "latitude": 40.1866752,
+    "longitude": -105.0935296,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "LILYGO_TBEAM_S3_CORE"
+  },
+  {
     "id": 3127311900,
     "long_name": "Reapsow2",
     "short_name": "Sow2",
     "role": 0,
     "latitude": 40.6585344,
     "longitude": -103.2060928,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 48914084,
+    "long_name": "Stuff",
+    "short_name": "Stuf",
+    "role": 0,
+    "latitude": 40.6061056,
+    "longitude": -105.0935296,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
