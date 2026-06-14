@@ -130,6 +130,7 @@ dmypy.json
 
 # Custom
 test.py
+scratch
 /scratch.py
 /reference/
 .idea/

@@ -12,7 +12,7 @@ COMPANION_NAMING_SCHEMA_COUNTER = "{emoji}{handle} MY{counter}"  # Ex. 🔥Alice
 COMPANION_NAMING_SCHEMA_ROLE = "{emoji}{handle} {role}"  # Ex. 🔥Alice PRIM for the primary companion device owned by Alice
 
 DEFAULT_REPEATER_SETTINGS = {
-    'radio': "910.525,62.7,5",
+    'radio': "910.525,62.5,7,5",
     'txdelay': 0.5,
     'direct.txdelay': 0.2,
     'rxdelay': 0,
