@@ -28,7 +28,7 @@
     "role": 12,
     "latitude": 39.7541376,
     "longitude": -105.0017792,
-    "altitude": 1690.0,
+    "altitude": 1594.0,
     "precision": 14,
     "hardware_model": "HELTEC_V4"
   },
@@ -116,7 +116,7 @@
     "role": 0,
     "latitude": 39.8852096,
     "longitude": -104.792064,
-    "altitude": 1590.0,
+    "altitude": 1595.0,
     "precision": 14,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
@@ -126,8 +126,8 @@
     "short_name": "e8a4",
     "role": 0,
     "latitude": 39.8327808,
-    "longitude": -105.6309248,
-    "altitude": 3162.0,
+    "longitude": -105.6047104,
+    "altitude": 5280.0,
     "precision": 14,
     "hardware_model": "HELTEC_V3"
   },
@@ -334,8 +334,8 @@
     "long_name": "Peanut Butter and Jelly the long way",
     "short_name": "PBJ",
     "role": 0,
-    "latitude": 38.7710976,
-    "longitude": -104.6740992,
+    "latitude": 38.8235264,
+    "longitude": -104.8313856,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V4"
@@ -462,17 +462,6 @@
     "hardware_model": "HELTEC_V4"
   },
   {
-    "id": 1790273798,
-    "long_name": "Styxking Alt",
-    "short_name": "D11B",
-    "role": 1,
-    "latitude": 40.4094976,
-    "longitude": -105.054208,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
     "id": 181097536,
     "long_name": "StormMountain",
     "short_name": "SMTN",
@@ -500,7 +489,7 @@
     "short_name": "9f71",
     "role": 0,
     "latitude": 39.6099584,
-    "longitude": -104.7789568,
+    "longitude": -105.1983872,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_MESH_NODE_T114"
@@ -534,7 +523,7 @@
     "role": 0,
     "latitude": 39.8852096,
     "longitude": -104.792064,
-    "altitude": 1590.0,
+    "altitude": 1595.0,
     "precision": 14,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
@@ -554,8 +543,8 @@
     "long_name": "JoRa",
     "short_name": "nich",
     "role": 0,
-    "latitude": 39.5706368,
-    "longitude": -105.054208,
+    "latitude": 39.5575296,
+    "longitude": -105.0411008,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_MESH_POCKET"
@@ -880,17 +869,6 @@
     "hardware_model": "HELTEC_V4"
   },
   {
-    "id": 381940796,
-    "long_name": "nzone-baseg2-parker-denvermesh",
-    "short_name": "f43c",
-    "role": 12,
-    "latitude": 39.5051008,
-    "longitude": -104.7789568,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "STATION_G2"
-  },
-  {
     "id": 3821512698,
     "long_name": "Styxking 1 watt",
     "short_name": "D12B",
@@ -990,17 +968,6 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 457785579,
-    "long_name": "Meshtastic 40eb",
-    "short_name": "40eb",
-    "role": 0,
-    "latitude": 39.0856704,
-    "longitude": -108.5014016,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "SEEED_SOLAR_NODE"
-  },
-  {
     "id": 463878284,
     "long_name": "Watchtower-S-388c",
     "short_name": "RFBS",
@@ -1095,6 +1062,17 @@
     "role": 12,
     "latitude": null,
     "longitude": null,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V4"
+  },
+  {
+    "id": 80115292,
+    "long_name": "NerdHerder01",
+    "short_name": "NH01",
+    "role": 0,
+    "latitude": 39.6623872,
+    "longitude": -104.8838144,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V4"
@@ -1265,6 +1243,17 @@
     "hardware_model": "HELTEC_V3"
   },
   {
+    "id": 457785579,
+    "long_name": "Meshtastic 40eb",
+    "short_name": "40eb",
+    "role": 0,
+    "latitude": 39.0856704,
+    "longitude": -108.5014016,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "SEEED_SOLAR_NODE"
+  },
+  {
     "id": 664486433,
     "long_name": "JLR_4221",
     "short_name": "4221",
@@ -1291,8 +1280,8 @@
     "long_name": "Meshtastic 50e4",
     "short_name": "50e4",
     "role": 0,
-    "latitude": 38.9808128,
-    "longitude": -105.0411008,
+    "latitude": 38.928384,
+    "longitude": -104.6216704,
     "altitude": null,
     "precision": null,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
@@ -1494,6 +1483,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
+  },
+  {
+    "id": 1130076996,
+    "long_name": "Lolly9999-Bender",
+    "short_name": "9999",
+    "role": 0,
+    "latitude": 38.928384,
+    "longitude": -104.7789568,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "LILYGO_TBEAM_S3_CORE"
   },
   {
     "id": 3127548448,
@@ -1725,6 +1725,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_MESH_POCKET"
+  },
+  {
+    "id": 1790273798,
+    "long_name": "Styxking Alt",
+    "short_name": "D11B",
+    "role": 1,
+    "latitude": 40.4094976,
+    "longitude": -105.054208,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
   },
   {
     "id": 4254355360,
@@ -2035,17 +2046,6 @@
     "hardware_model": "TRACKER_T1000_E"
   },
   {
-    "id": 80115292,
-    "long_name": "NerdHerder01",
-    "short_name": "NH01",
-    "role": 0,
-    "latitude": 39.6623872,
-    "longitude": -104.8838144,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V4"
-  },
-  {
     "id": 2896867012,
     "long_name": "NLO",
     "short_name": "NLO",
@@ -2187,17 +2187,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "XIAO_NRF52_KIT"
-  },
-  {
-    "id": 1770335208,
-    "long_name": "Papa Raccoon",
-    "short_name": "Paco",
-    "role": 0,
-    "latitude": 39.714816,
-    "longitude": -105.3032448,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V4"
   },
   {
     "id": 1099796661,
@@ -2693,6 +2682,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
+  },
+  {
+    "id": 381940796,
+    "long_name": "nzone-baseg2-parker-denvermesh",
+    "short_name": "f43c",
+    "role": 12,
+    "latitude": 39.5051008,
+    "longitude": -104.7789568,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "STATION_G2"
   },
   {
     "id": 2956851120,
