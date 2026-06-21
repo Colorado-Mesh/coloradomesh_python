@@ -28,7 +28,7 @@
     "role": 12,
     "latitude": 39.7541376,
     "longitude": -105.0017792,
-    "altitude": 1660.0,
+    "altitude": 1629.0,
     "precision": 14,
     "hardware_model": "HELTEC_V4"
   },
@@ -105,7 +105,7 @@
     "role": 0,
     "latitude": 39.6558336,
     "longitude": -104.8379392,
-    "altitude": 1700.0,
+    "altitude": 1699.0,
     "precision": 15,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
@@ -116,7 +116,7 @@
     "role": 0,
     "latitude": 39.8852096,
     "longitude": -104.792064,
-    "altitude": 1586.0,
+    "altitude": 1593.0,
     "precision": 14,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
@@ -204,6 +204,17 @@
     "role": 0,
     "latitude": 40.5078016,
     "longitude": -105.02144,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 1127965452,
+    "long_name": "Meshtastic 630c",
+    "short_name": "630c",
+    "role": 0,
+    "latitude": 38.8235264,
+    "longitude": -104.726528,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
@@ -308,6 +319,17 @@
     "hardware_model": "RAK4631"
   },
   {
+    "id": 1324456044,
+    "long_name": "Nomad 302a",
+    "short_name": "302a",
+    "role": 0,
+    "latitude": 39.3609216,
+    "longitude": -104.792064,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "T_DECK"
+  },
+  {
     "id": 1735577203,
     "long_name": "CW CE73",
     "short_name": "CW73",
@@ -375,14 +397,14 @@
   },
   {
     "id": 1770357152,
-    "long_name": "ToughLuck MT V4  Base",
-    "short_name": "TLV4",
+    "long_name": "",
+    "short_name": "",
     "role": 0,
     "latitude": 39.5968512,
     "longitude": -105.0804224,
     "altitude": null,
     "precision": null,
-    "hardware_model": "HELTEC_V4"
+    "hardware_model": "UNSET"
   },
   {
     "id": 1770361988,
@@ -408,14 +430,14 @@
   },
   {
     "id": 181097536,
-    "long_name": "",
-    "short_name": "",
+    "long_name": "StormMountain",
+    "short_name": "SMTN",
     "role": 0,
     "latitude": 40.501248,
     "longitude": -105.3556736,
     "altitude": null,
     "precision": null,
-    "hardware_model": "UNSET"
+    "hardware_model": "HELTEC_V4"
   },
   {
     "id": 1819548060,
@@ -423,7 +445,7 @@
     "short_name": "RN",
     "role": 0,
     "latitude": 39.6623872,
-    "longitude": -104.8313856,
+    "longitude": -104.7789568,
     "altitude": null,
     "precision": null,
     "hardware_model": "TBEAM"
@@ -468,7 +490,7 @@
     "role": 0,
     "latitude": 39.8852096,
     "longitude": -104.792064,
-    "altitude": 1586.0,
+    "altitude": 1593.0,
     "precision": 14,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
@@ -548,6 +570,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 2687837640,
+    "long_name": "Mesh-home",
+    "short_name": "cg1",
+    "role": 0,
+    "latitude": null,
+    "longitude": null,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "STATION_G2"
   },
   {
     "id": 2755351614,
@@ -774,8 +807,8 @@
     "long_name": "Aqua Blue. coloradomesh.org gmjc.org",
     "short_name": "Blue",
     "role": 0,
-    "latitude": 39.0791168,
-    "longitude": -108.4686336,
+    "latitude": 39.0660096,
+    "longitude": -108.4817408,
     "altitude": null,
     "precision": null,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
@@ -906,8 +939,8 @@
     "long_name": "W0SCA",
     "short_name": "e8a4",
     "role": 0,
-    "latitude": 39.8262272,
-    "longitude": -105.6374784,
+    "latitude": 39.8327808,
+    "longitude": -105.6309248,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
@@ -1166,17 +1199,6 @@
     "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
   {
-    "id": 1127965452,
-    "long_name": "Meshtastic 630c",
-    "short_name": "630c",
-    "role": 0,
-    "latitude": 38.8235264,
-    "longitude": -104.726528,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V3"
-  },
-  {
     "id": 1127900648,
     "long_name": "KF0KEP",
     "short_name": "65e8",
@@ -1395,17 +1417,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "LILYGO_TBEAM_S3_CORE"
-  },
-  {
-    "id": 446148767,
-    "long_name": "Academy View ",
-    "short_name": "AVR",
-    "role": 0,
-    "latitude": 39.0856704,
-    "longitude": -104.8313856,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
   },
   {
     "id": 97240704,
@@ -1705,17 +1716,6 @@
     "hardware_model": "TBEAM"
   },
   {
-    "id": 1358319520,
-    "long_name": "Gamora Base",
-    "short_name": "GB",
-    "role": 12,
-    "latitude": 38.6793472,
-    "longitude": -104.6872064,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
     "id": 3925479110,
     "long_name": "Green Mtn East Solar Base",
     "short_name": "GMEB",
@@ -1848,15 +1848,15 @@
     "hardware_model": "STATION_G2"
   },
   {
-    "id": 3592744580,
-    "long_name": "Meshtastic ee84",
-    "short_name": "MARK",
+    "id": 67750048,
+    "long_name": "MikeMeshBlue",
+    "short_name": "M100",
     "role": 0,
-    "latitude": null,
-    "longitude": null,
+    "latitude": 40.1342464,
+    "longitude": -105.1983872,
     "altitude": null,
     "precision": null,
-    "hardware_model": "TRACKER_T1000_E"
+    "hardware_model": "HELTEC_V3"
   },
   {
     "id": 49182212,
@@ -1879,17 +1879,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
-  },
-  {
-    "id": 2865570120,
-    "long_name": "MaxInux R https://www.denvermesh.org",
-    "short_name": "MRTR",
-    "role": 0,
-    "latitude": 39.7672448,
-    "longitude": -105.0411008,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "SEEED_SOLAR_NODE"
   },
   {
     "id": 2997298460,
@@ -2693,17 +2682,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "T_ECHO"
-  },
-  {
-    "id": 2687837640,
-    "long_name": "Mesh-home",
-    "short_name": "cg1",
-    "role": 0,
-    "latitude": null,
-    "longitude": null,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "STATION_G2"
   },
   {
     "id": 2554581872,
