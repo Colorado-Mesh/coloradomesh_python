@@ -28,7 +28,7 @@
     "role": 12,
     "latitude": 39.7541376,
     "longitude": -105.0017792,
-    "altitude": 1655.0,
+    "altitude": 1642.0,
     "precision": 14,
     "hardware_model": "HELTEC_V4"
   },
@@ -83,7 +83,7 @@
     "role": 0,
     "latitude": 39.6558336,
     "longitude": -104.8379392,
-    "altitude": 1712.0,
+    "altitude": 1723.0,
     "precision": 15,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
@@ -319,23 +319,12 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 1559048375,
-    "long_name": "Knossos",
-    "short_name": "ZWB",
-    "role": 0,
-    "latitude": 40.5143552,
-    "longitude": -104.9755648,
-    "altitude": 1482.0,
-    "precision": 14,
-    "hardware_model": "HELTEC_MESH_NODE_T114"
-  },
-  {
     "id": 1563623763,
     "long_name": "REXPocket",
     "short_name": "REXP",
     "role": 0,
-    "latitude": 39.6099584,
-    "longitude": -104.7789568,
+    "latitude": 39.6132352,
+    "longitude": -104.77568,
     "altitude": null,
     "precision": null,
     "hardware_model": "TRACKER_T1000_E"
@@ -350,17 +339,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "PORTDUINO"
-  },
-  {
-    "id": 1770278488,
-    "long_name": "Briargate 2 - v4",
-    "short_name": "BGT2",
-    "role": 0,
-    "latitude": 38.9808128,
-    "longitude": -104.7789568,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V4"
   },
   {
     "id": 1770305532,
@@ -400,8 +378,8 @@
     "long_name": "GJCO OM",
     "short_name": "5168",
     "role": 12,
-    "latitude": 39.0332416,
-    "longitude": -108.5538304,
+    "latitude": 39.059456,
+    "longitude": -108.5800448,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V4"
@@ -709,7 +687,7 @@
     "short_name": "049B",
     "role": 0,
     "latitude": 39.0856704,
-    "longitude": -108.6062592,
+    "longitude": -108.396544,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_MESH_NODE_T114"
@@ -724,6 +702,17 @@
     "altitude": 1626.0,
     "precision": 15,
     "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 3392112244,
+    "long_name": "DOCNET-2",
+    "short_name": "DN2",
+    "role": 0,
+    "latitude": 39.6623872,
+    "longitude": -105.0935296,
+    "altitude": 1707.0,
+    "precision": 13,
+    "hardware_model": "UNSET"
   },
   {
     "id": 3440891431,
@@ -814,17 +803,6 @@
     "hardware_model": "STATION_G2"
   },
   {
-    "id": 3821512698,
-    "long_name": "Styxking 1 watt",
-    "short_name": "D12B",
-    "role": 12,
-    "latitude": 40.4094976,
-    "longitude": -105.054208,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
     "id": 3822726703,
     "long_name": "Aqua Blue. coloradomesh.org gmjc.org",
     "short_name": "Blue",
@@ -895,8 +873,8 @@
     "long_name": "W1AMS-2",
     "short_name": "AMS2",
     "role": 0,
-    "latitude": 39.714816,
-    "longitude": -105.1983872,
+    "latitude": 39.7213696,
+    "longitude": -105.1394048,
     "altitude": null,
     "precision": null,
     "hardware_model": "TRACKER_T1000_E"
@@ -1309,17 +1287,6 @@
     "hardware_model": "HELTEC_V3"
   },
   {
-    "id": 250247404,
-    "long_name": "Meshtastic 78ec",
-    "short_name": "78ec",
-    "role": 0,
-    "latitude": 38.3516672,
-    "longitude": -104.6740992,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_MESH_NODE_T114"
-  },
-  {
     "id": 1770355456,
     "long_name": "Meshtastic 7b00",
     "short_name": "7b00",
@@ -1529,6 +1496,17 @@
     "hardware_model": "RAK4631"
   },
   {
+    "id": 1770278488,
+    "long_name": "Briargate 2 - v4",
+    "short_name": "BGT2",
+    "role": 0,
+    "latitude": 38.9808128,
+    "longitude": -104.7789568,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V4"
+  },
+  {
     "id": 1571048066,
     "long_name": "Big Horn Trail Solar Station",
     "short_name": "BHSS",
@@ -1648,6 +1626,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_MESH_NODE_T114"
+  },
+  {
+    "id": 3821512698,
+    "long_name": "Styxking 1 watt",
+    "short_name": "D12B",
+    "role": 12,
+    "latitude": 40.4094976,
+    "longitude": -105.054208,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
   },
   {
     "id": 4145977388,
@@ -2083,8 +2072,8 @@
     "long_name": "Peanut Butter and Jelly the long way",
     "short_name": "PBJ",
     "role": 0,
-    "latitude": 38.9808128,
-    "longitude": -104.7789568,
+    "latitude": 38.8759552,
+    "longitude": -104.726528,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V4"
@@ -2451,6 +2440,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_VISION_MASTER_E213"
+  },
+  {
+    "id": 4201361108,
+    "long_name": "Meshtastic aed4",
+    "short_name": "aed4",
+    "role": 0,
+    "latitude": null,
+    "longitude": null,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V3"
   },
   {
     "id": 1350927696,
