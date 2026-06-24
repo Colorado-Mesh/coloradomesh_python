@@ -393,20 +393,20 @@ def _filter_diff_nodes(existing_nodes: list[Node], new_nodes: list[Node]) -> tup
     # Loop through the "existing" nodes to build a map of hashes of their identifiers
     # and store all nodes in a combined map for easy lookup
     for node in existing_nodes:
-        _hash = node.to_hash()
+        _hash = node.to_human_hash()
         existing_node_hash_map[_hash] = _hash
         all_nodes[_hash] = node
 
     # Loop through the "new" nodes to build a map of hashes of their identifiers
     # and store all nodes in a combined map for easy lookup
     for node in new_nodes:
-        _hash = node.to_hash()
+        _hash = node.to_human_hash()
         new_node_hash_map[_hash] = _hash
         all_nodes[_hash] = node
 
     # Prepare sets
-    existing_nodes_set = set(existing_node_hash_map.items())
-    new_nodes_set = set(new_node_hash_map.items())
+    existing_nodes_set = set(existing_node_hash_map.values())
+    new_nodes_set = set(new_node_hash_map.values())
 
     true_new_nodes = new_nodes_set - existing_nodes_set
     duplicate_nodes = new_nodes_set & existing_nodes_set
@@ -414,9 +414,9 @@ def _filter_diff_nodes(existing_nodes: list[Node], new_nodes: list[Node]) -> tup
 
     # Look up the actual Node objects for each category based on the hashes and return them as lists
     return (
-        list(all_nodes[_hash] for _hash, _ in true_new_nodes),
-        list(all_nodes[_hash] for _hash, _ in duplicate_nodes),
-        list(all_nodes[_hash] for _hash, _ in missing_nodes),
+        list(all_nodes[_hash] for _hash in true_new_nodes),
+        list(all_nodes[_hash] for _hash in duplicate_nodes),
+        list(all_nodes[_hash] for _hash in missing_nodes),
     )
 
 
@@ -431,7 +431,8 @@ def sync_nodes(storage_file_path: str) -> None:
     print(f"Coalescing data...")
     new, duplicate, missing = _filter_diff_nodes(existing_nodes=existing_nodes, new_nodes=nodes)
     print(
-        f"Found {len(new)} new nodes, {len(duplicate)} duplicate nodes, and {len(missing)} missing nodes compared to cache")
+        f"Found {len(new)} new nodes, {len(duplicate)} duplicate nodes, and {len(missing)} missing nodes compared to cache\n"
+        f"NOTE: The new/missing numbers may reflect existing nodes that have changed since last sync.")
 
     if new or missing:
         # Write ALL nodes to file

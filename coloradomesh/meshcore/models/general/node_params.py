@@ -23,3 +23,17 @@ class NodeParams(BaseModel):
             'sf': self.sf,
             'bw': self.bw
         }
+
+    def to_human_hash(self) -> str:
+        """
+        Generate a human-readable hash of this node.
+        :return: A human-readable hash of this node.
+        """
+        return f"{self.freq}:{self.cr}:{self.sf}:{self.bw}"
+
+    def to_hash(self) -> int:
+        """
+        Generate a hash value for this node
+        :return: An integer hash value representing this node.
+        """
+        return hash(self.to_human_hash())

@@ -377,14 +377,14 @@ def _filter_diff_nodes(existing_nodes: list[Node], new_nodes: list[Node]) -> tup
     # Loop through the "existing" nodes to build a map of hashes of their identifiers
     # and store all nodes in a combined map for easy lookup
     for node in existing_nodes:
-        _hash = node.to_hash()
+        _hash = node.to_human_hash()
         existing_node_hash_map[_hash] = _hash
         all_nodes[_hash] = node
 
     # Loop through the "new" nodes to build a map of hashes of their identifiers
     # and store all nodes in a combined map for easy lookup
     for node in new_nodes:
-        _hash = node.to_hash()
+        _hash = node.to_human_hash()
         new_node_hash_map[_hash] = _hash
         all_nodes[_hash] = node
 

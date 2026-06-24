@@ -220,13 +220,20 @@ class Node(BaseModel):
         """
         return self.node_type == NodeType.SENSOR
 
+    def to_human_hash(self) -> str:
+        """
+        Generate a human-readable hash of this node.
+        :return: A human-readable hash of this node.
+        """
+        _params = self.params or NodeParams()
+        return f"{self.name}:{self._public_key_cleaned}:{self.node_type.value}:{self.latitude}:{self.longitude}:{_params.to_human_hash()}"
+
     def to_hash(self) -> int:
         """
         Generate a hash value for this node
         :return: An integer hash value representing this node.
         """
-        _input = f"{self.name}:{self._public_key_cleaned}:{self.node_type.value}:{self.latitude}:{self.longitude}:{self.params}"
-        return hash(_input)
+        return hash(self.to_human_hash())
 
     def to_json(self) -> dict:
         """

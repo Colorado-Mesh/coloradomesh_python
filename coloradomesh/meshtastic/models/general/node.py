@@ -18,13 +18,19 @@ class Node(BaseModel):
     precision: Optional[int] = None
     hardware_model: Optional[str] = None
 
+    def to_human_hash(self) -> str:
+        """
+        Generate a human-readable hash of this node.
+        :return: A human-readable hash of this node.
+        """
+        return f"{self.id}:{self.long_name}:{self.short_name}:{self.role.value}:{self.latitude}:{self.longitude}:{self.altitude}:{self.precision}:{self.hardware_model}"
+
     def to_hash(self) -> int:
         """
         Generate a hash value for this node
         :return: An integer hash value representing this node.
         """
-        _input = f"{self.id}:{self.long_name}:{self.short_name}:{self.role.value}:{self.latitude}:{self.longitude}:{self.altitude}:{self.precision}:{self.hardware_model}"
-        return hash(_input)
+        return hash(self.to_human_hash())
 
     def to_json(self) -> dict:
         """
