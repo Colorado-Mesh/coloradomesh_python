@@ -28,7 +28,7 @@
     "role": 12,
     "latitude": 39.7541376,
     "longitude": -105.0017792,
-    "altitude": 1666.0,
+    "altitude": 1641.0,
     "precision": 14,
     "hardware_model": "HELTEC_V4"
   },
@@ -290,8 +290,8 @@
     "long_name": "SpringGulchBase",
     "short_name": "SGBS",
     "role": 12,
-    "latitude": 39.5247616,
-    "longitude": -105.02144,
+    "latitude": 39.5051008,
+    "longitude": -105.0411008,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V4"
@@ -506,6 +506,17 @@
     "hardware_model": "T_DECK"
   },
   {
+    "id": 2646689228,
+    "long_name": "MikeMeshNode",
+    "short_name": "Ⓜ",
+    "role": 12,
+    "latitude": 40.501248,
+    "longitude": -105.0411008,
+    "altitude": 1502.0,
+    "precision": 13,
+    "hardware_model": "RAK4631"
+  },
+  {
     "id": 2651342157,
     "long_name": "asmoHat",
     "short_name": "asmH",
@@ -704,17 +715,6 @@
     "hardware_model": "HELTEC_V3"
   },
   {
-    "id": 3392112244,
-    "long_name": "DOCNET-2",
-    "short_name": "DN2",
-    "role": 0,
-    "latitude": 39.6623872,
-    "longitude": -105.0935296,
-    "altitude": 1707.0,
-    "precision": 13,
-    "hardware_model": "UNSET"
-  },
-  {
     "id": 3440891431,
     "long_name": "Mesh that Divide 🏔️",
     "short_name": "#^÷",
@@ -746,17 +746,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
-  },
-  {
-    "id": 3663129388,
-    "long_name": "Moon Zero Two East",
-    "short_name": "MZ2E",
-    "role": 0,
-    "latitude": 38.8759552,
-    "longitude": -103.9925248,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V3"
   },
   {
     "id": 3673387058,
@@ -812,6 +801,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 381940796,
+    "long_name": "nzone-baseg2-parker-denvermesh",
+    "short_name": "f43c",
+    "role": 12,
+    "latitude": 39.5051008,
+    "longitude": -104.7789568,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "STATION_G2"
   },
   {
     "id": 3821512698,
@@ -873,8 +873,8 @@
     "long_name": "W3OO  denvermesh.org",
     "short_name": "W3OO",
     "role": 0,
-    "latitude": 39.6197888,
-    "longitude": -104.9001984,
+    "latitude": 39.616512,
+    "longitude": -104.9034752,
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
@@ -889,17 +889,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
-  },
-  {
-    "id": 4224918991,
-    "long_name": "m25n",
-    "short_name": "m25n",
-    "role": 0,
-    "latitude": 40.5274624,
-    "longitude": -104.9100288,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "T_ECHO"
   },
   {
     "id": 463878284,
@@ -1023,7 +1012,7 @@
     "hardware_model": "UNSET"
   },
   {
-    "id": 649425065,
+    "id": 70832992,
     "long_name": "",
     "short_name": "",
     "role": 0,
@@ -1034,7 +1023,7 @@
     "hardware_model": "UNSET"
   },
   {
-    "id": 70832992,
+    "id": 649425065,
     "long_name": "",
     "short_name": "",
     "role": 0,
@@ -1969,6 +1958,17 @@
     "hardware_model": "SEEED_SOLAR_NODE"
   },
   {
+    "id": 3663129388,
+    "long_name": "Moon Zero Two East",
+    "short_name": "MZ2E",
+    "role": 0,
+    "latitude": 38.8759552,
+    "longitude": -103.9925248,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V3"
+  },
+  {
     "id": 3869898148,
     "long_name": "Moon Zero Two Tracker",
     "short_name": "MZ2T",
@@ -2167,6 +2167,17 @@
     "hardware_model": "RAK4631"
   },
   {
+    "id": 737863056,
+    "long_name": "Stix",
+    "short_name": "STXB",
+    "role": 0,
+    "latitude": 39.6099584,
+    "longitude": -104.726528,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "TRACKER_T1000_E"
+  },
+  {
     "id": 3127311900,
     "long_name": "Reapsow2",
     "short_name": "Sow2",
@@ -2220,6 +2231,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "T_ECHO"
+  },
+  {
+    "id": 1297688993,
+    "long_name": "TR Mobile A2",
+    "short_name": "TRA2",
+    "role": 5,
+    "latitude": null,
+    "longitude": null,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
   },
   {
     "id": 1649425046,
@@ -2464,6 +2486,17 @@
     "hardware_model": "HELTEC_V3"
   },
   {
+    "id": 1771877300,
+    "long_name": "Meshtastic b3b4",
+    "short_name": "b3b4",
+    "role": 12,
+    "latitude": null,
+    "longitude": null,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V4"
+  },
+  {
     "id": 3857691634,
     "long_name": "clem44 b3f2",
     "short_name": "b3f2",
@@ -2611,8 +2644,8 @@
     "long_name": "W0SCA",
     "short_name": "e8a4",
     "role": 0,
-    "latitude": 39.8262272,
-    "longitude": -105.6374784,
+    "latitude": 39.8327808,
+    "longitude": -105.6309248,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
@@ -2627,17 +2660,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
-  },
-  {
-    "id": 381940796,
-    "long_name": "nzone-baseg2-parker-denvermesh",
-    "short_name": "f43c",
-    "role": 12,
-    "latitude": 39.5051008,
-    "longitude": -104.7789568,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "STATION_G2"
   },
   {
     "id": 3663161936,
@@ -2671,6 +2693,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "SEEED_SOLAR_NODE"
+  },
+  {
+    "id": 4224918991,
+    "long_name": "m25n",
+    "short_name": "m25n",
+    "role": 0,
+    "latitude": 40.5274624,
+    "longitude": -104.9100288,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "T_ECHO"
   },
   {
     "id": 2579266820,
