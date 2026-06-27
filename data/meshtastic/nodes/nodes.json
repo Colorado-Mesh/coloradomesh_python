@@ -28,7 +28,7 @@
     "role": 12,
     "latitude": 39.7541376,
     "longitude": -105.0017792,
-    "altitude": 1611.0,
+    "altitude": 16.0,
     "precision": 14,
     "hardware_model": "HELTEC_V4"
   },
@@ -235,8 +235,8 @@
     "long_name": "KV0LTZ Seville",
     "short_name": "SEVL",
     "role": 0,
-    "latitude": 39.6623872,
-    "longitude": -104.7789568,
+    "latitude": 39.6558336,
+    "longitude": -104.7986176,
     "altitude": null,
     "precision": null,
     "hardware_model": "LILYGO_TBEAM_S3_CORE"
@@ -290,11 +290,22 @@
     "long_name": "AAGr ZepTepi ba5d (MQTT)",
     "short_name": "📡",
     "role": 12,
-    "latitude": 40.5274624,
-    "longitude": -104.9100288,
+    "latitude": 40.5798912,
+    "longitude": -104.9624576,
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
+  },
+  {
+    "id": 1563623763,
+    "long_name": "REXPocket",
+    "short_name": "REXP",
+    "role": 0,
+    "latitude": 39.6099584,
+    "longitude": -104.7789568,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "TRACKER_T1000_E"
   },
   {
     "id": 1735577203,
@@ -495,17 +506,6 @@
     "hardware_model": "HELTEC_V3"
   },
   {
-    "id": 2687837640,
-    "long_name": "Mesh-home",
-    "short_name": "cg1",
-    "role": 0,
-    "latitude": null,
-    "longitude": null,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "STATION_G2"
-  },
-  {
     "id": 2732702952,
     "long_name": "PRA Experiment ",
     "short_name": "pra1",
@@ -539,17 +539,6 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 2799158939,
-    "long_name": "Styxking",
-    "short_name": "D10B",
-    "role": 1,
-    "latitude": 39.7541376,
-    "longitude": -104.7134208,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
     "id": 2905166697,
     "long_name": "ArvLab",
     "short_name": "AVLB",
@@ -565,8 +554,8 @@
     "long_name": "REX_echo",
     "short_name": "REX0",
     "role": 1,
-    "latitude": 39.6099584,
-    "longitude": -104.7789568,
+    "latitude": 39.6132352,
+    "longitude": -104.77568,
     "altitude": null,
     "precision": null,
     "hardware_model": "T_ECHO"
@@ -792,17 +781,6 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 4171079240,
-    "long_name": "W1AMS-2",
-    "short_name": "AMS2",
-    "role": 0,
-    "latitude": 39.7246464,
-    "longitude": -105.1426816,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "TRACKER_T1000_E"
-  },
-  {
     "id": 463878284,
     "long_name": "Watchtower-S-388c",
     "short_name": "RFBS",
@@ -853,6 +831,17 @@
     "role": 0,
     "latitude": 39.6099584,
     "longitude": -104.726528,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 67679660,
+    "long_name": "Meshtastic b5ac",
+    "short_name": "😺",
+    "role": 0,
+    "latitude": 39.518208,
+    "longitude": -104.7134208,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
@@ -1375,6 +1364,17 @@
     "hardware_model": "PORTDUINO"
   },
   {
+    "id": 4171079240,
+    "long_name": "W1AMS-2",
+    "short_name": "AMS2",
+    "role": 0,
+    "latitude": 39.7246464,
+    "longitude": -105.1426816,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "TRACKER_T1000_E"
+  },
+  {
     "id": 811208078,
     "long_name": "Agate Meshtastic R1",
     "short_name": "ANR1",
@@ -1485,6 +1485,17 @@
     "hardware_model": "HELTEC_V3"
   },
   {
+    "id": 1771760724,
+    "long_name": "R0NYB0N3Z",
+    "short_name": "BON3",
+    "role": 0,
+    "latitude": 39.6886016,
+    "longitude": -104.9100288,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V4"
+  },
+  {
     "id": 1128207308,
     "long_name": "Bray Heltec Base",
     "short_name": "BRAY",
@@ -1560,6 +1571,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_MESH_NODE_T114"
+  },
+  {
+    "id": 2799158939,
+    "long_name": "Styxking",
+    "short_name": "D10B",
+    "role": 1,
+    "latitude": 39.7541376,
+    "longitude": -104.7134208,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
   },
   {
     "id": 4254355360,
@@ -1703,6 +1725,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 638393865,
+    "long_name": "HwkC T1000E",
+    "short_name": "HwkC",
+    "role": 0,
+    "latitude": null,
+    "longitude": null,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "TRACKER_T1000_E"
   },
   {
     "id": 884670998,
@@ -2002,17 +2035,6 @@
     "hardware_model": "T_ECHO"
   },
   {
-    "id": 1563623763,
-    "long_name": "REXPocket",
-    "short_name": "REXP",
-    "role": 0,
-    "latitude": 39.6099584,
-    "longitude": -104.7789568,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "TRACKER_T1000_E"
-  },
-  {
     "id": 2997349624,
     "long_name": "Watchtower North ecf8",
     "short_name": "RFBN",
@@ -2231,17 +2253,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
-  },
-  {
-    "id": 1136102832,
-    "long_name": "Wormhole Base 01",
-    "short_name": "WH01",
-    "role": 0,
-    "latitude": null,
-    "longitude": null,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V3"
   },
   {
     "id": 4055330616,
@@ -2484,6 +2495,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 2687837640,
+    "long_name": "Mesh-home",
+    "short_name": "cg1",
+    "role": 0,
+    "latitude": null,
+    "longitude": null,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "STATION_G2"
   },
   {
     "id": 3902920760,
@@ -2816,17 +2838,6 @@
     "hardware_model": "LILYGO_TBEAM_S3_CORE"
   },
   {
-    "id": 67679660,
-    "long_name": "Meshtastic b5ac",
-    "short_name": "😺",
-    "role": 0,
-    "latitude": 39.518208,
-    "longitude": -104.7134208,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V3"
-  },
-  {
     "id": 3593575549,
     "long_name": "Green Brick",
     "short_name": "🟩",
@@ -2858,6 +2869,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
+  },
+  {
+    "id": 40935453,
+    "long_name": "Eagles Nest",
+    "short_name": "🦅",
+    "role": 0,
+    "latitude": 38.8759552,
+    "longitude": -104.6740992,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_MESH_POCKET"
   },
   {
     "id": 1770306012,
