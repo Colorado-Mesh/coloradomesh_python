@@ -30,7 +30,11 @@ class RepeaterRegionSettings(BaseModel):
 
     @property
     def add_region_commands(self) -> list[str]:
-        return [f"region put {region}" for region in self.all]
+        return [self.add_regions_command]
+
+    @property
+    def add_regions_command(self) -> str:
+        return f"region def {' '.join(region for region in self.all)}"
 
     @property
     def add_home_region_command(self) -> Optional[str]:
@@ -162,6 +166,13 @@ class RepeaterSettings(BaseModel):
             return None
 
         return self.regions.add_region_commands
+
+    @property
+    def add_regions_command(self) -> Optional[str]:
+        if not self.regions:
+            return None
+
+        return self.regions.add_regions_command
 
     @property
     def add_home_region_command(self) -> Optional[str]:
