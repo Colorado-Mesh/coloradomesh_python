@@ -17,7 +17,7 @@
     "role": 12,
     "latitude": 39.7541376,
     "longitude": -105.0017792,
-    "altitude": 1594.0,
+    "altitude": 1669.0,
     "precision": 14,
     "hardware_model": "HELTEC_V4"
   },
@@ -55,15 +55,15 @@
     "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
   {
-    "id": 683220,
-    "long_name": "W0SCA",
-    "short_name": "e8a4",
+    "id": 685587,
+    "long_name": "KE5TAY 8524",
+    "short_name": "8524",
     "role": 0,
-    "latitude": 39.8327808,
-    "longitude": -105.6309248,
-    "altitude": 3164.0,
+    "latitude": 38.2599168,
+    "longitude": -104.6085632,
+    "altitude": 1422.0,
     "precision": 14,
-    "hardware_model": "HELTEC_V3"
+    "hardware_model": null
   },
   {
     "id": 691716,
@@ -158,22 +158,11 @@
     "long_name": "KE5TAY 3b79",
     "short_name": "3b79",
     "role": 0,
-    "latitude": 38.1550592,
-    "longitude": -104.6347776,
-    "altitude": 1523.0,
+    "latitude": 39.8065664,
+    "longitude": -104.7396352,
+    "altitude": 1656.0,
     "precision": 14,
     "hardware_model": "HELTEC_MESH_POCKET"
-  },
-  {
-    "id": 1078817084,
-    "long_name": "Skynet Gateway",
-    "short_name": "🛜",
-    "role": 0,
-    "latitude": 40.1342464,
-    "longitude": -105.0935296,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
   },
   {
     "id": 1089810238,
@@ -191,8 +180,8 @@
     "long_name": "www.slovakia.travel 🇸🇰",
     "short_name": "👾",
     "role": 0,
-    "latitude": 40.501248,
-    "longitude": -105.0411008,
+    "latitude": 40.5078016,
+    "longitude": -105.02144,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
@@ -383,17 +372,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "TBEAM"
-  },
-  {
-    "id": 1935488089,
-    "long_name": "W0KVZ",
-    "short_name": "Com1",
-    "role": 0,
-    "latitude": 39.7541376,
-    "longitude": -105.2114944,
-    "altitude": 1734.0,
-    "precision": 14,
-    "hardware_model": "RAK4631"
   },
   {
     "id": 2354284913,
@@ -594,6 +572,17 @@
     "hardware_model": "HELTEC_V3"
   },
   {
+    "id": 3547132067,
+    "long_name": "W0JLD Home Base",
+    "short_name": "f0a3",
+    "role": 0,
+    "latitude": 40.6061056,
+    "longitude": -105.0935296,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
+  },
+  {
     "id": 3647194866,
     "long_name": "E3_Mobile_Base_c6f2",
     "short_name": "🏕",
@@ -748,17 +737,6 @@
     "hardware_model": "NRF52_PROMICRO_DIY"
   },
   {
-    "id": 4016160124,
-    "long_name": "Wherewolf bd7c",
-    "short_name": "bd7c",
-    "role": 0,
-    "latitude": 39.6263424,
-    "longitude": -104.7625728,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
     "id": 4017016098,
     "long_name": "W3OO  denvermesh.org",
     "short_name": "W3OO",
@@ -776,17 +754,6 @@
     "role": 0,
     "latitude": 39.5575296,
     "longitude": -104.7789568,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
-    "id": 4254355360,
-    "long_name": "DoubleCSolar1",
-    "short_name": "DCS1",
-    "role": 0,
-    "latitude": 39.8196736,
-    "longitude": -105.0935296,
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
@@ -829,22 +796,11 @@
     "long_name": "KE5TAY 3b79",
     "short_name": "3b79",
     "role": 0,
-    "latitude": 38.1550592,
-    "longitude": -104.6347776,
-    "altitude": 1523.0,
+    "latitude": 39.8065664,
+    "longitude": -104.7396352,
+    "altitude": 1656.0,
     "precision": 14,
     "hardware_model": "HELTEC_MESH_POCKET"
-  },
-  {
-    "id": 664486433,
-    "long_name": "JLR_4221",
-    "short_name": "4221",
-    "role": 0,
-    "latitude": 39.0332416,
-    "longitude": -108.5538304,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_MESH_NODE_T114"
   },
   {
     "id": 67163036,
@@ -856,6 +812,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 67274020,
+    "long_name": "KE5TAY 8524",
+    "short_name": "8524",
+    "role": 0,
+    "latitude": null,
+    "longitude": null,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "M5STACK_CARDPUTER_ADV"
   },
   {
     "id": 754723295,
@@ -1034,15 +1001,15 @@
     "hardware_model": "LILYGO_TBEAM_S3_CORE"
   },
   {
-    "id": 2475049085,
-    "long_name": "clem44 407d",
-    "short_name": "407d",
-    "role": 1,
-    "latitude": 39.3478144,
-    "longitude": -104.7789568,
+    "id": 664486433,
+    "long_name": "JLR_4221",
+    "short_name": "4221",
+    "role": 0,
+    "latitude": 39.0332416,
+    "longitude": -108.5538304,
     "altitude": null,
     "precision": null,
-    "hardware_model": "SEEED_WIO_TRACKER_L1"
+    "hardware_model": "HELTEC_MESH_NODE_T114"
   },
   {
     "id": 3127203316,
@@ -1375,6 +1342,17 @@
     "hardware_model": "RAK4631"
   },
   {
+    "id": 4254355360,
+    "long_name": "DoubleCSolar1",
+    "short_name": "DCS1",
+    "role": 0,
+    "latitude": 39.8196736,
+    "longitude": -105.0935296,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
+  },
+  {
     "id": 994488008,
     "long_name": "Evergreen Downtown",
     "short_name": "EGDT",
@@ -1683,17 +1661,6 @@
     "hardware_model": "HELTEC_V4"
   },
   {
-    "id": 497205086,
-    "long_name": "Pumpkin",
-    "short_name": "PUMP",
-    "role": 11,
-    "latitude": 38.928384,
-    "longitude": -104.726528,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
     "id": 786845088,
     "long_name": "Pioneer Village",
     "short_name": "PVML",
@@ -1747,6 +1714,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_MESH_NODE_T114"
+  },
+  {
+    "id": 3143760916,
+    "long_name": "Pocket Sand",
+    "short_name": "SAND",
+    "role": 1,
+    "latitude": null,
+    "longitude": null,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
   },
   {
     "id": 3242020139,
@@ -2002,17 +1980,6 @@
     "hardware_model": "HELTEC_V4"
   },
   {
-    "id": 3857691634,
-    "long_name": "clem44 b3f2",
-    "short_name": "b3f2",
-    "role": 0,
-    "latitude": null,
-    "longitude": null,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "SEEED_WIO_TRACKER_L1"
-  },
-  {
     "id": 3121396232,
     "long_name": "Potatomesh potatomesh.stratospire.com",
     "short_name": "ba08",
@@ -2033,6 +2000,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 4016160124,
+    "long_name": "Wherewolf bd7c",
+    "short_name": "bd7c",
+    "role": 0,
+    "latitude": 39.6263424,
+    "longitude": -104.7625728,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
   },
   {
     "id": 67157460,
@@ -2101,17 +2079,6 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 1410517310,
-    "long_name": "Meshtastic c93e",
-    "short_name": "c93e",
-    "role": 1,
-    "latitude": null,
-    "longitude": null,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "SEEED_WIO_TRACKER_L1"
-  },
-  {
     "id": 3679570872,
     "long_name": "Meshtastic cbb8",
     "short_name": "cbb8",
@@ -2154,17 +2121,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
-  },
-  {
-    "id": 3547132067,
-    "long_name": "W0JLD Home Base",
-    "short_name": "f0a3",
-    "role": 0,
-    "latitude": 40.6061056,
-    "longitude": -105.0935296,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
   },
   {
     "id": 2956852308,
@@ -2453,15 +2409,15 @@
     "hardware_model": "HELTEC_V3"
   },
   {
-    "id": 3593575549,
-    "long_name": "Green Brick",
-    "short_name": "🟩",
-    "role": 1,
-    "latitude": 39.452672,
-    "longitude": -105.775104,
+    "id": 1078817084,
+    "long_name": "Skynet Gateway",
+    "short_name": "🛜",
+    "role": 0,
+    "latitude": 40.1342464,
+    "longitude": -105.0935296,
     "altitude": null,
     "precision": null,
-    "hardware_model": "NRF52_PROMICRO_DIY"
+    "hardware_model": "RAK4631"
   },
   {
     "id": 204196042,
