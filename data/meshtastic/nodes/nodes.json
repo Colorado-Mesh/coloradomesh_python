@@ -17,7 +17,7 @@
     "role": 12,
     "latitude": 39.7541376,
     "longitude": -105.0017792,
-    "altitude": 1671.0,
+    "altitude": 1669.0,
     "precision": 14,
     "hardware_model": "HELTEC_V4"
   },
@@ -59,9 +59,9 @@
     "long_name": "KE5TAY 8524",
     "short_name": "8524",
     "role": 0,
-    "latitude": 39.8065664,
-    "longitude": -104.7396352,
-    "altitude": 1672.0,
+    "latitude": 38.862848,
+    "longitude": -104.923136,
+    "altitude": 1930.0,
     "precision": 14,
     "hardware_model": null
   },
@@ -187,6 +187,17 @@
     "hardware_model": "LILYGO_TBEAM_S3_CORE"
   },
   {
+    "id": 1135966020,
+    "long_name": "WxComm_Blanca_CO",
+    "short_name": "WXC",
+    "role": 0,
+    "latitude": 37.4996992,
+    "longitude": -105.6047104,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V3"
+  },
+  {
     "id": 1136116648,
     "long_name": "DR",
     "short_name": "🦀",
@@ -235,8 +246,8 @@
     "long_name": "AAGr ZepTepi ba5d (MQTT)",
     "short_name": "📡",
     "role": 12,
-    "latitude": 40.5274624,
-    "longitude": -104.9100288,
+    "latitude": 40.5798912,
+    "longitude": -104.9624576,
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
@@ -339,6 +350,17 @@
     "altitude": 1734.0,
     "precision": 14,
     "hardware_model": "RAK4631"
+  },
+  {
+    "id": 1968715132,
+    "long_name": "KV0LTZ 1W-A",
+    "short_name": "1W-A",
+    "role": 0,
+    "latitude": 39.6099584,
+    "longitude": -104.8313856,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "TBEAM_1_WATT"
   },
   {
     "id": 2354284913,
@@ -649,17 +671,6 @@
     "hardware_model": "HELTEC_V3"
   },
   {
-    "id": 381940796,
-    "long_name": "nzone-baseg2-parker-denvermesh",
-    "short_name": "f43c",
-    "role": 12,
-    "latitude": 39.5051008,
-    "longitude": -104.7789568,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "STATION_G2"
-  },
-  {
     "id": 3821512698,
     "long_name": "Styxking 1 watt",
     "short_name": "D12B",
@@ -741,8 +752,8 @@
     "long_name": "JBrackmag mobile",
     "short_name": "RAKM",
     "role": 0,
-    "latitude": 39.9638528,
-    "longitude": -104.8182784,
+    "latitude": 39.780352,
+    "longitude": -105.054208,
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
@@ -988,17 +999,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "STATION_G2"
-  },
-  {
-    "id": 1968715132,
-    "long_name": "KV0LTZ 1W-A",
-    "short_name": "1W-A",
-    "role": 0,
-    "latitude": 39.6623872,
-    "longitude": -104.7789568,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "TBEAM_1_WATT"
   },
   {
     "id": 2714513628,
@@ -1555,7 +1555,7 @@
     "long_name": "NS-f790",
     "short_name": "NS",
     "role": 0,
-    "latitude": 39.452672,
+    "latitude": 39.4002432,
     "longitude": -104.726528,
     "altitude": null,
     "precision": null,
@@ -1782,17 +1782,6 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 1135966020,
-    "long_name": "WxComm_Blanca_CO",
-    "short_name": "WXC",
-    "role": 0,
-    "latitude": 37.4996992,
-    "longitude": -105.6047104,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V3"
-  },
-  {
     "id": 2863506493,
     "long_name": "Hi Zev!",
     "short_name": "Zev",
@@ -1991,17 +1980,6 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 3957515409,
-    "long_name": "E80m2213s",
-    "short_name": "e80",
-    "role": 0,
-    "latitude": 40.7109632,
-    "longitude": -106.4566784,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "NRF52_PROMICRO_DIY"
-  },
-  {
     "id": 49080484,
     "long_name": "W0SCA",
     "short_name": "e8a4",
@@ -2033,6 +2011,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
+  },
+  {
+    "id": 381940796,
+    "long_name": "nzone-baseg2-parker-denvermesh",
+    "short_name": "f43c",
+    "role": 12,
+    "latitude": 39.5051008,
+    "longitude": -104.7789568,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "STATION_G2"
   },
   {
     "id": 2956852308,
