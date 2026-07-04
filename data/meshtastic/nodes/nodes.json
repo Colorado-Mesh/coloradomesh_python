@@ -17,7 +17,7 @@
     "role": 12,
     "latitude": 39.7541376,
     "longitude": -105.0017792,
-    "altitude": 1724.0,
+    "altitude": 1692.0,
     "precision": 14,
     "hardware_model": "HELTEC_V4"
   },
@@ -50,7 +50,7 @@
     "role": 0,
     "latitude": 40.0621568,
     "longitude": -106.3845888,
-    "altitude": 2248.0,
+    "altitude": 2238.0,
     "precision": 15,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
@@ -59,9 +59,9 @@
     "long_name": "KE5TAY 8524",
     "short_name": "8524",
     "role": 0,
-    "latitude": 39.8065664,
-    "longitude": -104.7396352,
-    "altitude": 1672.0,
+    "latitude": 39.7279232,
+    "longitude": -104.7658496,
+    "altitude": 1667.0,
     "precision": 14,
     "hardware_model": null
   },
@@ -251,6 +251,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "PORTDUINO"
+  },
+  {
+    "id": 1770176868,
+    "long_name": "K5NWZ.com MT Solar Node",
+    "short_name": "NWZ1",
+    "role": 0,
+    "latitude": 40.4160512,
+    "longitude": -105.0607616,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V4"
   },
   {
     "id": 1770177668,
@@ -638,6 +649,17 @@
     "hardware_model": "HELTEC_V3"
   },
   {
+    "id": 3821512698,
+    "long_name": "Styxking 1 watt",
+    "short_name": "D12B",
+    "role": 12,
+    "latitude": 40.4094976,
+    "longitude": -105.054208,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
+  },
+  {
     "id": 382566428,
     "long_name": "prestastic",
     "short_name": "📡",
@@ -726,17 +748,6 @@
     "hardware_model": "HELTEC_V3"
   },
   {
-    "id": 537848611,
-    "long_name": "Meshtastic eb23",
-    "short_name": "eb23",
-    "role": 1,
-    "latitude": 39.7082624,
-    "longitude": -104.9690112,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "NRF52_PROMICRO_DIY"
-  },
-  {
     "id": 67163036,
     "long_name": "BroncosCountry",
     "short_name": "d39c",
@@ -801,6 +812,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "SEEED_SOLAR_NODE"
+  },
+  {
+    "id": 830713630,
+    "long_name": "n8ter8ter. coloradomesh.org gmgj.org",
+    "short_name": "Blck",
+    "role": 0,
+    "latitude": 39.0791168,
+    "longitude": -108.5472768,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
   {
     "id": 972799112,
@@ -1177,17 +1199,6 @@
     "hardware_model": "LILYGO_TBEAM_S3_CORE"
   },
   {
-    "id": 80036928,
-    "long_name": "BlitzBear Client",
-    "short_name": "BCL1",
-    "role": 0,
-    "latitude": null,
-    "longitude": null,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V4"
-  },
-  {
     "id": 1571048066,
     "long_name": "Big Horn Trail Solar Station",
     "short_name": "BHSS",
@@ -1232,17 +1243,6 @@
     "hardware_model": "HELTEC_V4"
   },
   {
-    "id": 830713630,
-    "long_name": "n8ter8ter. coloradomesh.org gmgj.org",
-    "short_name": "Blck",
-    "role": 0,
-    "latitude": 0.0032768,
-    "longitude": 0.0032768,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "SEEED_WIO_TRACKER_L1"
-  },
-  {
     "id": 3822726703,
     "long_name": "n8ter8ter. coloradomesh.org gmjc.org",
     "short_name": "Blue",
@@ -1280,17 +1280,6 @@
     "long_name": "Styxking Alt",
     "short_name": "D11B",
     "role": 1,
-    "latitude": 40.4094976,
-    "longitude": -105.054208,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
-    "id": 3821512698,
-    "long_name": "Styxking 1 watt",
-    "short_name": "D12B",
-    "role": 12,
     "latitude": 40.4094976,
     "longitude": -105.054208,
     "altitude": null,
@@ -1507,17 +1496,6 @@
     "hardware_model": "HELTEC_V4"
   },
   {
-    "id": 1770176868,
-    "long_name": "K5NWZ.com MT Solar Node",
-    "short_name": "NWZ1",
-    "role": 0,
-    "latitude": 40.4160512,
-    "longitude": -105.0607616,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V4"
-  },
-  {
     "id": 2224791988,
     "long_name": "Nightmare (Jason) bit.ly/cosmesh",
     "short_name": "Nht2",
@@ -1593,17 +1571,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
-  },
-  {
-    "id": 1944709038,
-    "long_name": "Inky Racoon ",
-    "short_name": "Raco",
-    "role": 0,
-    "latitude": 39.8721024,
-    "longitude": -105.0935296,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "T_ECHO"
   },
   {
     "id": 3143760916,
@@ -1837,17 +1804,6 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 80066192,
-    "long_name": "Meshtastic b690",
-    "short_name": "b690",
-    "role": 0,
-    "latitude": 38.9808128,
-    "longitude": -104.6216704,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V4"
-  },
-  {
     "id": 2658580564,
     "long_name": "Meshtastic b854",
     "short_name": "b854",
@@ -1947,6 +1903,17 @@
     "hardware_model": "HELTEC_V3"
   },
   {
+    "id": 537848611,
+    "long_name": "Meshtastic eb23",
+    "short_name": "eb23",
+    "role": 1,
+    "latitude": 39.7082624,
+    "longitude": -104.9690112,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "NRF52_PROMICRO_DIY"
+  },
+  {
     "id": 4143705244,
     "long_name": "Meshtastic ec9c",
     "short_name": "ec9c",
@@ -2035,17 +2002,6 @@
     "hardware_model": "HELTEC_V4"
   },
   {
-    "id": 2363936868,
-    "long_name": "JoRa",
-    "short_name": "nich",
-    "role": 0,
-    "latitude": 39.5706368,
-    "longitude": -105.054208,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_MESH_POCKET"
-  },
-  {
     "id": 3176114860,
     "long_name": "Princess Pi",
     "short_name": "poni",
@@ -2121,17 +2077,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "TRACKER_T1000_E"
-  },
-  {
-    "id": 444187860,
-    "long_name": "WS9F https://coloradomesh.org",
-    "short_name": "ws9f",
-    "role": 0,
-    "latitude": null,
-    "longitude": null,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_MESH_POCKET"
   },
   {
     "id": 3677042756,
