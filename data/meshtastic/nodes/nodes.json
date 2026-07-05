@@ -17,7 +17,7 @@
     "role": 12,
     "latitude": 39.7541376,
     "longitude": -105.0017792,
-    "altitude": 1618.0,
+    "altitude": 1607.0,
     "precision": 14,
     "hardware_model": "HELTEC_V4"
   },
@@ -50,7 +50,7 @@
     "role": 0,
     "latitude": 40.0621568,
     "longitude": -106.3845888,
-    "altitude": 2243.0,
+    "altitude": 2239.0,
     "precision": 15,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
@@ -105,7 +105,7 @@
     "role": 0,
     "latitude": 39.124992,
     "longitude": -104.7658496,
-    "altitude": 2210.0,
+    "altitude": 2247.0,
     "precision": 14,
     "hardware_model": "SEEED_SOLAR_NODE"
   },
@@ -231,6 +231,17 @@
     "hardware_model": "HELTEC_V4"
   },
   {
+    "id": 1236775516,
+    "long_name": "Peanut Butter and Jelly the long way",
+    "short_name": "PBJ",
+    "role": 0,
+    "latitude": 38.8235264,
+    "longitude": -104.8313856,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V4"
+  },
+  {
     "id": 1273591361,
     "long_name": "ArvPrcMagicSmoke denvermesh.org",
     "short_name": "MSMK",
@@ -253,17 +264,6 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 1350927696,
-    "long_name": "asmo solar roof",
-    "short_name": "asm2",
-    "role": 12,
-    "latitude": 39.5051008,
-    "longitude": -104.726528,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
     "id": 1735577203,
     "long_name": "CW CE73",
     "short_name": "CW73",
@@ -273,17 +273,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "PORTDUINO"
-  },
-  {
-    "id": 1770176868,
-    "long_name": "K5NWZ.com MT Solar Node",
-    "short_name": "NWZ1",
-    "role": 0,
-    "latitude": 40.4160512,
-    "longitude": -105.0607616,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V4"
   },
   {
     "id": 1770177668,
@@ -385,6 +374,17 @@
     "hardware_model": "TBEAM_1_WATT"
   },
   {
+    "id": 204196042,
+    "long_name": "Quasimodo",
+    "short_name": "🥱",
+    "role": 0,
+    "latitude": 39.714816,
+    "longitude": -104.988672,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "TRACKER_T1000_E"
+  },
+  {
     "id": 2354284913,
     "long_name": "Femtofox",
     "short_name": "🦊",
@@ -479,7 +479,7 @@
     "role": 0,
     "latitude": 39.124992,
     "longitude": -104.7658496,
-    "altitude": 2210.0,
+    "altitude": 2247.0,
     "precision": 14,
     "hardware_model": "SEEED_SOLAR_NODE"
   },
@@ -693,17 +693,6 @@
     "hardware_model": "STATION_G2"
   },
   {
-    "id": 3821512698,
-    "long_name": "Styxking 1 watt",
-    "short_name": "D12B",
-    "role": 12,
-    "latitude": 40.4094976,
-    "longitude": -105.054208,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
     "id": 382566428,
     "long_name": "prestastic",
     "short_name": "📡",
@@ -878,17 +867,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
-  },
-  {
-    "id": 649425065,
-    "long_name": "",
-    "short_name": "",
-    "role": 0,
-    "latitude": null,
-    "longitude": null,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "UNSET"
   },
   {
     "id": 1128005996,
@@ -1309,6 +1287,17 @@
     "hardware_model": "RAK4631"
   },
   {
+    "id": 3821512698,
+    "long_name": "Styxking 1 watt",
+    "short_name": "D12B",
+    "role": 12,
+    "latitude": 40.4094976,
+    "longitude": -105.054208,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
+  },
+  {
     "id": 902617756,
     "long_name": "michidragon-base01",
     "short_name": "DRGN",
@@ -1507,6 +1496,17 @@
     "hardware_model": "HELTEC_V4"
   },
   {
+    "id": 1770176868,
+    "long_name": "K5NWZ.com MT Solar Node",
+    "short_name": "NWZ1",
+    "role": 0,
+    "latitude": 40.4160512,
+    "longitude": -105.0607616,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V4"
+  },
+  {
     "id": 2224791988,
     "long_name": "Nightmare (Jason) bit.ly/cosmesh",
     "short_name": "Nht2",
@@ -1527,17 +1527,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK2560"
-  },
-  {
-    "id": 1236775516,
-    "long_name": "Peanut Butter and Jelly the long way",
-    "short_name": "PBJ",
-    "role": 0,
-    "latitude": 38.7710976,
-    "longitude": -104.6740992,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V4"
   },
   {
     "id": 4125118366,
@@ -1582,17 +1571,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "TBEAM"
-  },
-  {
-    "id": 3143760916,
-    "long_name": "Pocket Sand",
-    "short_name": "SAND",
-    "role": 1,
-    "latitude": null,
-    "longitude": null,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
   },
   {
     "id": 4194085154,
@@ -1769,6 +1747,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 1350927696,
+    "long_name": "asmo solar roof",
+    "short_name": "asm2",
+    "role": 12,
+    "latitude": 39.5051008,
+    "longitude": -104.726528,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
   },
   {
     "id": 2896932892,
@@ -2123,6 +2112,17 @@
     "hardware_model": "HELTEC_MESH_POCKET"
   },
   {
+    "id": 649425065,
+    "long_name": "NV0N QTH https:/coloradomesh.org",
+    "short_name": "🏠",
+    "role": 1,
+    "latitude": null,
+    "longitude": null,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
+  },
+  {
     "id": 1095535011,
     "long_name": "Lap - Home Base",
     "short_name": "🏡",
@@ -2132,17 +2132,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "RAK4631"
-  },
-  {
-    "id": 662192734,
-    "long_name": "NV0N Tracker coloradomesh.org",
-    "short_name": "👣",
-    "role": 0,
-    "latitude": 40.1997824,
-    "longitude": -105.054208,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "TRACKER_T1000_E"
   },
   {
     "id": 2658531304,
@@ -2231,28 +2220,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
-  },
-  {
-    "id": 204196042,
-    "long_name": "Quasimodo",
-    "short_name": "🥱",
-    "role": 0,
-    "latitude": 39.714816,
-    "longitude": -104.988672,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "TRACKER_T1000_E"
-  },
-  {
-    "id": 1772175303,
-    "long_name": "NV0N Portable coloradomesh.org",
-    "short_name": "🥾",
-    "role": 0,
-    "latitude": 40.1932288,
-    "longitude": -105.0607616,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
   },
   {
     "id": 40935453,
