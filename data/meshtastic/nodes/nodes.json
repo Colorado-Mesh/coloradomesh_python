@@ -17,7 +17,7 @@
     "role": 12,
     "latitude": 39.7541376,
     "longitude": -105.0017792,
-    "altitude": 1582.0,
+    "altitude": 1649.0,
     "precision": 14,
     "hardware_model": "HELTEC_V4"
   },
@@ -50,7 +50,7 @@
     "role": 0,
     "latitude": 40.0621568,
     "longitude": -106.3845888,
-    "altitude": 2246.0,
+    "altitude": 2260.0,
     "precision": 15,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
@@ -105,7 +105,7 @@
     "role": 0,
     "latitude": 39.6230656,
     "longitude": -104.7658496,
-    "altitude": 1854.0,
+    "altitude": 1761.0,
     "precision": 14,
     "hardware_model": "HELTEC_WIRELESS_TRACKER"
   },
@@ -220,17 +220,6 @@
     "hardware_model": "TRACKER_T1000_E"
   },
   {
-    "id": 1654132745,
-    "long_name": "CSwi0r01 ColoradoMesh",
-    "short_name": "CS01",
-    "role": 0,
-    "latitude": 39.9638528,
-    "longitude": -104.8707072,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
     "id": 1735577203,
     "long_name": "CW CE73",
     "short_name": "CW73",
@@ -309,14 +298,14 @@
   },
   {
     "id": 1770357152,
-    "long_name": "",
-    "short_name": "",
+    "long_name": "ToughLuck MT V4  Base",
+    "short_name": "TLV4",
     "role": 0,
     "latitude": 39.5968512,
     "longitude": -105.0804224,
     "altitude": null,
     "precision": null,
-    "hardware_model": "UNSET"
+    "hardware_model": "HELTEC_V4"
   },
   {
     "id": 1770361988,
@@ -418,6 +407,17 @@
     "hardware_model": "HELTEC_V3"
   },
   {
+    "id": 2658692664,
+    "long_name": "Coconut Base",
+    "short_name": "🥥",
+    "role": 0,
+    "latitude": 39.583744,
+    "longitude": -105.0148864,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V3"
+  },
+  {
     "id": 2661065840,
     "long_name": "Meshtastic a470",
     "short_name": "a470",
@@ -457,7 +457,7 @@
     "role": 0,
     "latitude": 39.6230656,
     "longitude": -104.7658496,
-    "altitude": 1854.0,
+    "altitude": 1761.0,
     "precision": 14,
     "hardware_model": "HELTEC_WIRELESS_TRACKER"
   },
@@ -550,17 +550,6 @@
     "hardware_model": "HELTEC_V4"
   },
   {
-    "id": 2997445785,
-    "long_name": "GJCO_OM",
-    "short_name": "6499",
-    "role": 12,
-    "latitude": 39.0332416,
-    "longitude": -108.5538304,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "RAK4631"
-  },
-  {
     "id": 3028587240,
     "long_name": "Doc-Solar-Repeat1",
     "short_name": "DocR",
@@ -589,7 +578,7 @@
     "role": 0,
     "latitude": 40.0621568,
     "longitude": -106.3845888,
-    "altitude": 2246.0,
+    "altitude": 2260.0,
     "precision": 15,
     "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
@@ -671,17 +660,6 @@
     "hardware_model": "RAK4631"
   },
   {
-    "id": 3822726703,
-    "long_name": "n8ter8ter. coloradomesh.org gmjc.org",
-    "short_name": "Blue",
-    "role": 0,
-    "latitude": 39.0791168,
-    "longitude": -108.5472768,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "SEEED_WIO_TRACKER_L1"
-  },
-  {
     "id": 382566428,
     "long_name": "prestastic",
     "short_name": "📡",
@@ -759,17 +737,6 @@
     "hardware_model": "SEEED_SOLAR_NODE"
   },
   {
-    "id": 463685640,
-    "long_name": "Meshtastic 8472",
-    "short_name": "8472",
-    "role": 0,
-    "latitude": 39.9376384,
-    "longitude": -105.054208,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V4"
-  },
-  {
     "id": 463834024,
     "long_name": "Meshtastic 8ba8",
     "short_name": "8ba8",
@@ -798,17 +765,6 @@
     "role": 12,
     "latitude": 39.7541376,
     "longitude": -104.923136,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V3"
-  },
-  {
-    "id": 67163036,
-    "long_name": "BroncosCountry",
-    "short_name": "d39c",
-    "role": 0,
-    "latitude": 39.6099584,
-    "longitude": -104.726528,
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
@@ -1012,6 +968,17 @@
     "hardware_model": "MUZI_BASE"
   },
   {
+    "id": 2997445785,
+    "long_name": "GJCO_OM",
+    "short_name": "6499",
+    "role": 12,
+    "latitude": 39.0332416,
+    "longitude": -108.5538304,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
+  },
+  {
     "id": 1127900648,
     "long_name": "KF0KEP",
     "short_name": "65e8",
@@ -1032,17 +999,6 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "T_ECHO"
-  },
-  {
-    "id": 2658692664,
-    "long_name": "Meshtastic 6e38",
-    "short_name": "6e38",
-    "role": 0,
-    "latitude": 39.583744,
-    "longitude": -105.0148864,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "HELTEC_V3"
   },
   {
     "id": 3118365527,
@@ -1076,6 +1032,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "HELTEC_V3"
+  },
+  {
+    "id": 463685640,
+    "long_name": "Meshtastic 8472",
+    "short_name": "8472",
+    "role": 0,
+    "latitude": 39.9376384,
+    "longitude": -105.054208,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V4"
   },
   {
     "id": 1130007084,
@@ -1210,6 +1177,28 @@
     "hardware_model": "SEEED_WIO_TRACKER_L1"
   },
   {
+    "id": 3822726703,
+    "long_name": "n8ter8ter. coloradomesh.org gmjc.org",
+    "short_name": "Blue",
+    "role": 0,
+    "latitude": 39.0791168,
+    "longitude": -108.5472768,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "SEEED_WIO_TRACKER_L1"
+  },
+  {
+    "id": 1654132745,
+    "long_name": "CSwi0r01 ColoradoMesh",
+    "short_name": "CS01",
+    "role": 0,
+    "latitude": 39.9638528,
+    "longitude": -104.8707072,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "RAK4631"
+  },
+  {
     "id": 2411829572,
     "long_name": "CSwi0r04 ColoradoMesh",
     "short_name": "CS04",
@@ -1259,7 +1248,7 @@
     "short_name": "DRGN",
     "role": 0,
     "latitude": 39.583744,
-    "longitude": -105.3294592,
+    "longitude": -105.4343168,
     "altitude": null,
     "precision": null,
     "hardware_model": "T_ECHO"
@@ -1793,17 +1782,6 @@
     "hardware_model": "HELTEC_V3"
   },
   {
-    "id": 1819525304,
-    "long_name": "Meshtastic c0b8",
-    "short_name": "c0b8",
-    "role": 0,
-    "latitude": null,
-    "longitude": null,
-    "altitude": null,
-    "precision": null,
-    "hardware_model": "TBEAM"
-  },
-  {
     "id": 1968750888,
     "long_name": "T2- c128",
     "short_name": "c128",
@@ -1824,6 +1802,17 @@
     "altitude": null,
     "precision": null,
     "hardware_model": "T_ECHO"
+  },
+  {
+    "id": 67163036,
+    "long_name": "BroncosCountry",
+    "short_name": "d39c",
+    "role": 0,
+    "latitude": 39.6099584,
+    "longitude": -104.726528,
+    "altitude": null,
+    "precision": null,
+    "hardware_model": "HELTEC_V3"
   },
   {
     "id": 3126253754,
