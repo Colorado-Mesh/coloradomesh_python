@@ -13,14 +13,67 @@ from coloradomesh.meshtastic.models.general import Node, NodeRole
 MESHMAP_URL = "https://meshmap.net/nodes.json"  # All Meshtastic devices globally
 LIAMCOTTLE_MESHTASTIC_URL = "https://meshtastic.liamcottle.net/api/v1/nodes"  # All Meshtastic devices globally
 CM_MESHVIEW_URL = "https://map.meshtastic.coloradomesh.org/api/nodes?days_active=3"  # All ACTIVE Meshtastic devices heard on the msh/US/CO topic
+MALLA_US_URL = "https://mshus.meshmonitoring.com/api/locations"  # All Meshtastic devices in US reporting location
 
 _COLORADO = COLORADO
 
 COLORADO_MSH_TOPIC = "msh/US/CO"
 
+COLORADO_LAT_MIN = 36
+COLORADO_LAT_MAX = 41.5
+COLORADO_LON_MIN = -110
+COLORADO_LON_MAX = -101
+
+
+class _BaseDataSourceNode(BaseModel):
+    def _node_is_in_colorado_precision(self) -> bool:
+        if not all([self.filter_latitude, self.filter_longitude]):
+            return False
+
+        return _COLORADO.coordinates_within_borders(latitude=self.filter_latitude, longitude=self.filter_longitude)
+
+    def node_is_in_boundary(self, lat_min: float, lat_max: float, lon_min: float, lon_max: float) -> bool:
+        return (
+            all([self.filter_latitude, self.filter_longitude]) and
+            all([(lat_min <= self.filter_latitude <= lat_max), (lon_min <= self.filter_longitude <= lon_max)])
+        )
+
+    @classmethod
+    def filter_to_colorado(cls, nodes: list[_BaseDataSourceNode], data_source: str) -> list[_BaseDataSourceNode]:
+        print(f"Filtering {len(nodes)} nodes from {data_source} to those within Colorado")
+
+        print(
+            f"Applying pre-filter to nodes with lat between {COLORADO_LAT_MIN} and {COLORADO_LAT_MAX} and lon between {COLORADO_LON_MAX} and {COLORADO_LON_MAX}")
+
+        prefiltered_nodes: list[_BaseDataSourceNode] = [
+            node for node in nodes if node.node_is_in_boundary(
+                lat_min=COLORADO_LAT_MIN,
+                lat_max=COLORADO_LAT_MAX,
+                lon_min=COLORADO_LON_MIN,
+                lon_max=COLORADO_LON_MAX,
+            )
+        ]
+
+        print(f"Checking remaining {len(prefiltered_nodes)} nodes for exact Colorado presence")
+
+        filtered_nodes: list[_BaseDataSourceNode] = [
+            node for node in prefiltered_nodes if node._node_is_in_colorado_precision()
+        ]
+
+        print(f"Found {len(filtered_nodes)} nodes in Colorado via {data_source}")
+        return filtered_nodes
+
+    @property
+    def filter_latitude(self) -> Optional[float]:
+        raise NotImplementedError
+
+    @property
+    def filter_longitude(self) -> Optional[float]:
+        raise NotImplementedError
+
 
 ### MeshMap-specific models for parsing API responses
-class MeshMapNode(BaseModel):
+class MeshMapNode(_BaseDataSourceNode):
     id: Optional[int] = Field(alias="id", default=None)
     long_name: str = Field(alias="longName")
     short_name: str = Field(alias="shortName")
@@ -54,6 +107,14 @@ class MeshMapNode(BaseModel):
         return (float(self.longitude) / 10_000_000) if self.longitude else None
 
     @property
+    def filter_latitude(self) -> Optional[float]:
+        return self.real_latitude
+
+    @property
+    def filter_longitude(self) -> Optional[float]:
+        return self.real_longitude
+
+    @property
     def node_role(self) -> NodeRole:
         return NodeRole.from_name(name=self.role) if self.role is not None else NodeRole.UNKNOWN
 
@@ -69,21 +130,6 @@ class MeshMapNode(BaseModel):
             altitude=self.altitude,
             precision=self.precision
         )
-
-
-def _meshmap_node_in_colorado(node: MeshMapNode) -> bool:
-    """
-    Return true if MeshMapNode is in Colorado.
-    :param node: The MeshMapNode to check.
-    :return: True if the node is in Colorado, False otherwise.
-    """
-    if not node:
-        return False
-
-    if not all([node.real_latitude, node.real_longitude]):
-        return False
-
-    return _COLORADO.coordinates_within_borders(latitude=node.real_latitude, longitude=node.real_longitude)
 
 
 def _get_meshmap_nodes() -> list[MeshMapNode]:
@@ -107,38 +153,13 @@ def _get_meshmap_nodes() -> list[MeshMapNode]:
         # Instead, consider this run failed
         raise Exception(f"Could not load nodes from MeshMap")
 
-    print(
-        f"Found {len(all_nodes)} nodes from MeshMap, filtering to find those with lat/lon inside Colorado")
+    print(f"Found {len(all_nodes)} nodes from MeshMap")
 
-    # Rough filter to only nodes in Colorado + padding, to cut down on number of nodes
-    # that will do exact polygon math
-    # This rapidly brings it down from global nodes to those that might ACTUALLY be in Colorado
-    lat_min = 36
-    lat_max = 41.5
-    lon_min = -110
-    lon_max = -101
-    print(
-        f"Applying pre-filter to nodes with lat between {lat_min} and {lat_max} and lon between {lon_min} and {lon_max}")
-    prefiltered_nodes: list[MeshMapNode] = [
-        node for node in all_nodes if (
-                all([node.real_latitude, node.real_longitude]) and
-                all([(lat_min <= node.real_latitude <= lat_max), (lon_min <= node.real_longitude <= lon_max)])
-        )
-    ]
-
-    print(
-        f"Checking remaining {len(prefiltered_nodes)} nodes for exact Colorado presence"
-    )
-    filtered_nodes: list[MeshMapNode] = [
-        node for node in prefiltered_nodes if _meshmap_node_in_colorado(node=node)
-    ]
-
-    print(f"Found {len(filtered_nodes)} nodes in Colorado via MeshMap")
-    return filtered_nodes
+    return MeshMapNode.filter_to_colorado(nodes=all_nodes, data_source="MeshMap")  # type: ignore
 
 
 ### Liam Cottle Meshtastic Map-specific models for parsing API responses
-class LiamCottleMeshtasticNode(BaseModel):
+class LiamCottleMeshtasticNode(_BaseDataSourceNode):
     id: Optional[int] = Field(alias="id", default=None)
     node_id: Optional[int] = Field(alias="node_id", default=None)
     long_name: str = Field(alias="long_name")
@@ -172,6 +193,14 @@ class LiamCottleMeshtasticNode(BaseModel):
     def node_role(self) -> NodeRole:
         return NodeRole.from_int(self.role) if self.role is not None else NodeRole.UNKNOWN
 
+    @property
+    def filter_latitude(self) -> Optional[float]:
+        return self.real_latitude
+
+    @property
+    def filter_longitude(self) -> Optional[float]:
+        return self.real_longitude
+
     def to_node(self) -> Node:
         return Node(
             id=self.id,
@@ -184,21 +213,6 @@ class LiamCottleMeshtasticNode(BaseModel):
             altitude=self.altitude,
             precision=self.position_precision,
         )
-
-
-def _liam_cottle_node_in_colorado(node: LiamCottleMeshtasticNode) -> bool:
-    """
-    Return true if LiamCottleMeshtasticNode is in Colorado.
-    :param node: The LiamCottleMeshtasticNode to check.
-    :return: True if the node is in Colorado, False otherwise.
-    """
-    if not node:
-        return False
-
-    if not all([node.real_latitude, node.real_longitude]):
-        return False
-
-    return _COLORADO.coordinates_within_borders(latitude=node.real_latitude, longitude=node.real_longitude)
 
 
 def _get_liam_cottle_nodes() -> list[LiamCottleMeshtasticNode]:
@@ -217,38 +231,14 @@ def _get_liam_cottle_nodes() -> list[LiamCottleMeshtasticNode]:
         # Instead, consider this run failed
         raise Exception(f"Could not load nodes from Liam Cottle's Meshtastic Map")
 
-    print(
-        f"Found {len(all_nodes)} nodes from MeshMap, filtering to find those with lat/lon inside Colorado")
+    print(f"Found {len(all_nodes)} nodes from Liam Cottle's Meshtastic Map")
 
-    # Rough filter to only nodes in Colorado + padding, to cut down on number of nodes
-    # that will do exact polygon math
-    # This rapidly brings it down from global nodes to those that might ACTUALLY be in Colorado
-    lat_min = 36
-    lat_max = 41.5
-    lon_min = -110
-    lon_max = -101
-    print(
-        f"Applying pre-filter to nodes with lat between {lat_min} and {lat_max} and lon between {lon_min} and {lon_max}")
-    prefiltered_nodes: list[LiamCottleMeshtasticNode] = [
-        node for node in all_nodes if (
-                all([node.real_latitude, node.real_longitude]) and
-                all([(lat_min <= node.real_latitude <= lat_max), (lon_min <= node.real_longitude <= lon_max)])
-        )
-    ]
-
-    print(
-        f"Checking remaining {len(prefiltered_nodes)} nodes for exact Colorado presence"
-    )
-    filtered_nodes: list[LiamCottleMeshtasticNode] = [
-        node for node in prefiltered_nodes if _liam_cottle_node_in_colorado(node=node)
-    ]
-
-    print(f"Found {len(filtered_nodes)} nodes in Colorado via Liam Cottle's Meshtastic Map")
-    return filtered_nodes
+    return LiamCottleMeshtasticNode.filter_to_colorado(nodes=all_nodes, # type: ignore
+                                                       data_source="Liam Cottle's Meshtastic Map")
 
 
 ### MeshView-specific models for parsing API responses
-class MeshViewNode(BaseModel):
+class MeshViewNode(_BaseDataSourceNode):
     id: str = Field(alias="id")
     node_id: int = Field(alias="node_id")
     long_name: str = Field(alias="long_name")
@@ -269,6 +259,14 @@ class MeshViewNode(BaseModel):
     @property
     def real_longitude(self) -> Optional[float]:
         return (float(self.longitude) / 10_000_000) if self.longitude else None
+
+    @property
+    def filter_latitude(self) -> Optional[float]:
+        return self.real_latitude
+
+    @property
+    def filter_longitude(self) -> Optional[float]:
+        return self.real_longitude
 
     @property
     def node_role(self) -> NodeRole:
@@ -308,6 +306,77 @@ def _get_meshview_nodes() -> list[MeshViewNode]:
     return all_nodes
 
 
+### MallaUS-specific models for parsing API responses
+class MallaUSNode(_BaseDataSourceNode):
+    hex_id: str = Field(alias="hex_id")
+    node_id: int = Field(alias="node_id")
+    long_name: Optional[str] = Field(alias="long_name", default=None)
+    short_name: Optional[str] = Field(alias="short_name", default=None)
+    hardware_model: Optional[str] = Field(alias="hw_model", default=None)
+    latitude: Optional[float] = Field(alias="latitude", default=None)
+    longitude: Optional[float] = Field(alias="longitude", default=None)
+    altitude: Optional[float] = Field(alias="altitude", default=None)
+    precision_meters: Optional[float] = Field(alias="precision_meters", default=None)
+    role: Optional[str] = Field(alias="role", default=None)
+    last_seen: float = Field(alias="timestamp")  # UNIX timestamp
+
+    # Plus a bunch more irrelevant data
+
+    @property
+    def filter_latitude(self) -> Optional[float]:
+        return self.latitude
+
+    @property
+    def filter_longitude(self) -> Optional[float]:
+        return self.longitude
+
+    @property
+    def node_role(self) -> NodeRole:
+        return NodeRole.from_name(name=self.role) if self.role is not None else NodeRole.UNKNOWN
+
+    def to_node(self) -> Node:
+        return Node(
+            id=self.node_id,
+            long_name=self.long_name,  # type: ignore (will be there)
+            short_name=self.short_name,  # type: ignore (will be there)
+            hardware_model=self.hardware_model,
+            role=self.node_role,
+            latitude=self.latitude,
+            longitude=self.longitude,
+            altitude=self.altitude,
+            precision=int(self.precision_meters) if self.precision_meters is not None else None,
+        )
+
+
+def _get_malla_us_nodes() -> list[MallaUSNode]:
+    """
+    Fetch all nodes from the MallaUS API.
+    :rtype: list[MallaUSNode]
+    """
+    all_nodes: list[MallaUSNode] = objectrest.get_object(url=MALLA_US_URL,  # type: ignore
+                                                         model=MallaUSNode,
+                                                         extract_list=True,
+                                                         sub_keys=["locations"]
+                                                         )
+
+    if not all_nodes:
+        # We don't want to return an empty list, that would effectively erase the previous data snapshot
+        # Instead, consider this run failed
+        raise Exception(f"Could not load nodes from Malla US")
+
+    print(f"Found {len(all_nodes)} nodes in Colorado via Malla US")
+
+    filtered_nodes: list[MallaUSNode] = MallaUSNode.filter_to_colorado(nodes=all_nodes, data_source="Malla US")  # type: ignore
+
+    # Additional filter, only include nodes with long names
+    complete_nodes: list [MallaUSNode] = [
+        node for node in filtered_nodes if node.long_name is not None
+    ]
+    print(f"Found {len(complete_nodes)} valid nodes in Colorado via Malla US")
+
+    return complete_nodes
+
+
 def get_colorado_nodes() -> list[Node]:
     """
     Get all nodes in Colorado.
@@ -329,6 +398,11 @@ def get_colorado_nodes() -> list[Node]:
         node.to_node() for node in meshview_nodes
     ]
 
+    malla_us_nodes: list[MallaUSNode] = _get_malla_us_nodes()
+    malla_us_nodes_converted: list[Node] = [
+        node.to_node() for node in malla_us_nodes
+    ]
+
     # Remove duplicates by whole ID
     # Yes, it's possible two nodes, each on different maps, happen to have the same ID, but that's highly unlikely
     # Defer to the newer node if there is a conflict (list built from least-to-most trustworthy)
@@ -336,7 +410,8 @@ def get_colorado_nodes() -> list[Node]:
     for node in (
             liam_cottle_nodes_converted +
             meshmap_nodes_converted +
-            meshview_nodes_converted
+            meshview_nodes_converted +
+            malla_us_nodes_converted
     ):
         node_id = str(node.id)
 
