@@ -94,6 +94,20 @@ def _filter_nodes_by_type(nodes: list[Node], _type: Optional[ContactsType]) -> l
     return nodes
 
 
+def _filter_nodes_by_estimated_region_iata(nodes: list[Node], _iata_code: Optional[str]) -> list[Node]:
+    if not _iata_code:
+        return nodes
+
+    _iata_code = _iata_code.upper()
+
+    return [
+        node for node in nodes if (
+                node.estimated_region_iata and
+                node.estimated_region_iata.upper() == _iata_code
+        )
+    ]
+
+
 def _node_heard_since(node: Node, timestamp: float) -> bool:
     """
     Determine if a node was heard since the given timestamp.
@@ -132,7 +146,8 @@ def _concat_nodes(nodes: list[Node], length: Optional[int]) -> list[Node]:
 def prepare_contacts(count: int,
                      order: Optional[ContactsOrder] = None,
                      status: Optional[ContactsStatus] = None,
-                     _type: Optional[ContactsType] = None) -> dict:
+                     _type: Optional[ContactsType] = None,
+                     region_iata: Optional[str] = None) -> dict:
     """
     Prepare a JSON object containing contacts in Colorado.
     """
@@ -140,6 +155,7 @@ def prepare_contacts(count: int,
     # Filter, sort, then concatenate
     nodes = _filter_nodes_by_status(nodes=nodes, _status=status)
     nodes = _filter_nodes_by_type(nodes=nodes, _type=_type)
+    nodes = _filter_nodes_by_estimated_region_iata(nodes=nodes, _iata_code=region_iata)
     nodes = _sort_nodes(nodes=nodes, _order=order)
     nodes = _concat_nodes(nodes=nodes, length=count)
 
