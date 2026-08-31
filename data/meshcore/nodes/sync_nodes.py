@@ -22,6 +22,7 @@ ZEVA_URLS = [
     "http://dev.zevaryx.com:8080/meshcore/sensors.json",
 ]
 CM_CORESCOPE_NODES_URL = "https://analyzer.meshcore.coloradomesh.org/api/nodes?limit=100000"  # God help us if we ever get more than 100,000 nodes in Colorado (this would break 2-byte)
+CM_BEACON_NODES_URL = "https://map.meshcore.coloradomesh.org/api/v1/nodes?limit=100000"  # God help us if we ever get more than 100,000 nodes in Colorado (this would break 2-byte)
 
 _COLORADO = COLORADO
 
@@ -311,6 +312,73 @@ def _get_corescope_nodes() -> list[CoreScopeNode]:
     return all_nodes
 
 
+### Beacon-specific models for parsing API responses
+
+class BeaconNode(BaseModel):
+    id: str
+    publicKey: str
+    nodeType: int
+    nodeTypeName: str
+    name: str
+    isObserver: bool
+    lat: Optional[float] = None
+    lon: Optional[float] = None
+    knownNeighborCount: Optional[int] = None
+    stale: bool
+
+    @property
+    def node_type(self) -> NodeType:
+        if self.nodeType == 1:
+            return NodeType.COMPANION
+        elif self.nodeType == 2:
+            return NodeType.REPEATER
+        elif self.nodeType == 3:
+            return NodeType.ROOM_SERVER
+        elif self.nodeType == 4:
+            return NodeType.SENSOR
+
+        raise Exception(f"Unknown node type: {self.nodeType}")
+
+    def to_node(self) -> Node:
+        return Node(
+            public_key=self.publicKey,
+            name=self.name,
+            node_type=self.node_type,
+            created_at=0,
+            last_heard=0,
+            owner=None,
+            latitude=self.lat,
+            longitude=self.lon,
+            hash_size=None,
+            params=None,
+            estimated_region_iata=determine_region_by_latitude_and_longitude(latitude=self.lat,
+                                                                             longitude=self.lon).code
+            if (self.lat and self.lon) else None,
+        )
+
+
+def _get_beacon_nodes() -> list[BeaconNode]:
+    """
+    Fetch repeaters, rooms and companions from Colorado Mesh's Beacon instance and return them as a list of Beacon Node objects.
+    :return: A list of BeaconNode objects.
+    :rtype: list[BeaconNode]
+    """
+    all_nodes: list[BeaconNode] = objectrest.get_object(  # type: ignore
+        url=CM_BEACON_NODES_URL,
+        model=BeaconNode,
+        extract_list=True,
+        sub_keys=["nodes"]
+    )
+    if not all_nodes:
+        # We don't want to return an empty list, that would effectively erase the previous data snapshot
+        # Instead, consider this run failed
+        raise Exception(f"Could not load nodes from Colorado Mesh's Beacon instance")
+
+    print(f"Found {len(all_nodes)} nodes in Colorado via Colorado Mesh's Beacon instance")
+
+    return all_nodes
+
+
 def get_colorado_nodes() -> list[Node]:
     """
     Get all nodes in Colorado.
@@ -337,6 +405,11 @@ def get_colorado_nodes() -> list[Node]:
         node.to_node() for node in corescope_nodes
     ]
 
+    beacon_nodes: list[BeaconNode] = _get_beacon_nodes()
+    beacon_nodes_converted: list[Node] = [
+        node.to_node() for node in beacon_nodes
+    ]
+
     # Remove duplicates by whole ID
     # Yes, it's possible two nodes, each on different maps, happen to have the same ID, but that's highly unlikely
     # Defer to the node with the more recent `last_heard` if there is a conflict
@@ -345,7 +418,8 @@ def get_colorado_nodes() -> list[Node]:
             meshcore_map_nodes_converted +
             meshmapper_nodes_converted +
             zeva_nodes_converted +
-            corescope_nodes_converted
+            corescope_nodes_converted +
+            beacon_nodes_converted
     ):
         node_id = node.public_key.upper()
 
