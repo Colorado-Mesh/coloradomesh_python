@@ -367,7 +367,7 @@ def _get_beacon_nodes() -> list[BeaconNode]:
         url=CM_BEACON_NODES_URL,
         model=BeaconNode,
         extract_list=True,
-        sub_keys=["nodes"]
+        sub_keys=["items"]
     )
     if not all_nodes:
         # We don't want to return an empty list, that would effectively erase the previous data snapshot
