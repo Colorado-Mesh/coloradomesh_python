@@ -39,13 +39,13 @@ class _BaseDataSourceNode(BaseModel):
         )
 
     @classmethod
-    def filter_to_colorado(cls, nodes: list[_BaseDataSourceNode], data_source: str) -> list[_BaseDataSourceNode]:
+    def filter_to_colorado(cls, nodes: list['_BaseDataSourceNode'], data_source: str) -> list['_BaseDataSourceNode']:
         print(f"Filtering {len(nodes)} nodes from {data_source} to those within Colorado")
 
         print(
             f"Applying pre-filter to nodes with lat between {COLORADO_LAT_MIN} and {COLORADO_LAT_MAX} and lon between {COLORADO_LON_MAX} and {COLORADO_LON_MAX}")
 
-        prefiltered_nodes: list[_BaseDataSourceNode] = [
+        prefiltered_nodes: list['_BaseDataSourceNode'] = [
             node for node in nodes if node.node_is_in_boundary(
                 lat_min=COLORADO_LAT_MIN,
                 lat_max=COLORADO_LAT_MAX,
@@ -56,7 +56,7 @@ class _BaseDataSourceNode(BaseModel):
 
         print(f"Checking remaining {len(prefiltered_nodes)} nodes for exact Colorado presence")
 
-        filtered_nodes: list[_BaseDataSourceNode] = [
+        filtered_nodes: list['_BaseDataSourceNode'] = [
             node for node in prefiltered_nodes if node._node_is_in_colorado_precision()
         ]
 
