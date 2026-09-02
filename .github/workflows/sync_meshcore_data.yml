@@ -41,8 +41,13 @@ jobs:
         run: python data/meshcore/nodes/sync_nodes.py
           --nodes-data-file data/meshcore/nodes/nodes.json
 
+      - name: Prepare MeshMapper config
+        run: |
+          echo ${{ secrets.MESHMAPPER_CONFIG_BASE64 }} | base64 -d > meshmapper_config.json
+
       - name: Run Python script to update MeshCore coverage data
         run: python data/meshcore/nodes/sync_coverage.py
+          --config-file meshmapper_config.json
           --coverage-data-file data/meshcore/nodes/coverage.json
 
       - name: Commit data files if modified
