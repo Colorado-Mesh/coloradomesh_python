@@ -89,6 +89,7 @@ mypy:
 ## publish - Publish the project to PyPI
 publish:
 	twine upload dist/*
+	make clean
 
 ## temp-version - Set a temporary version for testing the build process
 temp-version:
