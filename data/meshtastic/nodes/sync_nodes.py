@@ -398,10 +398,12 @@ def get_colorado_nodes() -> list[Node]:
         node.to_node() for node in meshview_nodes
     ]
 
+    """No longer available
     malla_us_nodes: list[MallaUSNode] = _get_malla_us_nodes()
     malla_us_nodes_converted: list[Node] = [
         node.to_node() for node in malla_us_nodes
     ]
+    """
 
     # Remove duplicates by whole ID
     # Yes, it's possible two nodes, each on different maps, happen to have the same ID, but that's highly unlikely
@@ -410,8 +412,7 @@ def get_colorado_nodes() -> list[Node]:
     for node in (
             liam_cottle_nodes_converted +
             meshmap_nodes_converted +
-            meshview_nodes_converted +
-            malla_us_nodes_converted
+            meshview_nodes_converted
     ):
         node_id = str(node.id)
 
