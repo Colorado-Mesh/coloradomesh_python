@@ -14,6 +14,7 @@ MESHMAP_URL = "https://meshmap.net/nodes.json"  # All Meshtastic devices globall
 LIAMCOTTLE_MESHTASTIC_URL = "https://meshtastic.liamcottle.net/api/v1/nodes"  # All Meshtastic devices globally
 CM_MESHVIEW_URL = "https://map.meshtastic.coloradomesh.org/api/nodes?days_active=3"  # All ACTIVE Meshtastic devices heard on the msh/US/CO topic
 MALLA_US_URL = "https://mshus.meshmonitoring.com/api/locations"  # All Meshtastic devices in US reporting location
+CM_POTATOMESH_URL = "https://potato.meshtastic.coloradomesh.org/api/nodes"  # All Meshtastic devices heard by local observers
 
 _COLORADO = COLORADO
 
@@ -34,8 +35,8 @@ class _BaseDataSourceNode(BaseModel):
 
     def node_is_in_boundary(self, lat_min: float, lat_max: float, lon_min: float, lon_max: float) -> bool:
         return (
-            all([self.filter_latitude, self.filter_longitude]) and
-            all([(lat_min <= self.filter_latitude <= lat_max), (lon_min <= self.filter_longitude <= lon_max)])
+                all([self.filter_latitude, self.filter_longitude]) and
+                all([(lat_min <= self.filter_latitude <= lat_max), (lon_min <= self.filter_longitude <= lon_max)])
         )
 
     @classmethod
@@ -43,7 +44,7 @@ class _BaseDataSourceNode(BaseModel):
         print(f"Filtering {len(nodes)} nodes from {data_source} to those within Colorado")
 
         print(
-            f"Applying pre-filter to nodes with lat between {COLORADO_LAT_MIN} and {COLORADO_LAT_MAX} and lon between {COLORADO_LON_MAX} and {COLORADO_LON_MAX}")
+            f"Applying pre-filter to nodes with lat between {COLORADO_LAT_MIN} and {COLORADO_LAT_MAX} and lon between {COLORADO_LON_MIN} and {COLORADO_LON_MAX}")
 
         prefiltered_nodes: list['_BaseDataSourceNode'] = [
             node for node in nodes if node.node_is_in_boundary(
@@ -120,7 +121,7 @@ class MeshMapNode(_BaseDataSourceNode):
 
     def to_node(self) -> Node:
         return Node(
-            id=self.id,
+            id=str(self.id) if self.id else None,
             long_name=self.long_name,
             short_name=self.short_name,
             hardware_model=self.hardware_model,
@@ -203,7 +204,7 @@ class LiamCottleMeshtasticNode(_BaseDataSourceNode):
 
     def to_node(self) -> Node:
         return Node(
-            id=self.id,
+            id=str(self.id) if self.id else None,
             long_name=self.long_name,
             short_name=self.short_name,
             hardware_model=self.hardware_model_name,
@@ -233,7 +234,7 @@ def _get_liam_cottle_nodes() -> list[LiamCottleMeshtasticNode]:
 
     print(f"Found {len(all_nodes)} nodes from Liam Cottle's Meshtastic Map")
 
-    return LiamCottleMeshtasticNode.filter_to_colorado(nodes=all_nodes, # type: ignore
+    return LiamCottleMeshtasticNode.filter_to_colorado(nodes=all_nodes,  # type: ignore
                                                        data_source="Liam Cottle's Meshtastic Map")
 
 
@@ -274,7 +275,7 @@ class MeshViewNode(_BaseDataSourceNode):
 
     def to_node(self) -> Node:
         return Node(
-            id=self.node_id,
+            id=str(self.node_id),
             long_name=self.long_name,
             short_name=self.short_name,
             hardware_model=self.hardware_model,
@@ -336,7 +337,7 @@ class MallaUSNode(_BaseDataSourceNode):
 
     def to_node(self) -> Node:
         return Node(
-            id=self.node_id,
+            id=str(self.node_id),
             long_name=self.long_name,  # type: ignore (will be there)
             short_name=self.short_name,  # type: ignore (will be there)
             hardware_model=self.hardware_model,
@@ -366,15 +367,88 @@ def _get_malla_us_nodes() -> list[MallaUSNode]:
 
     print(f"Found {len(all_nodes)} nodes in Colorado via Malla US")
 
-    filtered_nodes: list[MallaUSNode] = MallaUSNode.filter_to_colorado(nodes=all_nodes, data_source="Malla US")  # type: ignore
+    filtered_nodes: list[MallaUSNode] = MallaUSNode.filter_to_colorado(nodes=all_nodes, # type: ignore
+                                                                       data_source="Malla US")
 
     # Additional filter, only include nodes with long names
-    complete_nodes: list [MallaUSNode] = [
+    complete_nodes: list[MallaUSNode] = [
         node for node in filtered_nodes if node.long_name is not None
     ]
     print(f"Found {len(complete_nodes)} valid nodes in Colorado via Malla US")
 
     return complete_nodes
+
+
+### PotatoMesh-specific models for parsing API responses
+class PotatoMeshNode(_BaseDataSourceNode):
+    node_id: str = Field(alias="node_id")
+    long_name: Optional[str] = Field(alias="long_name", default=None)
+    short_name: Optional[str] = Field(alias="short_name", default=None)
+    role: Optional[str] = Field(alias="role", default=None)
+    snr: Optional[float] = Field(alias="snr", default=None)
+    last_heard: Optional[float] = Field(alias="last_heard", default=None)  # UNIX timestamp
+    first_heard: Optional[float] = Field(alias="first_heard", default=None)  # UNIX timestamp
+    position_time: Optional[float] = Field(alias="position_time", default=None)  # UNIX timestamp
+    location_source: Optional[str] = Field(alias="location_source", default=None)
+    precision_bits: Optional[int] = Field(alias="precision_bits", default=None)
+    latitude: Optional[float] = Field(alias="latitude", default=None)
+    longitude: Optional[float] = Field(alias="longitude", default=None)
+    altitude: Optional[float] = Field(alias="altitude", default=None)
+    lora_frequency: Optional[float] = Field(alias="lora_freq", default=None)
+    modem_preset: Optional[str] = Field(alias="modem_preset", default=None)
+    protocol: Optional[str] = Field(alias="protocol", default=None)
+    last_seen_iso: Optional[str] = Field(alias="last_seen_iso", default=None)
+
+    @property
+    def filter_latitude(self) -> Optional[float]:
+        return self.latitude
+
+    @property
+    def filter_longitude(self) -> Optional[float]:
+        return self.longitude
+
+    @property
+    def node_role(self) -> NodeRole:
+        return NodeRole.from_name(name=self.role) if self.role is not None else NodeRole.UNKNOWN
+
+    def to_node(self) -> Node:
+        return Node(
+            id=self.node_id,
+            long_name=self.long_name,  # type: ignore (will be there)
+            short_name=self.short_name,  # type: ignore (will be there)
+            hardware_model=None,
+            role=self.node_role,
+            latitude=self.latitude,
+            longitude=self.longitude,
+            altitude=self.altitude,
+            precision=None,  # We don't know the meter measurement
+        )
+
+
+def _get_potatomesh_nodes() -> list[PotatoMeshNode]:
+    """
+    Fetch all nodes from the Colorado Mesh PotatoMesh API.
+    :rtype: list[PotatoMeshNode]
+    """
+    all_nodes: list[PotatoMeshNode] = objectrest.get_object(url=CM_POTATOMESH_URL,  # type: ignore
+                                                            model=PotatoMeshNode,
+                                                            extract_list=True,
+                                                            )
+
+    if not all_nodes:
+        # We don't want to return an empty list, that would effectively erase the previous data snapshot
+        # Instead, consider this run failed
+        raise Exception(f"Could not load nodes from PotatoMesh")
+
+    print(f"Found {len(all_nodes)} nodes in Colorado via PotatoMesh")
+
+    # Additional filter, only include nodes with long names
+    valid_nodes: list[PotatoMeshNode] = [
+        node for node in all_nodes if node.long_name is not None
+    ]
+    print(f"Found {len(valid_nodes)} valid nodes in Colorado via PotatoMesh")
+
+    return valid_nodes
 
 
 def get_colorado_nodes() -> list[Node]:
@@ -405,14 +479,20 @@ def get_colorado_nodes() -> list[Node]:
     ]
     """
 
+    potatomesh_nodes: list[PotatoMeshNode] = _get_potatomesh_nodes()
+    potatomesh_nodes_converted: list[Node] = [
+        node.to_node() for node in potatomesh_nodes
+    ]
+
     # Remove duplicates by whole ID
     # Yes, it's possible two nodes, each on different maps, happen to have the same ID, but that's highly unlikely
     # Defer to the newer node if there is a conflict (list built from least-to-most trustworthy)
     unique_nodes_dict: dict[str, Node] = {}
     for node in (
-            liam_cottle_nodes_converted +
+            potatomesh_nodes_converted +
+            meshview_nodes_converted +
             meshmap_nodes_converted +
-            meshview_nodes_converted
+            liam_cottle_nodes_converted
     ):
         node_id = str(node.id)
 

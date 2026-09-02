@@ -8,7 +8,7 @@ class Node(BaseModel):
     """
     Represents a Meshtastic node on the Colorado Mesh network.
     """
-    id: int
+    id: Optional[str]  # Could be an int or a hex_id, so don't rely on it.
     long_name: str
     short_name: str
     role: NodeRole
@@ -23,7 +23,7 @@ class Node(BaseModel):
         Generate a human-readable hash of this node.
         :return: A human-readable hash of this node.
         """
-        return f"{self.id}:{self.long_name}:{self.short_name}:{self.role.value}:{self.latitude}:{self.longitude}:{self.altitude}:{self.precision}:{self.hardware_model}"
+        return f"{self.long_name}:{self.short_name}:{self.role.value}:{self.latitude}:{self.longitude}:{self.altitude}:{self.precision}:{self.hardware_model}"
 
     def to_hash(self) -> int:
         """
