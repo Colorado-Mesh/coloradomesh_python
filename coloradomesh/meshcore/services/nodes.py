@@ -6,7 +6,7 @@ from coloradomesh.meshcore.models.general.repeater import Repeater
 from coloradomesh.meshcore.models.general.room_server import RoomServer
 from coloradomesh.meshcore.services.public_keys import compare_public_key_ids
 
-COLORADO_NODE_DATA = "https://raw.githubusercontent.com/Colorado-Mesh/coloradomesh_python/refs/heads/master/data/meshcore/nodes/nodes.json"
+COLORADO_NODE_DATA = "https://raw.githubusercontent.com/Colorado-Mesh/data/refs/heads/master/meshcore/nodes/nodes.json"
 
 
 def get_colorado_nodes() -> list[Node]:

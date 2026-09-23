@@ -2,7 +2,7 @@ import objectrest
 
 from coloradomesh.meshcore.models.meshmapper.coverage import CoverageSummary
 
-COLORADO_WAR_DRIVING_DATA = "https://raw.githubusercontent.com/Colorado-Mesh/coloradomesh_python/refs/heads/master/data/meshcore/nodes/coverage.json"
+COLORADO_WAR_DRIVING_DATA = "https://raw.githubusercontent.com/Colorado-Mesh/data/refs/heads/master/meshcore/nodes/coverage.json"
 
 
 class WarDrivingService:
